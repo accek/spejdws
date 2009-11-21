@@ -1,0 +1,4059 @@
+
+################################################################################
+## Początek pliku morfeusz.sr:
+################################################################################
+
+# ######################################################################
+# Words unknown to Morfeusz
+# ######################################################################
+
+Rule   "...osobowy, szacowny"
+Match: [orth~"niczyj|(.+osobow|.*mandatow|rewaluacyjn|reumatoidaln|szacown|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow)y|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)i"/i && pos~ign];
+Eval:  set(adj:sg:nom:m1:pos,,1);
+       add(adj:sg:nom:m2:pos,,1);
+       add(adj:sg:nom:m3:pos,,1);
+       add(adj:sg:acc:m3:pos,,1);
+
+Rule   "...osobowa, szacowna"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|palestyńsk|międzyregionaln|.+lotnicza|pilsk|.+ministerialn|dostosowawcz|wrog|ilorazow|.+prawn|katowick|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|.+europejsk|hac?kersk|.+jak|płock|niczyj|poznańsk|białostock|.*sądeck|witebsk)a"/i && pos~ign];
+Eval:  set(adj:sg:nom:f:pos,,1);
+
+Rule   "...osobową, szacowną"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|palestyńsk|międzyregionaln|.+lotnicz|pilsk|.+ministerialn|dostosowawcz|wrog|ilorazow|.+prawn|katowick|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|.+europejsk|hac?kersk|.+jak|płock|niczyj|poznańsk|białostock|.*sądeck|witebsk)ą"/i && pos~ign];
+Eval:  set(adj:sg:acc:f:pos,,1);
+
+Rule   "...osobowego, szacownego"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|niczyj)ego|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)iego"/i && pos~ign];
+Eval:  set(adj:sg:gen:m1:pos,,1);
+       add(adj:sg:gen:m2:pos,,1);
+       add(adj:sg:gen:m3:pos,,1);
+       add(adj:sg:gen:n:pos,,1);
+       add(adj:sg:acc:m1:pos,,1);
+       add(adj:sg:acc:m2:pos,,1);
+
+Rule   "...osobowemu, szacownemu"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|niczyj)emu|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)iemu"/i && pos~ign];
+Eval:  set(adj:sg:dat:m1:pos,,1);
+       add(adj:sg:dat:m2:pos,,1);
+       add(adj:sg:dat:m3:pos,,1);
+       add(adj:sg:dat:n:pos,,1);
+
+Rule   "...osobowej, szacownej"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|niczyj)ej|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)iej"/i && pos~ign];
+Eval:  set(adj:sg:dat:f:pos,,1);
+
+Rule   "...osobowym, szacownym"
+Match: [orth~"niczyim|(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow)ym|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)im"/i && pos~ign];
+Eval:  set(adj:sg:loc:m1:pos,,1);
+       add(adj:sg:loc:m2:pos,,1);
+       add(adj:sg:loc:m3:pos,,1);
+       add(adj:pl:dat:gender*:pos,,1);
+
+Rule   "...osobowymi, szacownymi"
+Match: [orth~"niczyimi|(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow)ymi|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)imi"/i && pos~ign];
+Eval:  set(adj:pl:inst:gender*:pos,,1);
+
+Rule   "...osobowe, szacowne"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|niczyj)e|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)ie"/i && pos~ign];
+Eval:  set(adj:pl:nom:m2:pos,,1);
+       add(adj:pl:nom:m3:pos,,1);
+       add(adj:pl:nom:n:pos,,1);
+       add(adj:pl:nom:f:pos,,1);
+       add(adj:pl:acc:m2:pos,,1);
+       add(adj:pl:acc:m3:pos,,1);
+       add(adj:pl:acc:n:pos,,1);
+       add(adj:pl:acc:f:pos,,1);
+
+Rule   "...osobowych, szacownych"
+Match: [orth~"niczyich|(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow)ych|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)ich"/i && pos~ign];
+Eval:  set(adj:pl:loc:gender*:pos,,1);
+       add(adj:pl:gen:gender*:pos,,1);
+       add(adj:pl:acc:m1:pos,,1);
+
+Rule   "bezkolizyjnie"
+Match: [orth~bezkolizyjnie/i];
+Eval:  set(adv:pos,,1);
+
+
+Rule   "...krotność"
+Match: [orth~".*krotność"/i && pos~ign];
+Eval:  set(subst:sg:nom:f,,1);
+       add(subst:sg:acc:f,,1);
+
+Rule   "...krotności"
+Match: [orth~".*krotności"/i && pos~ign];
+Eval:  set(subst:sg:gen:f,,1);
+       add(subst:sg:loc:f,,1);
+       add(subst:sg:dat:f,,1);
+
+Rule   "...krotnością"
+Match: [orth~".*krotnością"/i && pos~ign];
+Eval:  set(subst:sg:inst:f,,1);
+
+
+Rule   "niewiele"
+Match: [orth~niewiele/i];
+Eval:  add(num:pl:nom:m2,"niewiele",1);
+       add(num:pl:acc:m2,"niewiele",1);
+       add(num:pl:nom:m3,"niewiele",1);
+       add(num:pl:acc:m3,"niewiele",1);
+       add(num:pl:nom:n,"niewiele",1);
+       add(num:pl:acc:n,"niewiele",1);
+       add(num:pl:nom:f,"niewiele",1);
+       add(num:pl:acc:f,"niewiele",1);
+
+Rule   "sporo"
+Match: [orth~sporo/i];
+Eval:  add(num:pl:nom:m2,"sporo",1);
+       add(num:pl:acc:m2,"sporo",1);
+       add(num:pl:nom:m3,"sporo",1);
+       add(num:pl:acc:m3,"sporo",1);
+       add(num:pl:nom:n,"sporo",1);
+       add(num:pl:acc:n,"sporo",1);
+       add(num:pl:nom:f,"sporo",1);
+       add(num:pl:acc:f,"sporo",1);
+
+Rule   "Rzeczypospolitej"
+Match: [orth~Rzeczypospolitej];
+Eval:  set(subst:sg:gen:f,"Rzeczpospolita",1);
+       add(subst:sg:dat:f,"Rzeczpospolita",1);
+       add(subst:sg:loc:f,"Rzeczpospolita",1);
+
+Rule   "izby"
+Match: [orth~izby/i];
+Eval:  add(subst:sg:gen:f,"izba",1);
+
+Rule   "króciuteńko"
+Match: [orth~króciuteńko/i];
+Eval:  set(adv:pos,,1);
+
+Rule   "przedniejsi"
+Match: [orth~przedniejsi/i];
+Eval:  set(adj:pl:nom:m1:comp,"przedniejszy",1);
+
+Rule   "wieców"
+Match: [orth~wieców/i];
+Eval:  set(subst:pl:gen:m3,"wiec",1);
+
+Rule   "przechodniów"
+Match: [orth~przechodniów/i];
+Eval:  set(subst:pl:gen:m1,"przechodzień",1);
+
+Rule   "super, ekstra"
+Match: [orth~"super|ekstra"/i];
+Eval:  set(adj:number*:case*:gender*:pos,,1);
+       add(adv:pos,,1);
+
+Rule   "diabli"
+Match: [orth~diabli/i];
+Eval:  set(subst:pl:nom:m1, "diabeł", 1);
+
+Rule   "cosik"
+Match: [orth~cosik/i];
+Eval:  set(subst:sg:nom:n,"coś",1);
+       add(subst:sg:acc:n,"coś",1);
+
+Rule   "jacyś"
+Match: [orth~jacyś/i];
+Eval:  set(adj:pl:nom:m1, "jakiś",1);
+
+Rule   "gdzież"
+Match: [orth~gdzież/i];
+Eval:  set(qub,"gdzie",1);
+
+Rule   "kiedyż"
+Match: [orth~kiedyż/i];
+Eval:  set(qub,"kiedy",1);
+
+Rule   "ileż"
+Match: [orth~ileż/i];
+Eval:  set(num:pl:nom:m2,"ile",1);
+       add(num:pl:acc:m2,"ile",1);
+       add(num:pl:voc:m2,"ile",1);
+       add(num:pl:nom:m3,"ile",1);
+       add(num:pl:acc:m3,"ile",1);
+       add(num:pl:voc:m3,"ile",1);
+       add(num:pl:nom:n,"ile",1);
+       add(num:pl:acc:n,"ile",1);
+       add(num:pl:voc:n,"ile",1);
+       add(num:pl:nom:f,"ile",1);
+       add(num:pl:acc:f,"ile",1);
+       add(num:pl:voc:f,"ile",1);
+
+Rule   "tegoż"
+Match: [orth~tegoż/i];
+Eval:  set(adj:sg:gen:m1:pos,"ten",1);
+       add(adj:sg:gen:m2:pos,"ten",1);
+       add(adj:sg:gen:m3:pos,"ten",1);
+       add(adj:sg:gen:n:pos,"ten",1);
+       add(adj:sg:acc:m1:pos,"ten",1);
+       add(adj:sg:acc:m2:pos,"ten",1);
+
+Rule   "tejże"
+Match: [orth~tejże/i];
+Eval:  set(adj:sg:gen:f:pos,"ten",1);
+       add(adj:sg:dat:f:pos,"ten",1);
+       add(adj:sg:loc:f:pos,"ten",1);
+
+Rule   "tychże"
+Match: [orth~tychże/i];
+Eval:  set(adj:pl:gen:gender*:pos,"ten",1);
+       add(adj:pl:loc:gender*:pos,"ten",1);
+       add(adj:pl:acc:m1:pos,"ten",1);
+
+Rule   "tenże"
+Match: [orth~tenże/i];
+Eval:  set(adj:sg:nom:m1:pos,"ten",1);
+       add(adj:sg:nom:m2:pos,"ten",1);
+       add(adj:sg:nom:m3:pos,"ten",1);
+       add(adj:sg:acc:m3:pos,"ten",1);
+
+Rule   "tymże"
+Match: [orth~tymże/i];
+Eval:  set(adj:sg:loc:m1:pos,"ten",1);
+       add(adj:sg:loc:m2:pos,"ten",1);
+       add(adj:sg:loc:m3:pos,"ten",1);
+       add(adj:sg:loc:n:pos,"ten",1);
+       add(adj:sg:inst:m1:pos,"ten",1);
+       add(adj:sg:inst:m2:pos,"ten",1);
+       add(adj:sg:inst:m3:pos,"ten",1);
+       add(adj:sg:inst:n:pos,"ten",1);
+       add(adj:pl:dat:gender*:pos,"ten",1);
+
+Rule   "baronowa"
+Match: [orth~baronowa/i];
+Eval:  set(subst:sg:nom:f,"baronowa",1);
+
+Rule   "suplika"
+Match: [orth~suplika/i];
+Eval:  set(subst:sg:nom:f,"suplika",1);
+
+Rule   "suplice"
+Match: [orth~suplice/i];
+Eval:  set(subst:sg:loc:f,"suplika",1);
+
+Rule   "supliki"
+Match: [orth~supliki/i];
+Eval:  set(subst:sg:gen:f,"suplika",1);
+       add(subst:pl:nom:f,"suplika",1);
+       add(subst:pl:gen:f,"suplika",1);
+
+Rule   "suplik"
+Match: [orth~suplik/i];
+Eval:  set(subst:pl:gen:f,"suplika",1);
+
+Rule   "predykaty, faxy"
+Match: [orth~"(predykat|fax|telex|spam)y|blogi"/i];
+Eval:  set(subst:pl:nom:m3,,1);
+       add(subst:pl:acc:m3,,1);
+       add(subst:pl:voc:m3,,1);
+
+Rule   "predykatów, faxów"
+Match: [orth~"(predykat|fax|telex|spam|blog)ów"/i];
+Eval:  set(subst:pl:gen:m3,,1);
+
+Rule   "predykatach, faxach"
+Match: [orth~"(predykat|fax|telex|spam|blog)ach"/i];
+Eval:  set(subst:pl:loc:m3,,1);
+
+Rule   "predykatami, faxami"
+Match: [orth~"(predykat|fax|telex|spam|blog)ami"/i];
+Eval:  set(subst:pl:inst:m3,,1);
+
+Rule   "predykatom, faxom"
+Match: [orth~"(predykat|fax|telex|spam|blog)om"/i];
+Eval:  set(subst:pl:dat:m3,,1);
+
+Rule   "predykat, fax"
+Match: [orth~"predykat|fax|telex|spam|blog"/i];
+Eval:  set(subst:sg:nom:m3,,1);
+       add(subst:sg:acc:m3,,1);
+
+Rule   "predykatu, faxu"
+Match: [orth~"(predykat|fax|telex|spam)u|bloga"/i];
+Eval:  set(subst:sg:gen:m3,,1);
+
+Rule   "predykatowi, faxowi"
+Match: [orth~"(predykat|fax|spam|blog)owi"/i];
+Eval:  set(subst:sg:dat:m3,,1);
+
+Rule   "predykatem, faxem"
+Match: [orth~"(predykat|fax|telex|spam|blogi)em"/i];
+Eval:  set(subst:sg:inst:m3,,1);
+
+Rule   "predykacie, faxie"
+Match: [orth~"(predykac|fax|telex|spam)ie|blogu"/i];
+Eval:  set(subst:sg:loc:m3,,1);
+       add(subst:sg:voc:m3,,1);
+
+Rule   "presupozycja"
+Match: [orth~presupozycja/i];
+Eval:  set(subst:sg:nom:f,,1);
+
+Rule   "presupozycję"
+Match: [orth~presupozycję/i];
+Eval:  set(subst:sg:acc:f,,1);
+
+Rule   "presupozycji"
+Match: [orth~presupozycji/i];
+Eval:  set(subst:sg:gen:f,,1);
+       add(subst:sg:loc:f,,1);
+       add(subst:sg:dat:f,,1);
+
+Rule   "karate, euro, lobby"
+Match: [orth~"karate|euro|lobby"/i];
+Eval:  set(subst:sg:case*:n,,1);
+
+Rule   "Nero"
+Match: [orth~Nero];
+Eval:  set(subst:sg:case*:m1,,1);
+
+Rule   "imiona i nazwiska męskie: nom"
+Match: [orth~"Truszczyński|Cepil|Wokulski|Kiernacki|Androsow|Baliga|Deckers|Kędracki|Rzecki|Ochocki|Sapieha|Drzymalski|Starski|Pomianowicz|Pietuszka|Adrian|Tomek|Eryk|Frankowski|Dobrovský|Rzymełka|Tusk|Witaszek|Böll|Rosati|Jagiełło|Kurpiewski|Figlus|Czerniawski|Fabisiak|Rzepecki|Josip|Vetulani|Bobola|Newton|Glemp|Abramski|Naglewski|Rybicki"];
+Eval:  set(subst:sg:nom:m1,,1);
+
+Rule   "imiona i nazwiska męskie: acc/gen"
+Match: [orth~"Truszczyńskiego|Cepila|Wokulskiego|Kiernackiego|Androsowa|Baligi|Deckersa|Kędrackiego|Rzeckiego|Ochockiego|Sapiehy|Drzymalskiego|Starskiego|Pomianowicza|Pietuszki|Adriana|Tomka|Eryka|Frankowskiego|Rzymełki|Tuska|Witaszka|Bölla|Rosatiego|Kuripewskiego|Figlusa|Czerniawskiego|Fabisiaka|Rzepeckiego|Josipa|Vetulaniego|Boboli|Newtona|Glempa|Abramskiego|Naglewskiego|Rybickiego"];
+Eval:  set(subst:sg:gen:m1,,1);
+       add(subst:sg:acc:m1,,1);
+
+Rule   "imiona i nazwiska męskie: gen"
+Match: [orth~"Jagiełły"];
+Eval:  set(subst:sg:gen:m1,,1);
+
+Rule   "imiona i nazwiska męskie: acc"
+Match: [orth~"Jagiełłę"];
+Eval:  set(subst:sg:acc:m1,,1);
+
+Rule   "imiona i nazwiska męskie: dat"
+Match: [orth~"Truszczyńskiemu|Cepilowi|Wokulskiemu|Kiernackiemu|Androsowi|Balidze|Deckersowi|Kędrackiemu|Rzeckiemu|Ochockiemu|Sapiesze|Drzymalskiemu|Starskiemu|Pomianowiczowi|Pietuszce|Adrianowi|Tomkowi|Erykowi|Frankowskiemu|Rzymełce|Tuskowi|Witaszkowi|Böllowi|Rosatiemu|Jagielle|Kurpiewskiemu|Figlusowi|Czerniawskiemu|Fabisiakowi|Rzepeckiemu|Josipowi|Vetulaniemu|Boboli|Newtonowi|Glempowi|Abramskiemu|Naglewskiemu|Rybickiemu"];
+Eval:  set(subst:sg:dat:m1,,1);
+
+Rule   "imiona i nazwiska męskie: inst"
+Match: [orth~"Truszczyńskim|Cepilem|Wokulskim|Kiernackim|Androsem|Baligą|Deckersem|Kędrackim|Rzeckim|Ochockim|Sapiechą|Drzymalskim|Starskim|Pomianowiczem|Pietuszką|Adrianem|Tomkiem|Erykiem|Frankowskim|Rzymełką|Tuskiem|Witaszkiem|Böllem|Rosatim|Jagiełłą|Kurpiewskim|Czerniawskim|Figlusem|Fabisiakiem|Rzepeckim|Josipem|Vetulanim|Bobolą|Newtonem|Glempem|Abramskim|Naglewskim|Rybickim"];
+Eval:  set(subst:sg:inst:m1,,1);
+
+Rule   "imiona i nazwiska męskie: voc"
+Match: [orth~"Jezu|Chryste"];
+Eval:  set(subst:sg:voc:m1,,1);
+
+Rule   "imiona i nazwiska żeńskie: nom"
+Match: [orth~"Jovanka|Milena|Wąsowska|Greta|Handzia|Wandzia|Okszyńska|Olechowska|Malwina|Amanda"];
+Eval:  set(subst:sg:nom:f,,1);
+
+Rule   "imiona i nazwiska żeńskie: gen"
+Match: [orth~"Jovanki|Mileny|Wąsowskiej|Grety|Handzi|Wandzi|Okszyńskiej|Olechowskiej|Malwiny|Amandy"];
+Eval:  set(subst:sg:gen:f,,1);
+
+Rule   "imiona i nazwiska żeńskie: acc"
+Match: [orth~"Józefę|Malwinę|Amandę"];
+Eval:  set(subst:sg:acc:f,,1);
+
+Rule   "imiona i nazwiska żeńskie: *"
+Match: [orth~"Margaret|Madame|Garbo|Ilse"];
+Eval:  set(subst:sg:case*:f,,1);
+
+Rule   "Kielc"
+Match: [orth~Kielc];
+Eval:  set(subst:pl:gen:m3,"Kielce",1);
+
+Rule   "Awinion"
+Match: [orth~Awinion];
+Eval:  set(subst:sg:nom:m3,"Awinion",1);
+
+Rule   "Awinionie"
+Match: [orth~Awinionie];
+Eval:  set(subst:sg:loc:m3,"Awinion",1);
+
+Rule   "Kosowo"
+Match: [orth~Kosowo];
+Eval:  set(subst:sg:nom:n,"Kosowo",1);
+
+Rule   "Kosowa"
+Match: [orth~Kosowa];
+Eval:  set(subst:sg:gen:n,"Kosowo",1);
+
+Rule   "Kosowie"
+Match: [orth~Kosowie];
+Eval:  set(subst:sg:loc:n,"Kosowie",1);
+
+Rule   "Kosowem"
+Match: [orth~Kosowem];
+Eval:  set(subst:sg:inst:n,"Kosowem",1);
+
+Rule   "Spychowa"
+Match: [orth~Spychowa];
+Eval:  set(subst:sg:gen:n,"Spychowo",1);
+
+Rule   "Spychowie"
+Match: [orth~Spychowie];
+Eval:  set(subst:sg:loc:n,"Spychowie",1);
+
+Rule   "Spychowem"
+Match: [orth~Spychowem];
+Eval:  set(subst:sg:inst:n,"Spychowem",1);
+
+Rule   "Niemczech"
+Match: [orth~"Niemczech"];
+Eval:  set(subst:pl:loc:n,"Niemcy",1);
+
+Rule   "Niemiec"
+Match: [orth~"Niemiec"];
+Eval:  add(subst:pl:gen:n,"Niemcy",1);
+
+Rule   "Niemcy"
+Match: [orth~"Niemcy"];
+Eval:  add(subst:pl:nom:n,"Niemcy",1);
+       add(subst:pl:acc:n,"Niemcy",1);
+       add(subst:pl:voc:n,"Niemcy",1);
+
+Rule   "Afganistan"
+Match: [orth~"Afganistan"];
+Eval:  set(subst:sg:nom:m3,"Afganistan",1);
+       add(subst:sg:acc:m3,"Afganistan",1);
+
+Rule   "Afganistanu"
+Match: [orth~"Afganistanu"];
+Eval:  set(subst:sg:gen:m3,"Afganistan",1);
+
+Rule   "Afganistanie"
+Match: [orth~"Afganistanie"];
+Eval:  set(subst:sg:loc:m3,"Afganistan",1);
+       add(subst:sg:voc:m3,"Afganistan",1);
+
+Rule   "Afganistanem"
+Match: [orth~"Afganistanem"];
+Eval:  set(subst:sg:inst:m3,"Afganistan",1);
+
+Rule   "Afganistanowi"
+Match: [orth~"Afganistanowi"];
+Eval:  set(subst:sg:dat:m3,"Afganistan",1);
+
+
+Rule   "Mokotów"
+Match: [orth~"Mokotów"];
+Eval:  set(subst:sg:nom:m3,"Mokotów",1);
+       add(subst:sg:acc:m3,"Mokotów",1);
+
+Rule   "Mokotowa"
+Match: [orth~"Mokotowa"];
+Eval:  set(subst:sg:gen:m3,"Mokotów",1);
+
+Rule   "Mokotowie"
+Match: [orth~"Mokotowie"];
+Eval:  set(subst:sg:loc:m3,"Mokotów",1);
+       add(subst:sg:voc:m3,"Mokotów",1);
+
+Rule   "Mokotowem"
+Match: [orth~"Mokotowem"];
+Eval:  set(subst:sg:inst:m3,"Mokotów",1);
+
+Rule   "Mokotowowi"
+Match: [orth~"Mokotowowi"];
+Eval:  set(subst:sg:dat:m3,"Mokotów",1);
+
+
+Rule   "Czeczenia"
+Match: [orth~"Czeczenia"];
+Eval:  set(subst:sg:nom:f,"Czeczenia",1);
+
+Rule   "Czeczenię"
+Match: [orth~"Czeczenię"];
+Eval:  set(subst:sg:acc:f,"Czeczenia",1);
+
+Rule   "Czeczenii"
+Match: [orth~"Czeczenii"];
+Eval:  set(subst:sg:gen:f,"Czeczenia",1);
+       add(subst:sg:loc:f,"Czeczenia",1);
+       add(subst:sg:dat:f,"Czeczenia",1);
+
+
+Rule   "Komańcza"
+Match: [orth~"Komańcza"];
+Eval:  set(subst:sg:nom:f,"Komańcza",1);
+
+Rule   "Komańczę"
+Match: [orth~"Komańczę"];
+Eval:  set(subst:sg:acc:f,"Komańcza",1);
+
+Rule   "Komańczy"
+Match: [orth~"Komańczy"];
+Eval:  set(subst:sg:gen:f,"Komańcza",1);
+       add(subst:sg:loc:f,"Komańcza",1);
+       add(subst:sg:dat:f,"Komańcza",1);
+
+
+Rule   "Afryka"
+Match: [orth~"Afryka"];
+Eval:  set(subst:sg:nom:f,"Afryka",1);
+
+Rule   "Afrykę"
+Match: [orth~"Afrykę"];
+Eval:  set(subst:sg:acc:f,"Afryka",1);
+
+Rule   "Afryki"
+Match: [orth~"Afryki"];
+Eval:  set(subst:sg:gen:f,"Afryka",1);
+
+Rule   "Afryce"
+Match: [orth~"Afryce"];
+Eval:  set(subst:sg:loc:f,"Afryka",1);
+       add(subst:sg:dat:f,"Afryka",1);
+
+
+Rule   "bocheńskich"
+Match: [orth~bocheńskich];
+Eval:  set(subst:pl:gen:gender*,"bocheńscy",1);
+
+
+# ######################################################################
+# Correcting Morfeusz
+# ######################################################################
+
+Rule   "Poznań"
+Match: [orth~Poznań];
+Eval:  set(subst:sg:nom:m3,"poznań",1);
+       add(subst:sg:acc:m3,"poznań",1);
+
+Rule   "Kraków"
+Match: [orth~Kraków];
+Eval:  set(subst:sg:nom:m3,"kraków",1);
+       add(subst:sg:acc:m3,"kraków",1);
+
+Rule   "Mariott"
+Match: [orth~Mariott];
+Eval:  set(subst:sg:nom:m3,"mariott",1);
+       add(subst:sg:acc:m3,"mariott",1);
+
+Rule   "Szczecin"
+Match: [orth~Szczecin];
+Eval:  set(subst:sg:nom:m3,"szczecin",1);
+       add(subst:sg:acc:m3,"szczecin",1);
+
+
+# ######################################################################
+# Titles, initials, etc.
+# ######################################################################
+
+
+Rule   "poseł, minister itp. też kobieta"
+Match: [orth~"[Pp]oseł|[Mm]inister|[Pp]rezydent|[Pp]rezes|[Dd]oktor|[Pp]rofesor"];
+Eval:  add(subst:sg:case*:f,,1);
+
+
+Rule   "initials"
+Match: [orth~"[A-ZĄĆĘŁŃÓŚŹŻ]"];
+Right: ns [orth~"\."];
+Eval:  add(subst:sg:case*:gender*,,1);
+
+
+# ######################################################################
+# Etc.
+# ######################################################################
+
+Rule   "Mazowszanie"
+Match: [orth~"Mazowszanie"];
+Eval:  set(subst:pl:nom:m1,,1);
+
+Rule   "' to interp"
+Match: [orth~"'" && pos~ign];
+Eval:  set(interp,,1);
+
+Rule   "ze"
+Match: [orth~ze/i];
+Eval:  add(qub,,1);
+
+Rule   "okay"
+Match: [orth~"ok[ae]y"/i];
+Eval:  add(qub,,1);
+
+
+################################################################################
+## Koniec pliku morfeusz.sr
+################################################################################
+
+
+
+################################################################################
+## Początek pliku dezam.sr:
+################################################################################
+
+# ######################################################################
+# Context-free rules for particular forms, deleting on the basis of base:
+# ######################################################################
+
+Rule   "'niż' to nie 'nizać'"
+Match: [orth~niż/i];
+Eval:  delete(base~nizać,1);
+
+Rule   "'rozstrój' to nie 'rozstroić'"
+Match: [orth~rozstrój/i];
+Eval:  delete(base~rozstroić,1);
+
+Rule   "Nie ma słowa 'nica'"
+Match: [orth~nic/i];
+Eval:  delete(base~nica,1);
+
+Rule   "Nie ma słowa 'maić'"
+Match: [orth~mają/i];
+Eval:  delete(base~maić,1);
+
+Rule   "'poparta' to nie 'popart'"
+Match: [orth~poparta/i];
+Eval:  delete(base~popart,1);
+
+Rule   "'pięć' to nie 'pięcie'"
+Match: [orth~pięć/i];
+Eval:  delete(base~pięcie,1);
+
+Rule   "'sporo' to nie 'spora' i nie adv"
+Match: [orth~sporo/i];
+Eval:  delete(base~spora,1);
+       delete(pos~adv,1);
+
+
+# ######################################################################
+# Context-free rules for particular forms, deleting on the basis of pos:
+# ######################################################################
+
+Rule   "Wyrzuć b. rzadkie interpretacje qub"
+Match: [orth~"te|mu|oczywista"/i];
+Eval:  delete(pos~qub,1);
+
+Rule   "Wyrzuć b. rzadkie interpretacje subst"
+Match: [orth~"tak[aą]|potem|szczerze|czekał|zostań|tam|kłamie"/i];
+Eval:  delete(pos~subst,1);
+
+Rule   "Wyrzuć b. rzadkie interpretacje depr"
+Match: [orth~Cezary];
+Eval:  delete(pos~depr,1);
+
+
+# ######################################################################
+# Other rules for particular forms:
+# ######################################################################
+
+Rule   "'Nie' na początku zdania to qub"
+Left:  sb [pos~interp]* ns?;
+Match: [orth~nie/i];
+Eval:  leave(pos~qub, 4);
+
+Rule   "'za'"
+Match: [orth~za/i && pos~prep];
+Right: ([pos!~adv && pos!~adj && orth!~"mało|dużo"] | [orth~to]);
+Eval:  delete(pos~qub,1);
+
+Rule   "z/ze"
+Match: [orth~"ze?"/i];
+Right: [pos!~num && orth!~"[0-9]+"];
+Eval:  delete(pos~qub,1);
+
+Rule   "'Co' na początku zwykle jest zaimkiem rzeczownym"
+Left:  sb [pos~interp]* ns?;
+Match: [orth~"Co"];
+Eval:  leave(pos~subst, 4);
+
+Rule   "'co' przed czasownikiem nie jest przyimkiem"
+Match: [orth~co/i];
+Right: [pos~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"];
+Eval:  delete(pos~prep, 1);
+
+Rule   "lecz po przecinku to nie leczyć"
+Left:  [orth~","];
+Match: [orth~lecz];
+Eval:  delete(pos~impt,2);
+
+Rule   "może jako qub 1"
+Match: [orth~może/i]; 
+Right: [pos!~"winien|praet|bedzie|fin|impt|imps|pred|interp|conj"]* [pos~"winien|praet|bedzie|fin|impt|imps|pred"];
+Eval:  delete(pos~fin,1);
+
+Rule   "może jako qub 2"
+Left:  [pos~"winien|praet|bedzie|fin|impt|imps|pred"] [pos!~"winien|praet|bedzie|fin|impt|imps|pred|interp|conj"]*;
+Match: [orth~może]; 
+Eval:  delete(pos~fin,3);
+
+Rule   "można raczej nie jest przymiotnikiem"
+Match: [orth~można/i];
+Right: ([pos!~"subst|adj"] | [case!~nom] | [gender!~f] | [number!~sg]);
+Eval:  delete(pos~adj,1);
+
+Rule   "ma jako fin"
+Match: [orth~ma/i && pos~"fin"];
+Eval:  leave(pos~fin,1);
+
+
+
+# ######################################################################
+# More general rules:
+# ######################################################################
+
+Rule   "Zaimki nie są w miejscowniku, chyba że po odpowiednim przyimku"
+Left:  (sb | [pos~interp] ns | [case!~loc] | [pos!~prep]);
+Match: [pos~~"ppron.*|siebie" && case~loc];
+Eval:  delete(case~loc,2);
+
+Rule   "Odsłowniki nie są wołaczami"
+Match: [pos~ger && case~voc];
+Eval:  delete(pos~ger && case~voc, 1);
+
+
+################################################################################
+## Koniec pliku dezam.sr
+################################################################################
+
+
+
+################################################################################
+## Początek pliku wyrazy.sr:
+################################################################################
+
+################################################################################
+## Skróty i skrótowce:
+################################################################################
+
+# ######################################################################
+# Skróty z kropką:
+# ######################################################################
+
+Rule   "art."
+Match: [orth~art/i] (ns [orth~"\."])?;
+Eval:  word(subst:number*:case*:m3, "artykuł");
+
+Rule   "br." 
+Match: [orth~br] ns [orth~"\."];
+Eval:  word(subst:sg:case*:m3, "rok");
+
+Rule   "r." 
+Match: [orth~r] ns [orth~"\."];
+Eval:  word(subst:sg:case*:m3, "rok");
+
+Rule   "godz."
+Match: [orth~godz/i] (ns [orth~"\."])?;
+Eval:  word(subst:number*:case*:f, "godzina");
+
+Rule   "rozdz."
+Match: [orth~rozdz/i] (ns [orth~"\."])?;
+Eval:  word(subst:number*:case*:m3, "rozdział");
+
+Rule   "św."
+Match: [orth~św/i] (ns [orth~"\."])?;
+Eval:  word(adj:number*:case*:gender*:pos, "święty");
+
+Rule   "tzw."
+Match: [orth~tzw/i] (ns [orth~"\."])?;
+Eval:  word(adj:number*:case*:gender*:pos, "tak zwany");
+
+Rule   "ur."
+Match: [orth~ur/i] (ns [orth~"\."])?;
+Eval:  word(adj:number*:case*:gender*:pos, "urodzony");
+
+Rule   "gł."
+Match: [orth~gł/i] (ns [orth~"\."])?;
+Eval:  word(adv:pos, "głównie"; adj:number*:case*:gender*:pos, "główny");
+
+Rule   "ok."
+Match: [orth~ok/i] (ns [orth~"\."])?;
+Right: ([orth~"[0-9]+"] | [pos~num]);
+Eval:  word(qub, "około");
+
+Rule   "tys."
+Match: [orth~tys/i] (ns [orth~"\."])?;
+Eval:  word(num:pl:case*:gender*:rec, "tysiąc"; subst:number*:case*:m3, "tysiąc");
+
+Rule   "tyś."
+Match: [orth~tyś/i] ns [orth~"\."];
+Eval:  word(num:pl:case*:gender*:rec, "tysiąc"; subst:number*:case*:m3, "tysiąc");
+
+Rule   "mln."
+Match: [orth~mln/i] (ns [orth~"\."])?;
+Eval:  word(num:pl:case*:gender*:rec, "milion"; subst:number*:case*:m3, "milion");
+
+Rule   "mld."
+Match: [orth~mld/i] (ns [orth~"\."])?;
+Eval:  word(num:pl:case*:gender*:rec, "miliard"; subst:number*:case*:m3, "miliard");
+
+Rule   "bln."
+Match: [orth~bln/i] (ns [orth~"\."])?;
+Eval:  word(num:pl:case*:gender*:rec, "bilion"; subst:number*:case*:m3, "bilion");
+
+# I bez kropki:
+
+Rule   "wg"
+Match: [orth~wg/i] (ns [orth~"\."])?;
+Eval:  word(prep:gen, "według");
+
+Rule   "nr"
+Match: [orth~nr/i] (ns [orth~"\."])?;
+Eval:  word(subst:sg:nom:m3, "numer");
+
+
+# ######################################################################
+# Skrótowce odmienne z dywizem:
+# ######################################################################
+
+Rule   "PRL-u"
+Match: [orth~PRL] ns [orth~"[-­–]"] ns [orth~u];
+Eval:  word(subst:sg:gen:m3, 1.orth; subst:sg:loc:m3, 1.orth; subst:sg:voc:m3, 1.orth);
+
+Rule   "PRL-owi, ŁKS-owi, etc."
+Match: [orth~"PRL|[ŁA-Z]KS|A[WZ]S|VAT|RKM|ZUS|ZOZ|PKS|LOT|PiS|ZOR|PIN|NIP"] ns [orth~"[-­–]"] ns [orth~owi];
+Eval:  word(subst:sg:dat:m3, 1.orth);
+
+Rule   "PRL-em, ŁKS-em, etc."
+Match: [orth~"PRL|[ŁA-Z]KS|A[WZ]S|VAT|RKM|ZUS|ZOZ|PKS|LOT|PiS|ZOR|PIN|NIP"] ns [orth~"[-­–]"] ns [orth~em];
+Eval:  word(subst:sg:inst:m3, 1.orth);
+
+Rule   "ŁKS-u, A[WZ]S-u, etc."
+Match: [orth~"[ŁA-Z]KS|A[WZ]S|VAT|RKM|ZUS|ZOZ|PKS|LOT|PiS|ZOR|PIN|NIP"] ns [orth~"[-­–]"] ns [orth~u];
+Eval:  word(subst:sg:gen:m3, 1.orth);
+
+Rule   "ŁKS-ie, A[WZ]S-ie, etc."
+Match: [orth~"[ŁA-Z]KS|A[WZ]S|VAT|RKM|ZUS|ZOZ|PKS|LOC|PiS|PIN|NIP"] ns [orth~"[-­–]"] ns [orth~ie];
+Eval:  word(subst:sg:loc:m3, 1.orth; subst:sg:voc:m3, 1.orth);
+
+Rule   "ZOR-ze"
+Match: [orth~ZOR] ns [orth~"[-­–]"] ns [orth~ze];
+Eval:  word(subst:sg:loc:m3, 1.orth);
+
+Rule   "PRL, ŁKS, etc."
+Match: [orth~"PRL|[ŁA-Z]KS|A[WZ]S|VAT|RKM|ZUS|ZOZ|PKS|LOT|PiS|ZOR"];
+Eval:  word(subst:sg:nom:m3, 1.orth; subst:sg:acc:m3, 1.orth);
+
+Rule   "SMS-a, TIR-a, etc."
+Match: [orth~"SMS|TIR|[CP]IT"] ns [orth~"[-­–]"] ns [orth~a];
+Eval:  word(subst:sg:gen:m2, 1.orth; subst:sg:acc:m2, 1.orth);
+
+Rule   "SMS-owi, TIR-owi, etc."
+Match: [orth~"SMS|TIR|[CP]IT"] ns [orth~"[-­–]"] ns [orth~owi];
+Eval:  word(subst:sg:dat:m2, 1.orth);
+
+Rule   "SMS-ie"
+Match: [orth~SMS] ns [orth~"[-­–]"] ns [orth~ie];
+Eval:  word(subst:sg:loc:m2, 1.orth; subst:sg:voc:m2, 1.orth);
+
+Rule   "PIC-ie"
+Match: [orth~"[CP]IC"] ns [orth~"[-­–]"] ns [orth~ie];
+Eval:  word(subst:sg:loc:m2, 1.orth; subst:sg:voc:m2, 1.orth);
+
+Rule   "PIT-cie"
+Match: [orth~"[CP]IC"] ns [orth~"[-­–]"] ns [orth~cie];
+Eval:  word(subst:sg:loc:m2, 1.orth; subst:sg:voc:m2, 1.orth);
+
+Rule   "TIR-ze"
+Match: [orth~TIR] ns [orth~"[-­–]"] ns [orth~ze];
+Eval:  word(subst:sg:loc:m2, 1.orth; subst:sg:voc:m2, 1.orth);
+
+Rule   "SMS-em, TIR-em, etc."
+Match: [orth~"SMS|TIR|PIT"] ns [orth~"[-­–]"] ns [orth~em];
+Eval:  word(subst:sg:inst:m2, 1.orth);
+
+Rule   "SMS, TIR, etc."
+Match: [orth~"SMS|TIR|[CP]IT"];
+Eval:  word(subst:sg:nom:m2, 1.orth; subst:sg:acc:m2, 1.orth);
+
+Rule   "RMF FM, Blue FM, etc."
+Match: [orth~"RMF|Blue"] [orth~FM];
+Eval:  word(subst:number*:case*:n, 0.orth);
+
+Rule   "RMF"
+Match: [orth~RMF];
+Eval:  word(subst:sg:case*:n, "RMF FM");
+
+Rule   "TVP"
+Match: [orth~TVP];
+Eval:  word(subst:sg:case*:f, "TVP");
+
+Rule   "SLS"
+Match: [orth~SLS];
+Eval:  word(subst:sg:case*:f, "Samoorganizująca się Logika Struktur");
+
+Rule   "DRT, DRT"
+Match: [orth~"DR[TS]"];
+Eval:  word(subst:sg:case*:n, 0.orth);
+
+Rule   "PFRON, OECD, IPN"
+Match: [orth~"PFRON|OECD|IPN"];
+Eval:  word(subst:sg:case*:m3, 0.orth);
+
+Rule   "UW"
+Match: [orth~UW];
+Eval:  word(subst:sg:case*:m3, "Uniwersytet Warszawski");
+
+Rule   "UJ"
+Match: [orth~UJ];
+Eval:  word(subst:sg:case*:m3, "Uniwersytet Jagielloński");
+
+Rule   "AWF"
+Match: [orth~AWF];
+Eval:  word(subst:sg:case*:m3, "Akademia Wychowania Fizycznego");
+
+Rule   "PZPN"
+Match: [orth~PZPN];
+Eval:  word(subst:sg:case*:m3, "Polski Związek Piłki Nożnej");
+
+# I ogólnie:
+
+Rule   "cokolwiek-owi"
+Match: [] ns [orth~"[-­–]"] ns [orth~owi];
+Eval:  word(subst:sg:dat:m3, 1.orth; subst:sg:dat:m2, 1.orth; subst:sg:dat:m1, 1.orth; subst:sg:dat:n, 1.orth);
+
+Rule   "cokolwiek-em"
+Match: [] ns [orth~"[-­–]"] ns [orth~em];
+Eval:  word(subst:sg:inst:m3, 1.orth; subst:sg:inst:m2, 1.orth; subst:sg:inst:m1, 1.orth; subst:sg:inst:n, 1.orth);
+
+Rule   "cokolwiek-ie"
+Match: [] ns [orth~"[-­–]"] ns [orth~ie];
+Eval:  word(subst:sg:loc:m3, 1.orth; subst:sg:loc:m2, 1.orth; subst:sg:loc:m1, 1.orth; subst:sg:loc:n, 1.orth; subst:sg:voc:m3, 1.orth; subst:sg:voc:m2, 1.orth; subst:sg:voc:m1, 1.orth; subst:sg:voc:n, 1.orth);
+
+Rule   "cokolwiek-owskie"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskie];
+Eval:  word(adj:pl:nom:m2:pos,      1.orth "-owski";
+            adj:pl:nom:m3:pos,      1.orth "-owski";
+            adj:number*:nom:n:pos,  1.orth "-owski";
+            adj:pl:nom:f:pos,       1.orth "-owski";
+            adj:pl:acc:m2:pos,      1.orth "-owski";
+            adj:pl:acc:m3:pos,      1.orth "-owski";
+            adj:number*:acc:n:pos,  1.orth "-owski";
+            adj:pl:acc:f:pos,       1.orth "-owski");
+
+Rule   "cokolwiek-owscy"
+Match: [] ns [orth~"[-­–]"] ns [orth~owscy];
+Eval:  word(adj:pl:nom:m1:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owskich"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskich];
+Eval:  word(adj:pl:gen:gender*:pos, 1.orth "-owski";
+            adj:pl:acc:m1:pos,      1.orth "-owski";
+            adj:pl:loc:gender*:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owskim"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskim];
+Eval:  word(adj:pl:dat:gender*:pos, 1.orth "-owski";
+            adj:sg:loc:m1:pos,      1.orth "-owski";
+            adj:sg:loc:m2:pos,      1.orth "-owski";
+            adj:sg:loc:m3:pos,      1.orth "-owski";
+            adj:sg:loc:n:pos,       1.orth "-owski";
+            adj:sg:inst:m1:pos,     1.orth "-owski";
+            adj:sg:inst:m2:pos,     1.orth "-owski";
+            adj:sg:inst:m3:pos,     1.orth "-owski";
+            adj:sg:inst:n:pos,      1.orth "-owski");
+
+Rule   "cokolwiek-owskimi"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskimi];
+Eval:  word(adj:pl:inst:gender*:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owski"
+Match: [] ns [orth~"[-­–]"] ns [orth~owski];
+Eval:  word(adj:sg:nom:m1:pos, 1.orth "-owski";
+            adj:sg:nom:m2:pos, 1.orth "-owski";
+            adj:sg:nom:m3:pos, 1.orth "-owski";
+            adj:sg:acc:m3:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owskiego"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskiego];
+Eval:  word(adj:sg:gen:m1:pos, 1.orth "-owski";
+            adj:sg:gen:m2:pos, 1.orth "-owski";
+            adj:sg:gen:m3:pos, 1.orth "-owski";
+            adj:sg:gen:n:pos,  1.orth "-owski";
+            adj:sg:acc:m1:pos, 1.orth "-owski";
+            adj:sg:acc:m2:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owskiemu"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskiemu];
+Eval:  word(adj:sg:dat:m1:pos, 1.orth "-owski";
+            adj:sg:dat:m2:pos, 1.orth "-owski";
+            adj:sg:dat:m3:pos, 1.orth "-owski";
+            adj:sg:dat:n:pos,  1.orth "-owski");
+
+Rule   "cokolwiek-owska"
+Match: [] ns [orth~"[-­–]"] ns [orth~owska];
+Eval:  word(adj:sg:nom:f:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owską"
+Match: [] ns [orth~"[-­–]"] ns [orth~owską];
+Eval:  word(adj:sg:acc:f:pos,  1.orth "-owski";
+            adj:sg:inst:f:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owskiej"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskiej];
+Eval:  word(adj:sg:gen:f:pos, 1.orth "-owski";
+            adj:sg:loc:f:pos, 1.orth "-owski";
+            adj:sg:dat:f:pos, 1.orth "-owski");
+
+
+################################################################################
+## Wyrazy z dywizem:
+################################################################################
+
+
+# polsko-niemiecki, zero-procentowy, etc.
+
+Rule   "cokolwiek-adj"
+Match: [] ns [orth~"[-­–]"] ns [pos~adj];
+Eval:  word(5,,"X-" base);
+
+# 50-lecie, etc.
+
+Rule   "50-lecie"
+Match: [] ns [orth~"[-­–]"] ns [orth~lecie/i];
+Eval:  word(subst:sg:nom:n, 1.orth "-lecie";
+            subst:sg:acc:n, 1.orth "-lecie");
+
+Rule   "50-lecia"
+Match: [] ns [orth~"[-­–]"] ns [orth~lecia/i];
+Eval:  word(subst:sg:gen:n, 1.orth "-lecie");
+
+Rule   "50-leciu"
+Match: [] ns [orth~"[-­–]"] ns [orth~leciu/i];
+Eval:  word(subst:sg:loc:n, 1.orth "-lecie";
+            subst:sg:dat:n, 1.orth "-lecie");
+
+Rule   "50-leciem"
+Match: [] ns [orth~"[-­–]"] ns [orth~leciem/i];
+Eval:  word(subst:sg:inst:n, 1.orth "-lecie");
+
+
+
+################################################################################
+## Proste nazwy własne:
+################################################################################
+
+Rule   "Canal+"
+Match: [orth~Canal] ns [orth~"\+"];
+Eval:  word(subst:sg:case*:m3,"Canal+");
+
+Rule   "Canalem+"
+Match: [orth~"Canal.+"] ns [orth~"\+"];
+Eval:  word(1,,"Canal+");
+
+Rule   "Cyfra+"
+Match: [base~cyfra && orth~"C.*"] ns [orth~"\+"];
+Eval:  word(1,,"Cyfra+");
+
+Rule   "Die Zeit"
+Match: [orth~Die] [orth~Zeit];
+Eval:  word(subst:sg:case*:f,"Die Zeit");
+
+Rule   "Lew Rywin"
+Match: [base~lew && orth~"L.*"] [base~rywin && orth~"R.*"];
+Eval:  unify(case number, 1, 2);
+       word(2,,"Lew Rywin");
+
+Rule   "Marilyn Monroe"
+Match: [orth~Marilyn] [orth~Monroe];
+Eval:  leave(gender~f, 2);
+       word(2,,"Marilyn Monroe");
+
+Rule   "Arciszewska-Mielewczyk, Nowina-Konopka"
+Match: [orth~"Arciszewska|Nowina"] ns [orth~"[-­–]"] ns [orth~"Mielewczyk|Konopka"];
+Eval:  word(subst:sg:nom:f,0.orth);
+
+Rule   "Borne Sulinowo: nom,acc,voc"
+Match: [orth~Borne] [orth~Sulinowo];
+Eval:  word(subst:sg:nom:n,"Borne Sulinowo";
+            subst:sg:acc:n,"Borne Sulinowo";
+            subst:sg:voc:n,"Borne Sulinowo");
+
+Rule   "Borne Sulinowo: loc"
+Match: [orth~Bornem] [orth~Sulinowie];
+Eval:  word(subst:sg:loc:n,"Borne Sulinowo");
+
+Rule   "Borne Sulinowo: inst"
+Match: [orth~Bornem] [orth~Sulinowem];
+Eval:  word(subst:sg:inst:n,"Borne Sulinowo");
+
+Rule   "Borne Sulinowo: gen"
+Match: [orth~Bornego] [orth~Sulinowa];
+Eval:  word(subst:sg:gen:n,"Borne Sulinowo");
+
+
+################################################################################
+## Liczby:
+################################################################################
+
+# ######################################################################
+# Porządkowe:
+# ######################################################################
+
+Rule   "liczba -- liczba cyframi . po przyimku (1)"
+Left:  [pos~prep];
+Match: [orth~"[1-9][0-9]*"] ns [orth~"\."];
+Right: [pos~"subst|adj"];
+Eval:  agree(case,1,5);
+       word(adj:number*:case*:gender*:pos, 0.orth);
+
+Rule   "liczba -- liczba cyframi . po przyimku (2)"
+Left:  [pos~prep];
+Match: [orth~"[1-9][0-9]*\."];
+Right: [pos~"subst|adj"];
+Eval:  unify(case,1,2,3);
+       unify(case gender number, 2, 3);
+
+# ######################################################################
+# Główne
+# ######################################################################
+
+Rule   "liczba -- liczba cyframi"
+Match: [orth~"[0-9]+"] (ns [orth~"[-­–,]"] ns [orth~"[0-9]+"])?;
+Eval:  word(liczba,0.orth);
+
+Rule   "liczba -- 1981­1993 jako jeden token z dziwnym dywizem"
+Match: [orth~"[1-9][­0-9]*[1-9]"];
+Eval:  word(liczba,0.orth);
+
+Rule   "liczba -- liczba milionów (itp.)"
+Match: [pos~liczba]
+       [base~"tysiąc|milion|miliard|bilion|trylion"];
+Eval:  word(liczba,0.orth);
+
+Rule   "liczba -- około/prawie/ponad (itp.) liczba"
+Match: ([base~"około|prawie|niemal"] | [base~"nieco|trochę|dużo|sporo"]? 
+        [orth~"ponad|powyżej"] | [orth~co] [orth~"najmniej|najwyżej"])
+       [pos~liczba];
+Eval:  word(liczba,0.orth);
+
+# Eksperymentalne:
+
+Rule   "liczba --> liczba liczba+"
+Match: [pos~liczba] [pos~liczba]+;
+Eval:  word(liczba,0.orth);
+
+
+################################################################################
+## Czasowniki:
+################################################################################
+
+
+Rule   "czasownik niezanegowany 1a"
+Left:  sb [pos~interp]* ns?;
+Match: [pos~~"winien|praet|bedzie|fin|impt|imps|inf"]
+       (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(4, aff, base);
+
+Rule   "czasownik niezanegowany 1b"
+Left:  sb [pos~interp]* ns?;
+Match: [pos~"winien|praet"] 
+       (ns [orth~"by(m|ś(my|cie)?)?"])? ns [pos~~aglt];
+Eval:  leave(pos~"winien|praet|bedzie|fin|impt|imps|inf",4);
+       word(4, aff, base);
+
+Rule   "czasownik niezanegowany 2a"
+Left:  [orth!~nie/i] ns?;
+Match: [pos~~"winien|praet|bedzie|fin|impt|imps|inf" && negation!~".*"]
+       (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(3, aff, base);
+
+Rule   "czasownik niezanegowany 2b"
+Left:  [orth!~nie/i] ns?;
+Match: [pos~"winien|praet" && negation!~".*"]
+       (ns [orth~"by(m|ś(my|cie)?)?"])? ns [pos~~aglt];
+Eval:  word(3, aff, base);
+
+Rule   "czasownik niezanegowany 2a jeszcze raz"
+Left:  [orth!~nie/i];
+Match: [pos~~"winien|praet|bedzie|fin|impt|imps|inf" && negation!~".*"] (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(2, aff, base);
+
+Rule   "czasownik zanegowany"
+Left:  (sb | [pos~interp] ns | [case!~acc] | [pos!~prep]);
+Match: [orth~nie/i] [pos~~"winien|praet|bedzie|fin|impt|imps|inf"] (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  leave(pos~qub, 2);
+       word(3, neg, base);
+
+
+################################################################################
+## Na przykład bez liku:
+################################################################################
+
+Rule   "bez liku"
+Match: [orth~bez/i] [orth~liku/i];
+Eval:  delete(pos~"subst",2); word(qub, "bez liku");
+
+Rule   "na przykład"
+Match: [orth~na/i] [orth~przykład/i];
+Eval:  unify(case,1,2); word(qub, "na przykład");
+
+Rule   "na pewno"
+Match: [orth~na/i] [orth~pewno/i];
+Eval:  word(qub, "na pewno");
+
+Rule   "po ciemku, kryjomu itp."
+Match: [orth~po/i] [orth~"ciemku|kryjomy|omacku|trochu|prostu|cichu"/i];
+Eval:  delete(pos~"subst",2); word(qub, "po " 2.orth);
+
+Rule   "przede wszystkim"
+Match: [orth~przede/i] [orth~wszystkim/i];
+Eval:  unify(case,1,2); word(qub, "przede wszystkim");
+
+Rule   "w ogóle"
+Match: [orth~w/i] [orth~ogóle/i];
+Eval:  unify(case,1,2); word(qub, "w ogóle");
+
+Rule   "za darmo"
+Match: [orth~za/i] [orth~darmo/i];
+Eval:  word(qub, "za darmo");
+
+
+# złożone przyimki
+
+Rule   "w poprzek"
+Match: [orth~w/i] [orth~poprzek/i];
+Eval:  word(prep:gen, "w poprzek");
+
+
+################################################################################
+## Interpunkcja:
+################################################################################
+
+Rule   "..."
+Match: [orth~"\."] ns [orth~"\."] ns [orth~"\."];
+Eval:  word(interp,"...");
+
+Rule   "„ tok ”"
+Match: [orth~"„"] ns [] ns [orth~"”"];
+Eval:  word(3,,);
+
+Rule   "&quot; tok &quot;"
+Match: [orth~"&quot;"] [] [orth~"&quot;"];
+Eval:  word(3,,);
+
+Rule   "\"tok\""
+Match: [orth~"\""] [] [orth~"\""];
+Eval:  word(2,,);
+
+
+################################################################################
+## Różne:
+################################################################################
+
+# kiedyś, gdzieś, etc. -- assume they are always single tokens
+
+Rule   "kiedyś, gdzieś, etc."
+Match: [orth~"kiedy|gdzie"/i] ns [orth~"ś"];
+Eval:  word(qub,0.orth);
+
+Rule   "o mało (nie)"
+Match: [base~o] [orth~mało/i];
+Right: [orth~nie/i];
+Eval:  word(qub,0.orth);
+
+################################################################################
+## Koniec pliku wyrazy.sr
+################################################################################
+
+
+
+################################################################################
+## Początek pliku grupy_leksykalne.sr:
+################################################################################
+
+################################################################################
+## NER:
+################################################################################
+
+# ######################################################################
+# Media
+# ######################################################################
+
+Rule   "Krajowa Rada Radiofonii i Telewizji"
+Match: [base~krajowy] [base~rada] [orth~Radiofonii] [orth~i] [orth~Telewizji];
+Eval:  unify(case number gender, 1, 2);
+       group(NG,2,2);
+       leave(base~krajowy, 1);
+       leave(base~rada, 2);
+       leave(case~gen && number~sg, 3, 5);
+
+Rule   "Krajowa Rada"
+Match: [base~krajowy && orth~"K.*"] [base~rada && orth~"R.*"];
+Eval:  unify(case number gender, 1, 2);
+       group(NG,2,2);
+       leave(base~krajowy, 1);
+       leave(base~rada, 2);
+
+Rule   "Urząd Regulacji Telekomunikacji i Poczty"
+Match: [base~urząd] [orth~Regulacji] [orth~Telekomunikacji] [orth~i] [orth~Poczty];
+Eval:  group(NG,1,1);
+       leave(case~gen && number~sg, 2, 3, 5);
+
+Rule   "radio / stacja"
+Match: [base~"radio|stacja"] [orth~"Zet|RMF( FM)?|Blue( FM)?|Wałbrzych"];
+Eval:  group(NG,1,1);
+
+Rule   "Polskie Radio"
+Match: [base~polski && orth~"P.*"] [base~radio && orth~"R.*"];
+Eval:  unify(case gender number,1,2);
+       group(NG,1,2);
+
+Rule   "Telewizja"
+Match: [base~telewizja] [orth~"TVN|Polsat|Kraków|Rzeszów|BBC|CNN"]
+       ([orth~SA] | [orth~S] ns [orth~"\."] ns [orth~A] ns [orth~"\."])?;
+Eval:  group(NG,1,1);
+
+Rule   "Gazeta Wyborcza"
+Match: [base~gazeta && orth~"G.*"] [base~wyborczy && orth~"W.*"];
+Eval:  unify(case number gender, 1, 2);
+       group(NG,1,1);
+
+
+# ######################################################################
+# Inne byty:
+# ######################################################################
+
+Rule   "Naczelny Sąd Administracyjny"
+Match: [base~naczelny && orth~"N.*"] [base~sąd && orth~"S.*"] [orth~administracyjny && orth~"A.*"];
+Eval:  unify(case number gender, 1, 2, 3);
+       group(NG,2,2);
+
+Rule   "Trybunał Konstytucyjny"
+Match: [base~trybunał && orth~"T.*"] [base~konstytucyjny && orth~"K.*"];
+Eval:  unify(case number gender, 1, 2);
+       group(NG,1,1);
+
+Rule   "Unia Europejska"
+Match: [base~unia && orth~"U.*"] [base~europejski && orth~"E.*"];
+Eval:  unify(case number gender, 1, 2);
+       group(NG,1,1);
+
+Rule   "ustawa o radiofonii i telewizji"
+Match: [base~ustawa] [orth~o] [orth~radiofonii] [orth~i] [orth~telewizji];
+Eval:  group(NG,1,1);
+       leave(base~ustawa, 1);
+       leave(case~loc, 2);
+       leave(case~loc && number~sg, 3);
+       leave(case~loc && number~sg, 5);
+
+Rule   "kodeks postępowania karnego"
+Match: [base~kodeks] [orth~"[Pp]ostępowania"] [orth~"[Kk]arnego"];
+Eval:  group(NG,1,1);
+       leave(pos~ger && case~gen && number~sg, 2);
+       unify(case gender number, 2, 3);
+
+Rule   "Stronnictwo Konserwatywno-Ludowe"
+Match: [base~stronnictwo && orth~"S.*"] [orth~"Konserwatywno"] ns [orth~"[-­–]"] ns [base~ludowy && orth~"L.*"];
+Eval:  unify(case number gender, 1, 6);
+       group(NG,1,1);
+
+Rule   "Puchar UEFA"
+Match: [base~puchar] [orth~"UEFA"];
+Eval:  group(NG,1,1);
+
+Rule   "Komisja Gospodarki i Finansów Publicznych"
+Match: [base~komisja] [orth~Gospodarki] [orth~i] [orth~Finansów] [orth~Publicznych];
+Eval:  group(NG,1,1);
+       leave(case~gen && number~sg, 2);
+       leave(case~gen && number~pl, 4);
+       leave(case~gen && number~pl, 5);
+
+
+# ######################################################################
+# Nazwiska
+# ######################################################################
+
+Rule   "Vocative: panie + pośle / prezydencie, etc."
+Match: [pos~adj && case~nom]? [orth~panie/i] [case~voc]+;
+Right: (ns? [pos~interp] | se);
+Eval:  agree(number gender,1,2,3);
+       agree(case number gender,2,3);
+       leave(case~~nom, 1);
+       leave(case~~voc, 3);
+       unify(number gender, 1,2,3);
+       unify(case number gender,2,3);
+       group(NG,2,2);
+
+Rule   "Vocative: panie + przewodniczący"
+Match: [pos~adj && case~nom]? [orth~panie/i] [orth~przewodniczący/i];
+Right: (ns? [pos~interp] | se);
+Eval:  set(subst:sg:voc:m1, "przewodniczący", 3);
+       agree(number gender,1,2,3);
+       agree(case number gender,2,3);
+       leave(case~~nom, 1);
+       unify(number gender, 1, 2, 3);
+       unify(case number gender, 2, 3);
+       group(NG,2,2);
+
+Rule   "pan poseł? Jan (M.)? Kowalski"
+Match: [base~"pan|pani|baron|baronowa|poseł|posłanka|senator|minister|sekretarz|prezydent|redaktor|prezes|doktor|profesor|generał|pułkownik"] 
+       [base~"prof|dr|hab|poseł|posłanka|senator|minister|sekretarz|prezydent|redaktor|prezes|premier|doktor|profesor|generał|pułkownik"]* 
+       ([base~"prof|dr|hab"] ns? [orth~"\."]?)* [orth~"[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż].*"] 
+       ([orth~"[A-ZĄĆĘŁŃÓŚŹŻ]"] [orth~"\."])? [orth~"[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż].*"];
+Eval:  unify(case number,1,2,4);
+       group(NG,1,1);
+       unify(case number gender,1,2,4,6);
+
+Rule   "pan poseł? Szteliga (nazwisko --> możliwe ign)"
+Match: [base~"pan|pani|baron|baronowa|poseł|posłanka|senator|minister|sekretarz|prezydent|redaktor|prezes|doktor|profesor|generał|pułkownik"]
+       [base~"prof|dr|hab|poseł|posłanka|senator|minister|sekretarz|prezydent|redaktor|prezes|premier|doktor|profesor|generał|pułkownik"]*
+       ([base~"prof|dr|hab"] ns? [orth~"\."]?)* ([orth~"[A-ZĄĆĘŁŃÓŚŹŻ]"] [orth~"\."])?
+       [orth~"[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż].*"];
+Right: (ns | se | [synh=[]] | [orth~"[a-ząćęłńóśźż0-9].*"] | [pos~interp]);
+Eval:  unify(case number gender, 1, 2);
+       group(NG,1,1);
+       unify(case number, 1, 2, 5);
+       unify(case number gender, 1, 2, 5);
+       unify(case number gender, 1, 2, 5, 6);
+
+Rule   "pan poseł"
+Match: [base~"pan|pani"]
+       [base~"poseł|posłanka|senator|minister|sekretarz|prezydent|redaktor|prezes|doktor|profesor|generał|pułkownik"] ;
+Eval:  unify(case number, 1, 2);
+       group(NG,1,1);
+       unify(case number gender, 1, 2);
+
+
+
+
+################################################################################
+## Liczby, godziny, daty itp.
+################################################################################
+
+# ######################################################################
+# Liczby:
+# ######################################################################
+
+Rule   "liczba -- punkt + liczba cyframi ."
+Match: [base~punkt] [orth~"[1-9][0-9]*"] ns [orth~"\."];
+Eval:  group(NG,1,1);
+
+
+# ######################################################################
+# Godziny:
+# ######################################################################
+
+Rule   "o godz. 20.08"
+Match: [orth~"[Oo]|[Dd]o"] [base~godzina] [orth~"[12]?[0-9]"] (ns [orth~"\."] ns [orth~"[0-5][0-9]"])?;
+Eval:  unify(case,1,2); 
+       group(PrepNG,1,2);
+       leave(base~godzina && number~sg, 2);
+
+
+# ######################################################################
+# Daty:
+# ######################################################################
+
+# Grupy nominalne:
+##################
+
+Rule   "obecnie, wczoraj itp."
+Match: [orth~"[Oo]becnie|[Pp]rzedwczoraj|[Ww]czoraj|[Dd]zisiaj|[Jj]utro|[Pp]ojutrze"];
+Eval:  group(Temp_NG,1,1);
+
+# Miesiące:
+
+Rule   "month"
+Match: [base~"styczeń|luty|marzec|kwiecień|maj|czerwiec|lipiec|sierpień|wrzesień|październik|listopad|grudzień"];
+Eval:  group(Month_NG,1,1);
+       leave(base~"styczeń|luty|marzec|kwiecień|maj|czerwiec|lipiec|sierpień|wrzesień|październik|listopad|grudzień",1);
+
+# Lata:
+
+Rule   "br. -- group"
+Match: [orth~"br\."];
+Eval:  group(Year_NG,1,1);
+
+Rule   "2000 roku"
+Match: [pos~liczba && orth~"[12][0-9]{3}"] [base~rok && number~sg];
+Eval:  group(Year_NG,2,2);
+
+Rule   "roku 2000"
+Match: [base~rok && number~sg] [pos~liczba && orth~"[12][0-9]{3}"];
+Eval:  group(Year_NG,1,1);
+
+Rule   "tego/owego roku"
+Match: [base~"ten|ów|ubiegły"] [base~rok];
+Eval:  unify(case number gender,1,2);
+       group(Year_NG,2,2);
+
+Rule   "roku tego/owego"
+Match: [base~rok] [base~"ten|ów|ubiegły"];
+Eval:  unify(case number gender,1,2);
+       group(Year_NG,1,1);
+
+# Dni:
+
+Rule   "dzień dzisiejszy"
+Match: [base~dzień] [base~"dzisiejszy|wczorajszy|jutrzejszy"];
+Eval:  group(Day_NG,1,1);
+       unify(case number gender,1,2);
+
+Rule   "dzisiejszy dzień"
+Match: [base~"dzisiejszy|wczorajszy|jutrzejszy"] [base~dzień];
+Eval:  group(Day_NG,2,2);
+       unify(case number gender,1,2);
+
+Rule   "dzień + day + Month_NG + Year_NG?"
+Match: [base~dzień] [pos~liczba && orth~"[1-9]|[12][0-9]|3[01]"] 
+       (ns [orth~"[-­–]"] ns [orth~go])? 
+       ([type="Month_NG" && synh=[case~gen]] | [orth~"I*[VX]I*"])
+       ([type="Year_NG"] | [pos~liczba && orth~"[12][0-9]{3}"])?;
+Eval:  group(DayMonth_NG,1,1);
+       leave(case~~gen,4,5);
+
+Rule   "day + Month_NG + Year_NG?"
+Match: [pos~liczba && orth~"[1-9]|[12][0-9]|3[01]"]
+       (ns [orth~"[-­–]"] ns [orth~go])? 
+       ([pos~conj] [pos~liczba && orth~"[1-9]|[12][0-9]|3[01]"] (ns [orth~"[-­–]"] ns [orth~go])?)?
+       ([type="Month_NG" && synh=[case~gen]] | [orth~"I*[VX]I*"])
+       ([type="Year_NG"] | [pos~liczba && orth~"[12][0-9]{3}"])?;
+Eval:  group(DayMonth_NG,1,1);
+       leave(case~gen,4,5);
+
+# Znowu lata (ale w liczbie mnogiej):
+
+Rule   "latach pięćdziesiątych i szcześćdziesiątych"
+Match: [base~rok && number~pl] [pos~~adj] [pos~~conj]? [pos~~adj]?;
+Right: ns? [pos~interp]? ns? 
+       (se | [type=".*"] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  unify(case number gender,1,2,4);
+       group(Year_NG,1,1);
+
+Rule   "latach 1991-1993"
+Match: [base~rok && number~pl] [orth~"[0-9]+[-­–][0-9]+" && pos~~liczba];
+Eval:  group(Year_NG,1,1);
+
+Rule   "latach 50."
+Match: [base~rok && number~pl] [pos~~liczba] ns? [orth~"\."]
+       ([pos~~conj] [base~początek]? [pos~~liczba] ns? [orth~"\."])?;
+Right: (ns? [] | se);
+Eval:  group(Year_NG,1,1);
+
+Rule   "latach 9827349"
+Match: [base~rok && number~pl] [pos~~liczba];
+Right: ns? [pos~interp]? ns? 
+       (se | [type=".*"] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  group(Year_NG,1,1);
+
+# Grupy przyimkowe:
+###################
+
+# Prep + Year_NG:
+
+Rule   "Prep + Year_NG"
+Match: [orth~"[Ww]|[Dd]o|[Oo]d|[Pp]o"] [type="Year_NG"];
+Eval:  unify(case,1,2);
+       group(Year_PrepNG,1,2);
+       leave(pos~~prep,1);
+
+# Prep + Month_NG + Year_NG?
+
+Rule   "Prep + Month_NG + Year_NG?"
+Match: [orth~"[Ww]e?|[Dd]o|[Oo]d|[Pp]o"] [type="Month_NG"]
+       ([type="Year_NG"] | [pos~liczba && orth~"[12][0-9]{3}"])?;
+Eval:  unify(case,1,2);
+       group(Month_PrepNG,1,2);
+       leave(pos~~prep,1);
+       leave(case~~gen,3);
+
+# Prep + Day_NG
+
+Rule   "Prep + Day(Month)_NG:"
+Match: [pos~prep] [type="Day.*_NG"];
+Eval:  unify(case,1,2);
+       group(DayMonth_PrepNG,1,2);
+       leave(pos~~prep,1);
+
+Rule   "w dniu 8-go itp."
+Match: [pos~prep] [base~dzień] 
+       [pos~liczba && orth~"[1-9]|[12][0-9]|3[01]"] ns [orth~"[-­–]"] ns [orth~go]
+       ([pos~conj] [pos~liczba && orth~"[1-9]|[12][0-9]|3[01]"] ns [orth~"[-­–]"] ns [orth~go])?;
+Eval:  unify(case,1,2);
+       group(DayMonth_PrepNG,1,2);
+       delete(base~on,7);
+
+# Grupy duratywne:
+
+Rule   "w ciągu 5 lat"
+Match: [orth~"[Ww]"] [orth~"ciągu|perspektywie"]
+       [orth~"nadchodzących|mijających|najbliższych|ostatnich"]? [pos~liczba] [orth~lat];
+Eval:  group(During_PrepNG,1,2);
+       leave(pos~~prep,1);
+       leave(case~~loc,1,2);
+       leave(base~~rok,5);
+       leave(case~~gen,3,5);
+       unify(case number gender,3,5);
+
+# Inne wyrażenia temporalne:
+
+Rule   "w przyszłości / w przeszłości"
+Match: [orth~w/i]
+       ([orth~bardzo]? [orth~"dalekiej|bliskiej|odległej|nieodległej"])?
+       [orth~"przyszłości|przeszłości"];
+Eval:  group(Temp_PrepNG,1,3);
+       unify(case,1,3);
+
+
+
+# ######################################################################
+# Inne grupy liczbowe:
+# ######################################################################
+
+Rule   "ok. 500 mln złotych polskich"
+Match: [pos~liczba] ([orth~złotych] | [orth~marek]) ([orth~polskich] | [orth~niemieckich]);
+Eval:  group(NumG,1,2);
+
+Rule   "ok. 500 mln złotych"
+Match: [pos~liczba] ns? ([orth~"nowych|starych"])? [orth~"USD|dolarów|bugsów|DM|marek|PLN|zł|gr|złotych|groszy|EUR|euro"];
+Eval:  group(NumG,1,4);
+
+Rule   "ok. 99 proc."
+Match: [pos~liczba] [orth~proc] (ns [orth~"\."])?;
+Eval:  group(NumG,1,2);
+       set(subst:number*:gen:m3,"procent",2);
+
+Rule   "ok. 99 %"
+Match: [pos~liczba] ns? [orth~"%"];
+Eval:  group(NumG,1,3);
+       set(subst:number*:gen:m3,"procent",3);
+
+Rule   "ok. 99 ‰"
+Match: [pos~liczba] ns? [orth~"‰"];
+Eval:  group(NumG,1,3);
+       set(subst:number*:gen:m3,"promil",3);
+
+
+
+################################################################################
+## DisG:
+################################################################################
+
+Rule   "sentence-initial 'Tym samym'"
+Left:  sb;
+Match: [pos~conj]? [orth~tym/i] [orth~samym] (ns [pos~interp])?;
+Right: ([case!~inst] | [synh=[case!~inst]]);
+Eval:  group(DisG,3,3);
+
+
+Rule   "sentence-initial 'No cóż'"
+Left:  sb;
+Match: [orth~no/i] [orth~cóż] (ns [pos~interp])?;
+Eval:  group(DisG,2,2);
+
+
+Rule   "sentence-initial 'A nuż'"
+Left:  sb;
+Match: [orth~a/i] [orth~nuż] (ns [pos~interp])?;
+Eval:  group(DisG,2,2);
+
+
+Rule   "sentence-initial 'A co,', 'A zatem,', etc."
+Left:  sb;
+Match: [orth~a/i] [orth~"zatem|więc|co"] ns [pos~interp];
+Eval:  group(DisG,3,3);
+
+
+Rule   "sentence-initial 'Jeśli już, to'"
+Left:  sb;
+Match: [orth~"jeśli|jeżeli"/i] [orth~już] (ns [pos~interp])? [orth~to];
+Eval:  group(DisG,2,2);
+
+
+Rule   "jak to się mówi, jak się wydaje, etc."
+Match: (sb | [orth~","]) [orth~"jak"/i] ([orth~to] [orth~się] [orth~"mówi|powiada"] | [orth~"mówią|powiadają"] | [orth~się] [orth~wydaje]) (se | ns [orth~","]);
+Eval:  group(DisG,2,2);
+
+
+Rule   "z punktu widzenia"
+Match: [orth~"[Zz]e?"] [pos~adj && case~gen] [orth~punktu] [orth~widzenia];
+Eval:  leave(pos~prep, 1);
+       leave(case~gen, 1, 2, 3, 4);
+       unify(number gender, 2, 3);
+       group(DisG, 1, 3);
+
+Rule   "oto, zgoła, tylko, etc."
+Match: [orth~"dotychczas|oto|zgoła|tylko|też|także|natomiast|no|choćby|chociażby|zwłaszcza|zatem|właściwie|właśnie|faktycznie|oczywiście|naprawdę|wreszcie|już|jednak|tymczasem|zresztą"/i];
+Eval:  group(DisG,1,1);
+
+Rule   "w ogóle, przede wszystkim, etc."
+Match: [orth~"w ogóle|przede wszystkim"/i];
+Eval:  group(DisG,1,1);
+
+Rule   "sentence-initial conjunction"
+Left:  sb [pos~interp]* ns?;
+Match: [pos~~conj] [pos~~conj]*;
+Eval:  group(DisG,4,4);
+
+Rule   "itp., itd., np."
+Match: [orth~"itp|itd|[Nn]p"] (ns [orth~"\."])?;
+Eval:  group(DisG,1,1);
+
+Rule   "m.in."
+Match: [orth~"[Mm]"] ns [orth~"\."] ns [orth~"[Ii]n"] ns [orth~"\."];
+Eval:  group(DisG,1,1);
+
+Rule   "netto, brutto"
+Match: [orth~"netto|brutto"/i];
+Eval:  group(DisG,1,1);
+
+
+################################################################################
+## Inne grupy leksykalne:
+################################################################################
+
+# ######################################################################
+# sie
+# ######################################################################
+
+Rule   "sie"
+Match: [orth~"si[ęe]"];
+Eval:  group(sie,1,1);
+
+# ######################################################################
+# Apozycje itp.:
+# ######################################################################
+
+Rule   "litera/cyfra/znak"
+Match: [base~"litera|cyfra|znak"] [orth~"." && pos~ign];
+Eval:  group(NG,1,1);
+
+Rule   "druk nr 30"
+Match: [pos~~subst] [orth~nr/i] [pos~liczba];
+Eval:  group(NG,1,1);
+
+Rule   "księga Guinessa"
+Match: [orth~księga/i] [orth~"Guinessa"];
+Eval:  group(NG,1,1);
+
+
+# ######################################################################
+# Inne:
+# ######################################################################
+
+Rule   "warunek sine qua non"
+Match: [base~warunek] [orth~sine] [orth~qua] [orth~non];
+Eval:  group(NG,1,1);
+       leave(pos~ign, 2, 3, 4);
+
+Rule   "art. 52 (§ 1) regulaminu"
+Match: [base~artykuł] ns? [pos~liczba] ([orth~"§.*"] ns? [pos~liczba]?)* ([orth~ust/i] ns? [pos~liczba])? ([orth~"regulaminu|kodeksu"/i] [orth~"sejmu|senatu"/i]? | [synh=[orth~"regulaminu|kodeksu"/i]])?;
+Eval:  group(NG,1,1);
+
+Rule   "to wszystko"
+Match: [orth~to/i] [orth~wszystko];
+Eval:  leave(pos~adj,1);
+       agree(case number gender,1,2);
+       group(NG,2,2);
+
+Rule   "zgodnie z"
+Match: [base~zgodnie] [base~z] ([synh=[case~inst]] | [pos~~subst && case~inst]);
+Eval:  leave(pos~~prep && case~~inst,2);
+       leave(case~~inst,3);
+       group(AdvG,1,1);
+
+
+
+
+################################################################################
+## Koniec pliku grupy_leksykalne.sr
+################################################################################
+
+
+
+################################################################################
+## Początek pliku grupy.sr:
+################################################################################
+
+################################################################################
+## Reguły w miarę pewne:
+################################################################################
+
+# ######################################################################
+# PrepAdjG
+# ######################################################################
+
+Rule   "(1) Dobre PrepAdjG na koncu zdania lub nawiasu"
+Match: [pos~prep]
+       ([type="DisG"] | [pos~~"adv|qub"])*
+       ([pos~~"adj|pact|ppas"] | 
+        [synh=[pos~~"adj|pact|ppas"]]);
+Right: ([type="DisG"] | [pos~~"adv|qub"])* ns? 
+       ([orth~"\)"] | [orth~","] 
+        [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se);
+Eval:  unify(case,1,3);
+       group(PrepAdjG,1,3);
+       leave(pos~~prep,1);
+
+
+# ######################################################################
+# PrepNG
+# ######################################################################
+
+Rule   "(1) P + co/kto"
+Match: [pos~prep]
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [base~"co|kto"];
+Eval:  unify(case,1,3);
+       group(PrepNG,1,3);
+       leave(pos~~prep,1);
+       leave(pos~~subst, 3);
+
+Rule   "(1) P + zaimek"
+Match: [pos~prep]
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"ppron[123]+|siebie" && post-prepositionality!~npraep]
+       [base~sam]?;
+Eval:  unify(case,1,3,4);
+       unify(case number gender,3,4);
+       group(PrepNG,1,3);
+       delete(post-prepositionality~npraep, 3);
+       leave(pos~~prep,1);
+
+Rule   "(1) Dobre PrepNG na koncu zdania lub nawiasu"
+Match: [pos~prep]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"subst|ger|ppron.*|siebie"]
+       ([pos~adj] | [synh=[pos~adj]])?;
+Right: ([type="DisG"] | [pos~~"adv|qub"])* (ns | [pos~interp])*
+       ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  unify(case,1,4,6,7);
+       unify(case number gender,4,6,7);
+       group(PrepNG,1,6);
+       delete(post-prepositionality~npraep, 6);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",6);
+
+Rule   "(1) PrepNG z czymkolwiek w ciapkach na koncu zdania lub nawiasu"
+Match: [pos~prep]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([orth~"“"] ns?)
+       ([pos~~"adj|pact|ppas"] | [synh=[pos~~"adj|pact|ppas"]])*
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~~ign]
+       (ns? [orth~"”"]);
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se);
+Eval:  unify(case,1,5);
+       group(PrepNG,1,7);
+       leave(pos~~prep,1);
+
+Rule   "(1) PrepNG między grupą/czasownikiem/itp. a grupą/czasownikiem/itp. z przysłówkiem"
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"])
+       ([type="DisG"]  | [pos~~"adv|qub"])*;
+Match: [pos~prep] [orth~"jego|jej|ich"]? 
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"subst|ger|ppron.*|siebie"]
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*;
+Right: ([type="DisG"]  | [pos~~"adv|qub"])*
+       (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~interp])* se);
+Eval:  unify(case number gender,6,8,10);
+       unify(case,3,6,8,10);
+       group(PrepNG,3,8);
+
+
+# ######################################################################
+# PrepNumG
+# ######################################################################
+
+Rule   "(1) PrepNumG z liczebnikiem + rzeczownikiem -- lex"
+Match: [pos~prep && case~"dat|loc|inst|gen"]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])* 
+       [pos~num]
+       [pos~"subst|ger"];
+Right: (ns? [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4,5,6);
+       unify(case number gender,4,5,6);
+       group(PrepNumG,1,5);
+
+Rule   "(1) PrepNumG z liczebnikiem + rzeczownikiem -- str"
+Match: [pos~prep && case~"nom|acc"]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       [pos~"adj|pact|ppas" && case~"nom|acc"]* 
+       [pos~num && case~"nom|acc"] 
+       [pos~"subst|ger" && case~gen];
+Right: (ns? [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4,5);
+       unify(case number gender,4,5);
+       delete(case!~gen,6);
+       group(PrepNumG,1,5);
+
+Rule   "(1) PrepNumG z liczbą + rzeczownikiem -- lex"
+Match: [pos~prep && case~"dat|loc|inst|gen"]
+       [orth~"jego|jej|ich"]? 
+       ([type="DisG"] | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       [pos~liczba]
+       [pos~"subst|ger"];
+Right: (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4,6);
+       unify(case number gender,4,6);
+       group(PrepNumG,1,5);
+
+Rule   "(1) PrepNumG z liczbą + rzeczownikiem -- str"
+Match: [pos~~prep && case~"nom|acc"]
+       [orth~"jego|jej|ich"]? 
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])* 
+       [pos~liczba]
+       [pos~"subst|ger" && case~gen];
+Right: (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4);
+       delete(case!~gen,6);
+       group(PrepNumG,1,5);
+
+Rule   "(1) PrepNumG z liczbą lub [synh=liczba]"
+Match: [pos~prep]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       ([synh=[pos~~liczba]] | [pos~liczba]);
+Right: (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4);
+       group(PrepNumG,1,5);
+
+
+# ######################################################################
+# Znowu PrepNG
+# ######################################################################
+
+Rule   "(1) PrepNG z nie (rozpoznanym) rzeczownikiem na koncu zdania lub nawiasu"
+Match: [pos~~prep] [pos!~"subst|ger"];
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se);
+Eval:  group(PrepNG,1,2);
+       leave(pos~~prep,1);
+
+
+# ######################################################################
+# NG
+# ######################################################################
+
+Rule   "(1) A zaimek też NG"
+Match: ([pos~"ppron.*|siebie" && orth!~"jego|jej|ich"/i])
+       [base~sam]?;
+Eval:  unify(case number gender,1,2);
+       group(NG,1,1);
+
+Rule   "(1) NG between verbs/groups/aby/etc."
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]) 
+       (ns? [pos~interp] | [pos~~"qub|adv|conj"])?;
+Match: [orth~"jego|jej|ich"/i]? 
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~~"adj|pact|ppas"] | [synh=[pos~~"adj|pact|ppas"]])* 
+       [pos~~"subst|ger"] 
+       [pos~~"adj|pact"]*;
+Right: (ns? [pos~interp] | [pos~~"qub|adv|conj"])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        [pos~~prep] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case number gender,5,6,7);
+       group(NG,6,6);
+
+
+# ######################################################################
+# NumG
+# ######################################################################
+
+Rule   "(1) NumG z liczebnikiem + rzeczownikiem -- lex"
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Match: [pos~num]
+       [pos~"adj|pact|ppas"]* 
+       [pos~~"subst|ger"]
+       [pos~~"adj|pact|ppas"]*;
+Right: (ns? [pos~interp])*
+       [pos~~"qub|adv|conj"]* 
+       ([synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~interp])* se);
+Eval:  unify(number gender case,2,3,4,5);
+       group(NumG,2,4);
+
+Rule   "(1) NumG z liczebnikiem + rzeczownikiem -- str"
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Match: [pos~num && case~"nom|acc"]
+       [pos~"adj|pact|ppas" && case~gen]* 
+       [pos~~"subst|ger" && case~gen]
+       [pos~~"adj|pact|ppas" && case~gen]*;
+Right: (ns? [pos~interp])*
+       [pos~~"qub|adv|conj"]* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(number gender,2,3,4,5);
+       delete(case!~gen,3,4,5);
+       group(NumG,2,4);
+
+Rule   "(1) NumG z liczbą + rzeczownikiem -- lex"
+Match: [pos~liczba]
+       [pos~"adj|pact|ppas"]* 
+       [pos~~"subst|ger"]
+       [pos~~"adj|pact|ppas"]*;
+Right: (ns? [pos~interp])*
+       [pos~~"qub|adv|conj"]* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se |
+        ns [orth~"\)"]);
+Eval:  unify(number gender case,2,3,4);
+       group(NumG,1,3);
+
+Rule   "(1) NumG z liczbą + rzeczownikiem -- str"
+Match: [pos~liczba]
+       [pos~"adj|pact|ppas" && case~gen]* 
+       [pos~~"subst|ger" && case~gen]
+       [pos~~"adj|pact|ppas" && case~gen]*;
+Right: (ns? [pos~interp])* [pos~~"qub|adv|conj"]* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se |
+        ns [orth~"\)"]);
+Eval:  unify(number gender,2,3,4);
+       delete(case!~gen,2,3,4);
+       group(NumG,1,3);
+
+
+# ######################################################################
+# AdvG
+# ######################################################################
+
+Rule   "(1) AdvG between verbs/PGs/aby"
+Left:  (sb | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"])
+       (ns | [pos~interp])*;
+Match: [pos~~"adv|qub"]*
+       [pos~~"adv|qub"];
+Right: (ns | [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        se);
+Eval:  group(AdvG,4,4);
+
+
+
+# ######################################################################
+# AdjG
+# ######################################################################
+
+Rule   "(1) AdjG between verbs/PGs/aby"
+Left:  (sb | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"])
+       (ns | [pos~interp])*;
+Match: ([type="AdvG"] | [pos~~"adv|qub"])?
+       [pos~~adj]*
+       [pos~~adj];
+Right: (ns | [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        se);
+Eval:  unify(case gender number,4,5);
+       group(AdjG,5,5);
+
+
+
+# ######################################################################
+# Dalsze reguły PrepNG -- oparte na NG
+# ######################################################################
+
+Rule   "(1) Dobre PrepNG na koncu zdania lub nawiasu lub przed czasownikiem"
+Match: [pos~prep && base!~co]
+       [type="(.*_)?NG"];
+Right: ([type="DisG"] | [pos~~"adv|qub"])*
+       ns?
+       ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | 
+        [pos~interp]? se | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  unify(case,1,2);
+       group(PrepNG,1,2);
+       leave(pos~~prep,1);
+
+
+Rule   "(1) Dobre PrepNG na początku zdania, przed grupą mianownikową"
+Left:  sb [pos~interp]* ns?;
+Match: [pos~prep] [type="(.*_)?NG"];
+Right: [synh=[case~nom]];
+Eval:  unify(case,4,5);
+       group(PrepNG,4,5);
+       leave(pos~~prep,4);
+       leave(case~~nom,6);
+
+
+
+################################################################################
+## Reguły mniej pewne:
+################################################################################
+
+# ######################################################################
+# NG
+# ######################################################################
+
+Rule   "(1) Uncertain: NG with genitive postmodifier between verbs/groups/aby/etc."
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] [pos~~"qub|adv|conj"]? |
+        [orth~","]);
+Match: [orth~"jego|jej|ich"/i]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"adj|pact|ppas"]*
+       [pos~~"subst|ger"]
+       [pos~"adj|pact|ppas" && case~gen]*
+       ([pos~"subst|ger" && case~gen] | [synh=[pos~"subst|ger" && case~~gen]])
+       ([pos~"subst|ger|adj|pact|ppas" && case~gen] | [synh=[pos~"subst|ger" && case~gen]])*;
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  unify(case number gender,4,5);
+       leave(case~~gen,7);
+       unify(case number gender,6,7,8);
+       group(NG,5,5);
+
+Rule   "(1) Uncertain: NG --> NG NG[~~gen]"
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        [orth~","]);
+Match: [synh=[pos~~"subst|ger|num"]]
+       [synh=[pos~~"subst|ger|num" && case~~gen]];
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  group(NG,2,2);
+
+
+# ######################################################################
+# PrepNG
+# ######################################################################
+
+Rule   "(1) Uncertain: Dobre PrepG (z NP[gen]) przed czasownikiem"
+## '~~' in [pos~~"prep"] below because unify doesn't fail on "(Po) co tak (męczyć)".
+Match: [pos~~"prep"] ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [synh=[pos~~"subst|ger|num" && case~~gen]];
+Right: (ns? [pos~"interp"])* [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"];
+Eval:  unify(case,1,3,4);
+       unify(case number gender,3,4);
+       group(PrepNG,1,4);
+       delete(post-prepositionality~npraep, 4);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",3);
+       leave(pos~~"subst|ger|ppron.*|siebie",4);
+
+Rule   "(1) Uncertain: Dobre PrepNG (z NP[gen]) na koncu zdania lub nawiasu"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~adj]? [synh=[pos~~"subst|ger|num" && case~~gen]];
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~"interp"]? se | [orth~","] | [synh=[pos~~"prep"]]);
+Eval:  unify(case,1,4,5,6);
+       unify(case number gender,4,5,6);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+
+
+
+# ######################################################################
+# NumNG
+# ######################################################################
+
+Rule   "(1) Uncertain: NumG (liczba) -- genitive NG"
+Match: [pos~liczba] [pos~"adj|pact|ppas" && case~gen]* 
+       [pos~~"subst|ger" && case~gen] [pos~~"adj" && case~gen]*;
+Eval:  unify(number gender,2,3,4);
+       delete(case!~gen,2,3,4);
+       group(NumG,1,3);
+
+
+
+################################################################################
+## Jeszcze mniej pewne:
+################################################################################
+
+# ######################################################################
+# NG
+# ######################################################################
+
+Rule   "(1) Uncertain: NG with genitive postmodifier between verbs/groups/aby/etc. jeszcze raz"
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] [pos~~"qub|adv|conj"]? |
+        [orth~","]);
+Match: [orth~"jego|jej|ich"/i]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"adj|pact|ppas"]*
+       [pos~~"subst|ger"]
+       [pos~"adj|pact|ppas" && case~gen]*
+       ([pos~"subst|ger" && case~gen] | [synh=[pos~"subst|ger" && case~~gen]])
+       ([pos~"subst|ger|adj|pact|ppas" && case~gen] | [synh=[pos~"subst|ger" && case~gen]])*;
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  unify(case number gender,4,5);
+       leave(case~~gen,7);
+       unify(case number gender,6,7,8);
+       group(NG,5,5);
+
+Rule   "(1) Uncertain: NG --> NG NG[gen]"
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        [orth~","]);
+Match: [synh=[pos~~"subst|ger|num"]]
+       [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  leave(case~~gen,3);
+       group(NG,2,2);
+
+
+# ######################################################################
+# PrepNG
+# ######################################################################
+
+Rule   "(1) Uncertain: Dobre PrepG (z NP[gen]) przed czasownikiem"
+Match: [pos~~prep] ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: (([type="DisG"] | [pos~~"adv|qub"])* ns? [pos~interp])* [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"];
+Eval:  unify(case,1,3,4);
+       unify(case number gender,3,4);
+       group(PrepNG,1,4);
+       delete(post-prepositionality~npraep, 4);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",3);
+       leave(pos~~"subst|ger|ppron.*|siebie",4);
+       leave(case~~gen,5);
+
+Rule   "(1) Uncertain: Dobre PrepNG (z NP[gen]) na koncu zdania lub nawiasu"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~adj]? [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: ([type="DisG"] | [pos~~"adv|qub"])* ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~"interp"]? se | [orth~","] | [synh=[pos~~prep]]);
+Eval:  unify(case,1,4,5);
+       unify(case number gender,4,5);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+       leave(case~~gen,7);
+
+Rule   "(1) Uncertain: Dobre PrepNG (z postmodyfikatorem dopełniaczowym) na koncu zdania lub nawiasu, lub przed czasownikiem"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~"adj|pact|ppas" && case~gen]* ([pos~"subst|ger" && case~gen] | [synh=[pos~"subst|ger" && case~gen] ]) ([pos~"subst|ger|adj|pact|ppas" && case~gen] | [synh=[pos~"subst|ger" && case~gen]])*;
+Right: ([type="DisG"] | [pos~~"adv|qub"])* ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se | [orth~","] | [synh=[pos~~prep]] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  unify(case,1,4,5);
+       unify(case number gender,4,5);
+       leave(case~~gen,6,7,8);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+
+Rule   "(1) Uncertain: Dobre PrepNG (z NP[gen]) na koncu zdania lub nawiasu jeszcze raz"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~adj]? [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se | [orth~","] | [synh=[pos~~prep]]);
+Eval:  unify(case,1,4,5,6);
+       unify(case number gender,4,5,6);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+       leave(case~~gen,6);
+
+
+# ######################################################################
+# Grupy zdaniowe:
+# ######################################################################
+
+Rule   "(1) CG z pewnym czasownikiem"
+Match: [orth~","]
+       [orth~"że|iż|żeby|aby|by"] 
+       (ns | [pos!~~"winien|praet|bedzie|fin|imps|inf|pred"] | 
+        [synh=[pos!~~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~~"winien|praet|bedzie|fin|imps|inf|pred"]])
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(CG,2,4);
+
+Rule   "(1) CG z niepewnym czasownikiem"
+Match: [orth~","] [orth~"że|iż|żeby|aby|by"] 
+       (ns | [pos!~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos!~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~"winien|praet|bedzie|fin|imps|inf|pred"]])
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  leave(pos~"winien|praet|bedzie|fin|imps|inf|pred",4);
+       group(CG,2,4);
+
+Rule   "(1) CG bez czasownika (elipsa?)"
+Match: [orth~","] [orth~"że|iż|żeby|aby|by"] (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(CG,2,2);
+
+
+Rule   "(1) InfG"
+Left:  [pos~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([pos!~"winien|praet|bedzie|fin|inf|impt|imps|pred|interp"] |
+        [synh=[pos!~"winien|praet|bedzie|fin|inf|impt|imps|pred"]])*;
+Match: [pos~~"inf"] (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(InfG,3,3);
+
+
+Rule   "(1) NG z w miarę pewnym zdaniem względnym"
+Left:  [pos~"winien|praet|bedzie|fin|impt|imps|pred"]
+       (ns | [] | [synh=[]])*;
+Match: ([pos~~"subst|ger"] | [synh=[pos~~"subst|ger"]])
+       ns? [orth~","]
+       [pos~~prep]?
+       [orth~"jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  unify(gender number,3,7);
+       group(NG,3,3);
+
+Rule   "(1) AdjG z w miarę pewnym zdaniem względnym"
+Left:  [pos~"winien|praet|bedzie|fin|impt|imps|pred"]
+       (ns | [] | [synh=[]])*;
+Match: ([pos~~"adj"] | [synh=[pos~~"adj"]])
+       ns? [orth~","]
+       [pos~~prep]?
+       [orth~"jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  unify(gender number,3,7);
+       group(AdjG,3,3);
+
+## PZ:
+
+Rule   "(1) Proste PZ z pewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] | 
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [orth~"kto|kogo|komu|kim|co|czego|czym?|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [pos!~~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~~"winien|praet|bedzie|fin|imps|inf|pred"]])
+        (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,7);
+
+Rule   "(1) Proste PZ z niepewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [orth~"kto|kogo|komu|kim|co|czego|czym?|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [pos!~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~"winien|praet|bedzie|fin|imps|inf|pred"]])
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  leave(pos~"winien|praet|bedzie|fin|imps|inf|pred",7);
+       group(KG,5,7);
+
+Rule   "(1) Proste PZ bez czasownika (elipsa?)"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [orth~"kto|kogo|komu|kim|co|czego|czym?|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,5);
+
+
+Rule   "(1) PZ ze szczurołapstwem z pewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [pos~prep]
+       [orth~"kto|kogo|komu|kim|co|czego|czym|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"] 
+       (ns | [pos!~~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       [pos~~"winien|praet|bedzie|fin|imps|inf|pred"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,8);
+
+Rule   "(1) PZ ze szczurołapstwem z niepewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [pos~prep]
+       [orth~"kto|kogo|komu|kim|co|czego|czym|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"] 
+       (ns | [pos!~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       [pos~"winien|praet|bedzie|fin|imps|inf|pred"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  leave(pos~"winien|praet|bedzie|fin|imps|inf|pred",8);
+       group(KG,5,8);
+
+Rule   "(1) PZ ze szczurołapstwem bez czasownika (elipsa?)"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [pos~prep]
+       [orth~"kto|kogo|komu|kim|co|czego|czym|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"] 
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,5);
+
+
+
+
+# ######################################################################
+# Reguły pomocnicze:
+# ######################################################################
+
+## Cudzysłowy polskie:
+
+Rule   "(1) „ NG ”"
+Match: [orth~"„"] ns? [type="NG"] ns? [orth~"”"];
+Eval:  group(NG,3,3);
+
+Rule   "(1) „ PrepNG ”"
+Match: [orth~"„"] ns? [type="PrepNG"] ns? [orth~"”"];
+Eval:  group(PrepNG,3,3);
+
+Rule   "(1) „ NumG ”"
+Match: [orth~"„"] ns? [type="NumG"] ns? [orth~"”"];
+Eval:  group(NumG,3,3);
+
+Rule   "(1) „ AdvG ”"
+Match: [orth~"„"] ns? [type="AdvG"] ns? [orth~"”"];
+Eval:  group(AdvG,3,3);
+
+## i angielskie:
+
+Rule   "(1) \"NG\""
+Match: [orth~"\""] [type="NG"] [orth~"\""];
+Eval:  group(NG,2,2);
+
+Rule   "(1) \"PrepNG\""
+Match: [orth~"\""] [type="PrepNG"] [orth~"\""];
+Eval:  group(PrepNG,2,2);
+
+Rule   "(1) \"NumG\""
+Match: [orth~"\""] [type="NumG"] [orth~"\""];
+Eval:  group(NumG,2,2);
+
+Rule   "(1) \"AdvG\""
+Match: [orth~"\""] [type="AdvG"] [orth~"\""];
+Eval:  group(AdvG,2,2);
+
+
+################################################################################
+## Koniec pliku grupy.sr
+################################################################################
+
+
+
+################################################################################
+## Początek pliku koda.sr:
+################################################################################
+
+################################################################################
+## Nowe reguły:
+################################################################################
+
+# ######################################################################
+# Dezambiguacja:
+# ######################################################################
+
+## Poniższa reguła do wyrzucenia?
+
+Rule   "(1) 'to' rzeczownikowe"
+Left:  (sb [pos~interp]* ns? | [type=".*"] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf"]);
+Match: [orth~"to"];
+Right: (ns? [pos~interp]* se | [type=".*"] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf"]);
+Eval:  leave(pos~subst, 2);
+
+Rule   "(1) wyrzuć loc po grupie (a więc nie po przyimku)"
+Left:  [synh=[]];
+Match: ([case~loc && pos!~prep] | [synh=[case~loc && pos!~prep]]);
+Eval:  delete(case~loc,2);
+
+# ######################################################################
+# Wyrazy składniowe:
+# ######################################################################
+
+Rule   "(1) czasownik niezanegowany po grupach"
+Left:  [type=".*"];
+Match: [pos~~"winien|praet|bedzie|fin|impt|imps|inf" && negation!~".*"] (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(2, aff, base);
+
+Rule   "(1) czasownik zanegowany po grupach"
+Left:  [type=".*"];
+Match: [orth~"[Nn]ie"] [pos~~"winien|praet|bedzie|fin|impt|imps|inf"] (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(3, neg, base);
+       leave(pos~qub, 2);
+
+# ######################################################################
+# Leksykalne grupy składniowe:
+# ######################################################################
+
+Rule   "(1) obok + NP[gen] --> prep"
+Match: [orth~obok/i] [synh=[case~gen]];
+Eval:  leave(pos~prep,1);
+       leave(case~~gen,2);
+       group(PrepNG,1,2);
+
+
+
+################################################################################
+## Koniec pliku koda.sr
+################################################################################
+
+
+
+################################################################################
+## Początek pliku grupy.sr:
+################################################################################
+
+################################################################################
+## Reguły w miarę pewne:
+################################################################################
+
+# ######################################################################
+# PrepAdjG
+# ######################################################################
+
+Rule   "(2) Dobre PrepAdjG na koncu zdania lub nawiasu"
+Match: [pos~prep]
+       ([type="DisG"] | [pos~~"adv|qub"])*
+       ([pos~~"adj|pact|ppas"] | 
+        [synh=[pos~~"adj|pact|ppas"]]);
+Right: ([type="DisG"] | [pos~~"adv|qub"])* ns? 
+       ([orth~"\)"] | [orth~","] 
+        [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se);
+Eval:  unify(case,1,3);
+       group(PrepAdjG,1,3);
+       leave(pos~~prep,1);
+
+
+# ######################################################################
+# PrepNG
+# ######################################################################
+
+Rule   "(2) P + co/kto"
+Match: [pos~prep]
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [base~"co|kto"];
+Eval:  unify(case,1,3);
+       group(PrepNG,1,3);
+       leave(pos~~prep,1);
+       leave(pos~~subst, 3);
+
+Rule   "(2) P + zaimek"
+Match: [pos~prep]
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"ppron[123]+|siebie" && post-prepositionality!~npraep]
+       [base~sam]?;
+Eval:  unify(case,1,3,4);
+       unify(case number gender,3,4);
+       group(PrepNG,1,3);
+       delete(post-prepositionality~npraep, 3);
+       leave(pos~~prep,1);
+
+Rule   "(2) Dobre PrepNG na koncu zdania lub nawiasu"
+Match: [pos~prep]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"subst|ger|ppron.*|siebie"]
+       ([pos~adj] | [synh=[pos~adj]])?;
+Right: ([type="DisG"] | [pos~~"adv|qub"])* (ns | [pos~interp])*
+       ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  unify(case,1,4,6,7);
+       unify(case number gender,4,6,7);
+       group(PrepNG,1,6);
+       delete(post-prepositionality~npraep, 6);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",6);
+
+Rule   "(2) PrepNG z czymkolwiek w ciapkach na koncu zdania lub nawiasu"
+Match: [pos~prep]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([orth~"“"] ns?)
+       ([pos~~"adj|pact|ppas"] | [synh=[pos~~"adj|pact|ppas"]])*
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~~ign]
+       (ns? [orth~"”"]);
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se);
+Eval:  unify(case,1,5);
+       group(PrepNG,1,7);
+       leave(pos~~prep,1);
+
+Rule   "(2) PrepNG między grupą/czasownikiem/itp. a grupą/czasownikiem/itp. z przysłówkiem"
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"])
+       ([type="DisG"]  | [pos~~"adv|qub"])*;
+Match: [pos~prep] [orth~"jego|jej|ich"]? 
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"subst|ger|ppron.*|siebie"]
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*;
+Right: ([type="DisG"]  | [pos~~"adv|qub"])*
+       (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~interp])* se);
+Eval:  unify(case number gender,6,8,10);
+       unify(case,3,6,8,10);
+       group(PrepNG,3,8);
+
+
+# ######################################################################
+# PrepNumG
+# ######################################################################
+
+Rule   "(2) PrepNumG z liczebnikiem + rzeczownikiem -- lex"
+Match: [pos~prep && case~"dat|loc|inst|gen"]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])* 
+       [pos~num]
+       [pos~"subst|ger"];
+Right: (ns? [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4,5,6);
+       unify(case number gender,4,5,6);
+       group(PrepNumG,1,5);
+
+Rule   "(2) PrepNumG z liczebnikiem + rzeczownikiem -- str"
+Match: [pos~prep && case~"nom|acc"]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       [pos~"adj|pact|ppas" && case~"nom|acc"]* 
+       [pos~num && case~"nom|acc"] 
+       [pos~"subst|ger" && case~gen];
+Right: (ns? [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4,5);
+       unify(case number gender,4,5);
+       delete(case!~gen,6);
+       group(PrepNumG,1,5);
+
+Rule   "(2) PrepNumG z liczbą + rzeczownikiem -- lex"
+Match: [pos~prep && case~"dat|loc|inst|gen"]
+       [orth~"jego|jej|ich"]? 
+       ([type="DisG"] | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       [pos~liczba]
+       [pos~"subst|ger"];
+Right: (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4,6);
+       unify(case number gender,4,6);
+       group(PrepNumG,1,5);
+
+Rule   "(2) PrepNumG z liczbą + rzeczownikiem -- str"
+Match: [pos~~prep && case~"nom|acc"]
+       [orth~"jego|jej|ich"]? 
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])* 
+       [pos~liczba]
+       [pos~"subst|ger" && case~gen];
+Right: (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4);
+       delete(case!~gen,6);
+       group(PrepNumG,1,5);
+
+Rule   "(2) PrepNumG z liczbą lub [synh=liczba]"
+Match: [pos~prep]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       ([synh=[pos~~liczba]] | [pos~liczba]);
+Right: (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4);
+       group(PrepNumG,1,5);
+
+
+# ######################################################################
+# Znowu PrepNG
+# ######################################################################
+
+Rule   "(2) PrepNG z nie (rozpoznanym) rzeczownikiem na koncu zdania lub nawiasu"
+Match: [pos~~prep] [pos!~"subst|ger"];
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se);
+Eval:  group(PrepNG,1,2);
+       leave(pos~~prep,1);
+
+
+# ######################################################################
+# NG
+# ######################################################################
+
+Rule   "(2) A zaimek też NG"
+Match: ([pos~"ppron.*|siebie" && orth!~"jego|jej|ich"/i])
+       [base~sam]?;
+Eval:  unify(case number gender,1,2);
+       group(NG,1,1);
+
+Rule   "(2) NG between verbs/groups/aby/etc."
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]) 
+       (ns? [pos~interp] | [pos~~"qub|adv|conj"])?;
+Match: [orth~"jego|jej|ich"/i]? 
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~~"adj|pact|ppas"] | [synh=[pos~~"adj|pact|ppas"]])* 
+       [pos~~"subst|ger"] 
+       [pos~~"adj|pact"]*;
+Right: (ns? [pos~interp] | [pos~~"qub|adv|conj"])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        [pos~~prep] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case number gender,5,6,7);
+       group(NG,6,6);
+
+
+# ######################################################################
+# NumG
+# ######################################################################
+
+Rule   "(2) NumG z liczebnikiem + rzeczownikiem -- lex"
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Match: [pos~num]
+       [pos~"adj|pact|ppas"]* 
+       [pos~~"subst|ger"]
+       [pos~~"adj|pact|ppas"]*;
+Right: (ns? [pos~interp])*
+       [pos~~"qub|adv|conj"]* 
+       ([synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~interp])* se);
+Eval:  unify(number gender case,2,3,4,5);
+       group(NumG,2,4);
+
+Rule   "(2) NumG z liczebnikiem + rzeczownikiem -- str"
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Match: [pos~num && case~"nom|acc"]
+       [pos~"adj|pact|ppas" && case~gen]* 
+       [pos~~"subst|ger" && case~gen]
+       [pos~~"adj|pact|ppas" && case~gen]*;
+Right: (ns? [pos~interp])*
+       [pos~~"qub|adv|conj"]* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(number gender,2,3,4,5);
+       delete(case!~gen,3,4,5);
+       group(NumG,2,4);
+
+Rule   "(2) NumG z liczbą + rzeczownikiem -- lex"
+Match: [pos~liczba]
+       [pos~"adj|pact|ppas"]* 
+       [pos~~"subst|ger"]
+       [pos~~"adj|pact|ppas"]*;
+Right: (ns? [pos~interp])*
+       [pos~~"qub|adv|conj"]* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se |
+        ns [orth~"\)"]);
+Eval:  unify(number gender case,2,3,4);
+       group(NumG,1,3);
+
+Rule   "(2) NumG z liczbą + rzeczownikiem -- str"
+Match: [pos~liczba]
+       [pos~"adj|pact|ppas" && case~gen]* 
+       [pos~~"subst|ger" && case~gen]
+       [pos~~"adj|pact|ppas" && case~gen]*;
+Right: (ns? [pos~interp])* [pos~~"qub|adv|conj"]* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se |
+        ns [orth~"\)"]);
+Eval:  unify(number gender,2,3,4);
+       delete(case!~gen,2,3,4);
+       group(NumG,1,3);
+
+
+# ######################################################################
+# AdvG
+# ######################################################################
+
+Rule   "(2) AdvG between verbs/PGs/aby"
+Left:  (sb | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"])
+       (ns | [pos~interp])*;
+Match: [pos~~"adv|qub"]*
+       [pos~~"adv|qub"];
+Right: (ns | [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        se);
+Eval:  group(AdvG,4,4);
+
+
+
+# ######################################################################
+# AdjG
+# ######################################################################
+
+Rule   "(2) AdjG between verbs/PGs/aby"
+Left:  (sb | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"])
+       (ns | [pos~interp])*;
+Match: ([type="AdvG"] | [pos~~"adv|qub"])?
+       [pos~~adj]*
+       [pos~~adj];
+Right: (ns | [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        se);
+Eval:  unify(case gender number,4,5);
+       group(AdjG,5,5);
+
+
+
+# ######################################################################
+# Dalsze reguły PrepNG -- oparte na NG
+# ######################################################################
+
+Rule   "(2) Dobre PrepNG na koncu zdania lub nawiasu lub przed czasownikiem"
+Match: [pos~prep && base!~co]
+       [type="(.*_)?NG"];
+Right: ([type="DisG"] | [pos~~"adv|qub"])*
+       ns?
+       ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | 
+        [pos~interp]? se | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  unify(case,1,2);
+       group(PrepNG,1,2);
+       leave(pos~~prep,1);
+
+
+Rule   "(2) Dobre PrepNG na początku zdania, przed grupą mianownikową"
+Left:  sb [pos~interp]* ns?;
+Match: [pos~prep] [type="(.*_)?NG"];
+Right: [synh=[case~nom]];
+Eval:  unify(case,4,5);
+       group(PrepNG,4,5);
+       leave(pos~~prep,4);
+       leave(case~~nom,6);
+
+
+
+################################################################################
+## Reguły mniej pewne:
+################################################################################
+
+# ######################################################################
+# NG
+# ######################################################################
+
+Rule   "(2) Uncertain: NG with genitive postmodifier between verbs/groups/aby/etc."
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] [pos~~"qub|adv|conj"]? |
+        [orth~","]);
+Match: [orth~"jego|jej|ich"/i]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"adj|pact|ppas"]*
+       [pos~~"subst|ger"]
+       [pos~"adj|pact|ppas" && case~gen]*
+       ([pos~"subst|ger" && case~gen] | [synh=[pos~"subst|ger" && case~~gen]])
+       ([pos~"subst|ger|adj|pact|ppas" && case~gen] | [synh=[pos~"subst|ger" && case~gen]])*;
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  unify(case number gender,4,5);
+       leave(case~~gen,7);
+       unify(case number gender,6,7,8);
+       group(NG,5,5);
+
+Rule   "(2) Uncertain: NG --> NG NG[~~gen]"
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        [orth~","]);
+Match: [synh=[pos~~"subst|ger|num"]]
+       [synh=[pos~~"subst|ger|num" && case~~gen]];
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  group(NG,2,2);
+
+
+# ######################################################################
+# PrepNG
+# ######################################################################
+
+Rule   "(2) Uncertain: Dobre PrepG (z NP[gen]) przed czasownikiem"
+Match: [pos~~"prep"] ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [synh=[pos~~"subst|ger|num" && case~~gen]];
+Right: (ns? [pos~"interp"])* [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"];
+Eval:  unify(case,1,3,4);
+       unify(case number gender,3,4);
+       group(PrepNG,1,4);
+       delete(post-prepositionality~npraep, 4);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",3);
+       leave(pos~~"subst|ger|ppron.*|siebie",4);
+
+Rule   "(2) Uncertain: Dobre PrepNG (z NP[gen]) na koncu zdania lub nawiasu"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~adj]? [synh=[pos~~"subst|ger|num" && case~~gen]];
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~"interp"]? se | [orth~","] | [synh=[pos~~"prep"]]);
+Eval:  unify(case,1,4,5,6);
+       unify(case number gender,4,5,6);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+
+
+
+# ######################################################################
+# NumNG
+# ######################################################################
+
+Rule   "(2) Uncertain: NumG (liczba) -- genitive NG"
+Match: [pos~liczba] [pos~"adj|pact|ppas" && case~gen]* 
+       [pos~~"subst|ger" && case~gen] [pos~~"adj" && case~gen]*;
+Eval:  unify(number gender,2,3,4);
+       delete(case!~gen,2,3,4);
+       group(NumG,1,3);
+
+
+
+################################################################################
+## Jeszcze mniej pewne:
+################################################################################
+
+# ######################################################################
+# NG
+# ######################################################################
+
+Rule   "(2) Uncertain: NG with genitive postmodifier between verbs/groups/aby/etc. jeszcze raz"
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] [pos~~"qub|adv|conj"]? |
+        [orth~","]);
+Match: [orth~"jego|jej|ich"/i]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"adj|pact|ppas"]*
+       [pos~~"subst|ger"]
+       [pos~"adj|pact|ppas" && case~gen]*
+       ([pos~"subst|ger" && case~gen] | [synh=[pos~"subst|ger" && case~~gen]])
+       ([pos~"subst|ger|adj|pact|ppas" && case~gen] | [synh=[pos~"subst|ger" && case~gen]])*;
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  unify(case number gender,4,5);
+       leave(case~~gen,7);
+       unify(case number gender,6,7,8);
+       group(NG,5,5);
+
+Rule   "(2) Uncertain: NG --> NG NG[gen]"
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        [orth~","]);
+Match: [synh=[pos~~"subst|ger|num"]]
+       [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  leave(case~~gen,3);
+       group(NG,2,2);
+
+
+# ######################################################################
+# PrepNG
+# ######################################################################
+
+Rule   "(2) Uncertain: Dobre PrepG (z NP[gen]) przed czasownikiem"
+Match: [pos~~prep] ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: (([type="DisG"] | [pos~~"adv|qub"])* ns? [pos~interp])* [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"];
+Eval:  unify(case,1,3,4);
+       unify(case number gender,3,4);
+       group(PrepNG,1,4);
+       delete(post-prepositionality~npraep, 4);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",3);
+       leave(pos~~"subst|ger|ppron.*|siebie",4);
+       leave(case~~gen,5);
+
+Rule   "(2) Uncertain: Dobre PrepNG (z NP[gen]) na koncu zdania lub nawiasu"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~adj]? [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: ([type="DisG"] | [pos~~"adv|qub"])* ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~"interp"]? se | [orth~","] | [synh=[pos~~prep]]);
+Eval:  unify(case,1,4,5);
+       unify(case number gender,4,5);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+       leave(case~~gen,7);
+
+Rule   "(2) Uncertain: Dobre PrepNG (z postmodyfikatorem dopełniaczowym) na koncu zdania lub nawiasu, lub przed czasownikiem"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~"adj|pact|ppas" && case~gen]* ([pos~"subst|ger" && case~gen] | [synh=[pos~"subst|ger" && case~gen] ]) ([pos~"subst|ger|adj|pact|ppas" && case~gen] | [synh=[pos~"subst|ger" && case~gen]])*;
+Right: ([type="DisG"] | [pos~~"adv|qub"])* ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se | [orth~","] | [synh=[pos~~prep]] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  unify(case,1,4,5);
+       unify(case number gender,4,5);
+       leave(case~~gen,6,7,8);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+
+Rule   "(2) Uncertain: Dobre PrepNG (z NP[gen]) na koncu zdania lub nawiasu jeszcze raz"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~adj]? [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se | [orth~","] | [synh=[pos~~prep]]);
+Eval:  unify(case,1,4,5,6);
+       unify(case number gender,4,5,6);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+       leave(case~~gen,6);
+
+
+# ######################################################################
+# Grupy zdaniowe:
+# ######################################################################
+
+Rule   "(2) CG z pewnym czasownikiem"
+Match: [orth~","]
+       [orth~"że|iż|żeby|aby|by"] 
+       (ns | [pos!~~"winien|praet|bedzie|fin|imps|inf|pred"] | 
+        [synh=[pos!~~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~~"winien|praet|bedzie|fin|imps|inf|pred"]])
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(CG,2,4);
+
+Rule   "(2) CG z niepewnym czasownikiem"
+Match: [orth~","] [orth~"że|iż|żeby|aby|by"] 
+       (ns | [pos!~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos!~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~"winien|praet|bedzie|fin|imps|inf|pred"]])
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  leave(pos~"winien|praet|bedzie|fin|imps|inf|pred",4);
+       group(CG,2,4);
+
+Rule   "(2) CG bez czasownika (elipsa?)"
+Match: [orth~","] [orth~"że|iż|żeby|aby|by"] (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(CG,2,2);
+
+
+Rule   "(2) InfG"
+Left:  [pos~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([pos!~"winien|praet|bedzie|fin|inf|impt|imps|pred|interp"] |
+        [synh=[pos!~"winien|praet|bedzie|fin|inf|impt|imps|pred"]])*;
+Match: [pos~~"inf"] (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(InfG,3,3);
+
+
+Rule   "(2) NG z w miarę pewnym zdaniem względnym"
+Left:  [pos~"winien|praet|bedzie|fin|impt|imps|pred"]
+       (ns | [] | [synh=[]])*;
+Match: ([pos~~"subst|ger"] | [synh=[pos~~"subst|ger"]])
+       ns? [orth~","]
+       [pos~~prep]?
+       [orth~"jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  unify(gender number,3,7);
+       group(NG,3,3);
+
+Rule   "(2) AdjG z w miarę pewnym zdaniem względnym"
+Left:  [pos~"winien|praet|bedzie|fin|impt|imps|pred"]
+       (ns | [] | [synh=[]])*;
+Match: ([pos~~"adj"] | [synh=[pos~~"adj"]])
+       ns? [orth~","]
+       [pos~~prep]?
+       [orth~"jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  unify(gender number,3,7);
+       group(AdjG,3,3);
+
+## PZ:
+
+Rule   "(2) Proste PZ z pewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] | 
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [orth~"kto|kogo|komu|kim|co|czego|czym?|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [pos!~~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~~"winien|praet|bedzie|fin|imps|inf|pred"]])
+        (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,7);
+
+Rule   "(2) Proste PZ z niepewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [orth~"kto|kogo|komu|kim|co|czego|czym?|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [pos!~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~"winien|praet|bedzie|fin|imps|inf|pred"]])
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  leave(pos~"winien|praet|bedzie|fin|imps|inf|pred",7);
+       group(KG,5,7);
+
+Rule   "(2) Proste PZ bez czasownika (elipsa?)"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [orth~"kto|kogo|komu|kim|co|czego|czym?|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,5);
+
+
+Rule   "(2) PZ ze szczurołapstwem z pewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [pos~prep]
+       [orth~"kto|kogo|komu|kim|co|czego|czym|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"] 
+       (ns | [pos!~~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       [pos~~"winien|praet|bedzie|fin|imps|inf|pred"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,8);
+
+Rule   "(2) PZ ze szczurołapstwem z niepewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [pos~prep]
+       [orth~"kto|kogo|komu|kim|co|czego|czym|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"] 
+       (ns | [pos!~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       [pos~"winien|praet|bedzie|fin|imps|inf|pred"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  leave(pos~"winien|praet|bedzie|fin|imps|inf|pred",8);
+       group(KG,5,8);
+
+Rule   "(2) PZ ze szczurołapstwem bez czasownika (elipsa?)"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [pos~prep]
+       [orth~"kto|kogo|komu|kim|co|czego|czym|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"] 
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,5);
+
+
+
+
+# ######################################################################
+# Reguły pomocnicze:
+# ######################################################################
+
+## Cudzysłowy polskie:
+
+Rule   "(2) „ NG ”"
+Match: [orth~"„"] ns? [type="NG"] ns? [orth~"”"];
+Eval:  group(NG,3,3);
+
+Rule   "(2) „ PrepNG ”"
+Match: [orth~"„"] ns? [type="PrepNG"] ns? [orth~"”"];
+Eval:  group(PrepNG,3,3);
+
+Rule   "(2) „ NumG ”"
+Match: [orth~"„"] ns? [type="NumG"] ns? [orth~"”"];
+Eval:  group(NumG,3,3);
+
+Rule   "(2) „ AdvG ”"
+Match: [orth~"„"] ns? [type="AdvG"] ns? [orth~"”"];
+Eval:  group(AdvG,3,3);
+
+## i angielskie:
+
+Rule   "(2) \"NG\""
+Match: [orth~"\""] [type="NG"] [orth~"\""];
+Eval:  group(NG,2,2);
+
+Rule   "(2) \"PrepNG\""
+Match: [orth~"\""] [type="PrepNG"] [orth~"\""];
+Eval:  group(PrepNG,2,2);
+
+Rule   "(2) \"NumG\""
+Match: [orth~"\""] [type="NumG"] [orth~"\""];
+Eval:  group(NumG,2,2);
+
+Rule   "(2) \"AdvG\""
+Match: [orth~"\""] [type="AdvG"] [orth~"\""];
+Eval:  group(AdvG,2,2);
+
+
+
+################################################################################
+## Koniec pliku grupy.sr
+################################################################################
+
+
+
+################################################################################
+## Początek pliku koda.sr:
+################################################################################
+
+################################################################################
+## Nowe reguły:
+################################################################################
+
+# ######################################################################
+# Dezambiguacja:
+# ######################################################################
+
+## Poniższa reguła do wyrzucenia?
+
+Rule   "(2) 'to' rzeczownikowe"
+Left:  (sb [pos~interp]* ns? | [type=".*"] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf"]);
+Match: [orth~"to"];
+Right: (ns? [pos~interp]* se | [type=".*"] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf"]);
+Eval:  leave(pos~subst, 2);
+
+Rule   "(2) wyrzuć loc po grupie (a więc nie po przyimku)"
+Left:  [synh=[]];
+Match: ([case~loc && pos!~prep] | [synh=[case~loc && pos!~prep]]);
+Eval:  delete(case~loc,2);
+
+# ######################################################################
+# Wyrazy składniowe:
+# ######################################################################
+
+Rule   "(2) czasownik niezanegowany po grupach"
+Left:  [type=".*"];
+Match: [pos~~"winien|praet|bedzie|fin|impt|imps|inf" && negation!~".*"] (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(2, aff, base);
+
+Rule   "(2) czasownik zanegowany po grupach"
+Left:  [type=".*"];
+Match: [orth~"[Nn]ie"] [pos~~"winien|praet|bedzie|fin|impt|imps|inf"] (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(3, neg, base);
+       leave(pos~qub, 2);
+
+# ######################################################################
+# Leksykalne grupy składniowe:
+# ######################################################################
+
+Rule   "(2) obok + NP[gen] --> prep"
+Match: [orth~obok/i] [synh=[case~gen]];
+Eval:  leave(pos~prep,1);
+       leave(case~~gen,2);
+       group(PrepNG,1,2);
+
+################################################################################
+## Koniec pliku koda.sr
+################################################################################
+
+
+
+################################################################################
+## Początek pliku grupy.sr:
+################################################################################
+
+################################################################################
+## Reguły w miarę pewne:
+################################################################################
+
+# ######################################################################
+# PrepAdjG
+# ######################################################################
+
+Rule   "(3) Dobre PrepAdjG na koncu zdania lub nawiasu"
+Match: [pos~prep]
+       ([type="DisG"] | [pos~~"adv|qub"])*
+       ([pos~~"adj|pact|ppas"] | 
+        [synh=[pos~~"adj|pact|ppas"]]);
+Right: ([type="DisG"] | [pos~~"adv|qub"])* ns? 
+       ([orth~"\)"] | [orth~","] 
+        [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se);
+Eval:  unify(case,1,3);
+       group(PrepAdjG,1,3);
+       leave(pos~~prep,1);
+
+
+# ######################################################################
+# PrepNG
+# ######################################################################
+
+Rule   "(3) P + co/kto"
+Match: [pos~prep]
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [base~"co|kto"];
+Eval:  unify(case,1,3);
+       group(PrepNG,1,3);
+       leave(pos~~prep,1);
+       leave(pos~~subst, 3);
+
+Rule   "(3) P + zaimek"
+Match: [pos~prep]
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"ppron[123]+|siebie" && post-prepositionality!~npraep]
+       [base~sam]?;
+Eval:  unify(case,1,3,4);
+       unify(case number gender,3,4);
+       group(PrepNG,1,3);
+       delete(post-prepositionality~npraep, 3);
+       leave(pos~~prep,1);
+
+Rule   "(3) Dobre PrepNG na koncu zdania lub nawiasu"
+Match: [pos~prep]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"subst|ger|ppron.*|siebie"]
+       ([pos~adj] | [synh=[pos~adj]])?;
+Right: ([type="DisG"] | [pos~~"adv|qub"])* (ns | [pos~interp])*
+       ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  unify(case,1,4,6,7);
+       unify(case number gender,4,6,7);
+       group(PrepNG,1,6);
+       delete(post-prepositionality~npraep, 6);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",6);
+
+Rule   "(3) PrepNG z czymkolwiek w ciapkach na koncu zdania lub nawiasu"
+Match: [pos~prep]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([orth~"“"] ns?)
+       ([pos~~"adj|pact|ppas"] | [synh=[pos~~"adj|pact|ppas"]])*
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~~ign]
+       (ns? [orth~"”"]);
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se);
+Eval:  unify(case,1,5);
+       group(PrepNG,1,7);
+       leave(pos~~prep,1);
+
+Rule   "(3) PrepNG między grupą/czasownikiem/itp. a grupą/czasownikiem/itp. z przysłówkiem"
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"])
+       ([type="DisG"]  | [pos~~"adv|qub"])*;
+Match: [pos~prep] [orth~"jego|jej|ich"]? 
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"subst|ger|ppron.*|siebie"]
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*;
+Right: ([type="DisG"]  | [pos~~"adv|qub"])*
+       (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~interp])* se);
+Eval:  unify(case number gender,6,8,10);
+       unify(case,3,6,8,10);
+       group(PrepNG,3,8);
+
+
+# ######################################################################
+# PrepNumG
+# ######################################################################
+
+Rule   "(3) PrepNumG z liczebnikiem + rzeczownikiem -- lex"
+Match: [pos~prep && case~"dat|loc|inst|gen"]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])* 
+       [pos~num]
+       [pos~"subst|ger"];
+Right: (ns? [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4,5,6);
+       unify(case number gender,4,5,6);
+       group(PrepNumG,1,5);
+
+Rule   "(3) PrepNumG z liczebnikiem + rzeczownikiem -- str"
+Match: [pos~prep && case~"nom|acc"]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       [pos~"adj|pact|ppas" && case~"nom|acc"]* 
+       [pos~num && case~"nom|acc"] 
+       [pos~"subst|ger" && case~gen];
+Right: (ns? [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4,5);
+       unify(case number gender,4,5);
+       delete(case!~gen,6);
+       group(PrepNumG,1,5);
+
+Rule   "(3) PrepNumG z liczbą + rzeczownikiem -- lex"
+Match: [pos~prep && case~"dat|loc|inst|gen"]
+       [orth~"jego|jej|ich"]? 
+       ([type="DisG"] | [pos~~"adv|qub"])*
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       [pos~liczba]
+       [pos~"subst|ger"];
+Right: (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4,6);
+       unify(case number gender,4,6);
+       group(PrepNumG,1,5);
+
+Rule   "(3) PrepNumG z liczbą + rzeczownikiem -- str"
+Match: [pos~~prep && case~"nom|acc"]
+       [orth~"jego|jej|ich"]? 
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])* 
+       [pos~liczba]
+       [pos~"subst|ger" && case~gen];
+Right: (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4);
+       delete(case!~gen,6);
+       group(PrepNumG,1,5);
+
+Rule   "(3) PrepNumG z liczbą lub [synh=liczba]"
+Match: [pos~prep]
+       [orth~"jego|jej|ich"]?
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~"adj|pact|ppas"] | [synh=[pos~"adj|pact|ppas"]])*
+       ([synh=[pos~~liczba]] | [pos~liczba]);
+Right: (ns? [pos~interp])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case,1,4);
+       group(PrepNumG,1,5);
+
+
+# ######################################################################
+# Znowu PrepNG
+# ######################################################################
+
+Rule   "(3) PrepNG z nie (rozpoznanym) rzeczownikiem na koncu zdania lub nawiasu"
+Match: [pos~~prep] [pos!~"subst|ger"];
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se);
+Eval:  group(PrepNG,1,2);
+       leave(pos~~prep,1);
+
+
+# ######################################################################
+# NG
+# ######################################################################
+
+Rule   "(3) A zaimek też NG"
+Match: ([pos~"ppron.*|siebie" && orth!~"jego|jej|ich"/i])
+       [base~sam]?;
+Eval:  unify(case number gender,1,2);
+       group(NG,1,1);
+
+Rule   "(3) NG between verbs/groups/aby/etc."
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]) 
+       (ns? [pos~interp] | [pos~~"qub|adv|conj"])?;
+Match: [orth~"jego|jej|ich"/i]? 
+       ([type="DisG"]  | [pos~~"adv|qub"])* 
+       ([pos~~"adj|pact|ppas"] | [synh=[pos~~"adj|pact|ppas"]])* 
+       [pos~~"subst|ger"] 
+       [pos~~"adj|pact"]*;
+Right: (ns? [pos~interp] | [pos~~"qub|adv|conj"])* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        [pos~~prep] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(case number gender,5,6,7);
+       group(NG,6,6);
+
+
+# ######################################################################
+# NumG
+# ######################################################################
+
+Rule   "(3) NumG z liczebnikiem + rzeczownikiem -- lex"
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Match: [pos~num]
+       [pos~"adj|pact|ppas"]* 
+       [pos~~"subst|ger"]
+       [pos~~"adj|pact|ppas"]*;
+Right: (ns? [pos~interp])*
+       [pos~~"qub|adv|conj"]* 
+       ([synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~interp])* se);
+Eval:  unify(number gender case,2,3,4,5);
+       group(NumG,2,4);
+
+Rule   "(3) NumG z liczebnikiem + rzeczownikiem -- str"
+Left:  (sb [pos~interp]* ns? | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Match: [pos~num && case~"nom|acc"]
+       [pos~"adj|pact|ppas" && case~gen]* 
+       [pos~~"subst|ger" && case~gen]
+       [pos~~"adj|pact|ppas" && case~gen]*;
+Right: (ns? [pos~interp])*
+       [pos~~"qub|adv|conj"]* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se);
+Eval:  unify(number gender,2,3,4,5);
+       delete(case!~gen,3,4,5);
+       group(NumG,2,4);
+
+Rule   "(3) NumG z liczbą + rzeczownikiem -- lex"
+Match: [pos~liczba]
+       [pos~"adj|pact|ppas"]* 
+       [pos~~"subst|ger"]
+       [pos~~"adj|pact|ppas"]*;
+Right: (ns? [pos~interp])*
+       [pos~~"qub|adv|conj"]* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se |
+        ns [orth~"\)"]);
+Eval:  unify(number gender case,2,3,4);
+       group(NumG,1,3);
+
+Rule   "(3) NumG z liczbą + rzeczownikiem -- str"
+Match: [pos~liczba]
+       [pos~"adj|pact|ppas" && case~gen]* 
+       [pos~~"subst|ger" && case~gen]
+       [pos~~"adj|pact|ppas" && case~gen]*;
+Right: (ns? [pos~interp])* [pos~~"qub|adv|conj"]* 
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        (ns? [pos~interp])* se |
+        ns [orth~"\)"]);
+Eval:  unify(number gender,2,3,4);
+       delete(case!~gen,2,3,4);
+       group(NumG,1,3);
+
+
+# ######################################################################
+# AdvG
+# ######################################################################
+
+Rule   "(3) AdvG between verbs/PGs/aby"
+Left:  (sb | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"])
+       (ns | [pos~interp])*;
+Match: [pos~~"adv|qub"]*
+       [pos~~"adv|qub"];
+Right: (ns | [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        se);
+Eval:  group(AdvG,4,4);
+
+
+
+# ######################################################################
+# AdjG
+# ######################################################################
+
+Rule   "(3) AdjG between verbs/PGs/aby"
+Left:  (sb | [synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"])
+       (ns | [pos~interp])*;
+Match: ([type="AdvG"] | [pos~~"adv|qub"])?
+       [pos~~adj]*
+       [pos~~adj];
+Right: (ns | [pos~interp])*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] | 
+        se);
+Eval:  unify(case gender number,4,5);
+       group(AdjG,5,5);
+
+
+
+# ######################################################################
+# Dalsze reguły PrepNG -- oparte na NG
+# ######################################################################
+
+Rule   "(3) Dobre PrepNG na koncu zdania lub nawiasu lub przed czasownikiem"
+Match: [pos~prep && base!~co]
+       [type="(.*_)?NG"];
+Right: ([type="DisG"] | [pos~~"adv|qub"])*
+       ns?
+       ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | 
+        [pos~interp]? se | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  unify(case,1,2);
+       group(PrepNG,1,2);
+       leave(pos~~prep,1);
+
+
+Rule   "(3) Dobre PrepNG na początku zdania, przed grupą mianownikową"
+Left:  sb [pos~interp]* ns?;
+Match: [pos~prep] [type="(.*_)?NG"];
+Right: [synh=[case~nom]];
+Eval:  unify(case,4,5);
+       group(PrepNG,4,5);
+       leave(pos~~prep,4);
+       leave(case~~nom,6);
+
+
+
+################################################################################
+## Reguły mniej pewne:
+################################################################################
+
+# ######################################################################
+# NG
+# ######################################################################
+
+Rule   "(3) Uncertain: NG with genitive postmodifier between verbs/groups/aby/etc."
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] [pos~~"qub|adv|conj"]? |
+        [orth~","]);
+Match: [orth~"jego|jej|ich"/i]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"adj|pact|ppas"]*
+       [pos~~"subst|ger"]
+       [pos~"adj|pact|ppas" && case~gen]*
+       ([pos~"subst|ger" && case~gen] | [synh=[pos~"subst|ger" && case~~gen]])
+       ([pos~"subst|ger|adj|pact|ppas" && case~gen] | [synh=[pos~"subst|ger" && case~gen]])*;
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  unify(case number gender,4,5);
+       leave(case~~gen,7);
+       unify(case number gender,6,7,8);
+       group(NG,5,5);
+
+Rule   "(3) Uncertain: NG --> NG NG[~~gen]"
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        [orth~","]);
+Match: [synh=[pos~~"subst|ger|num"]]
+       [synh=[pos~~"subst|ger|num" && case~~gen]];
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  group(NG,2,2);
+
+
+# ######################################################################
+# PrepNG
+# ######################################################################
+
+Rule   "(3) Uncertain: Dobre PrepG (z NP[gen]) przed czasownikiem"
+Match: [pos~~"prep"] ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [synh=[pos~~"subst|ger|num" && case~~gen]];
+Right: (ns? [pos~"interp"])* [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"];
+Eval:  unify(case,1,3,4);
+       unify(case number gender,3,4);
+       group(PrepNG,1,4);
+       delete(post-prepositionality~npraep, 4);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",3);
+       leave(pos~~"subst|ger|ppron.*|siebie",4);
+
+Rule   "(3) Uncertain: Dobre PrepNG (z NP[gen]) na koncu zdania lub nawiasu"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~adj]? [synh=[pos~~"subst|ger|num" && case~~gen]];
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~"interp"]? se | [orth~","] | [synh=[pos~~"prep"]]);
+Eval:  unify(case,1,4,5,6);
+       unify(case number gender,4,5,6);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+
+
+
+# ######################################################################
+# NumNG
+# ######################################################################
+
+Rule   "(3) Uncertain: NumG (liczba) -- genitive NG"
+Match: [pos~liczba] [pos~"adj|pact|ppas" && case~gen]* 
+       [pos~~"subst|ger" && case~gen] [pos~~"adj" && case~gen]*;
+Eval:  unify(number gender,2,3,4);
+       delete(case!~gen,2,3,4);
+       group(NumG,1,3);
+
+
+
+################################################################################
+## Jeszcze mniej pewne:
+################################################################################
+
+# ######################################################################
+# NG
+# ######################################################################
+
+Rule   "(3) Uncertain: NG with genitive postmodifier between verbs/groups/aby/etc. jeszcze raz"
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] [pos~~"qub|adv|conj"]? |
+        [orth~","]);
+Match: [orth~"jego|jej|ich"/i]?
+       ([type="DisG"]  | [pos~~"adv|qub"])*
+       [pos~"adj|pact|ppas"]*
+       [pos~~"subst|ger"]
+       [pos~"adj|pact|ppas" && case~gen]*
+       ([pos~"subst|ger" && case~gen] | [synh=[pos~"subst|ger" && case~~gen]])
+       ([pos~"subst|ger|adj|pact|ppas" && case~gen] | [synh=[pos~"subst|ger" && case~gen]])*;
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] | 
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  unify(case number gender,4,5);
+       leave(case~~gen,7);
+       unify(case number gender,6,7,8);
+       group(NG,5,5);
+
+Rule   "(3) Uncertain: NG --> NG NG[gen]"
+Left:  (sb [pos~interp]* ns? | [synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        [orth~","]);
+Match: [synh=[pos~~"subst|ger|num"]]
+       [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: (ns? [pos~"interp"])*
+       [pos~~"qub|adv|conj"]*
+       ([synh=[]] |
+        [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"] |
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  leave(case~~gen,3);
+       group(NG,2,2);
+
+
+# ######################################################################
+# PrepNG
+# ######################################################################
+
+Rule   "(3) Uncertain: Dobre PrepG (z NP[gen]) przed czasownikiem"
+Match: [pos~~prep] ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: (([type="DisG"] | [pos~~"adv|qub"])* ns? [pos~interp])* [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"];
+Eval:  unify(case,1,3,4);
+       unify(case number gender,3,4);
+       group(PrepNG,1,4);
+       delete(post-prepositionality~npraep, 4);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",3);
+       leave(pos~~"subst|ger|ppron.*|siebie",4);
+       leave(case~~gen,5);
+
+Rule   "(3) Uncertain: Dobre PrepNG (z NP[gen]) na koncu zdania lub nawiasu"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~adj]? [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: ([type="DisG"] | [pos~~"adv|qub"])* ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~"interp"]? se | [orth~","] | [synh=[pos~~prep]]);
+Eval:  unify(case,1,4,5);
+       unify(case number gender,4,5);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+       leave(case~~gen,7);
+
+Rule   "(3) Uncertain: Dobre PrepNG (z postmodyfikatorem dopełniaczowym) na koncu zdania lub nawiasu, lub przed czasownikiem"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~"adj|pact|ppas" && case~gen]* ([pos~"subst|ger" && case~gen] | [synh=[pos~"subst|ger" && case~gen] ]) ([pos~"subst|ger|adj|pact|ppas" && case~gen] | [synh=[pos~"subst|ger" && case~gen]])*;
+Right: ([type="DisG"] | [pos~~"adv|qub"])* ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se | [orth~","] | [synh=[pos~~prep]] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  unify(case,1,4,5);
+       unify(case number gender,4,5);
+       leave(case~~gen,6,7,8);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+
+Rule   "(3) Uncertain: Dobre PrepNG (z NP[gen]) na koncu zdania lub nawiasu jeszcze raz"
+Match: [pos~prep] [orth~"jego|jej|ich"]? ([type="DisG"]  | [pos~~"adv|qub"])* [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~adj]? [synh=[pos~~"subst|ger|num" && case~gen]];
+Right: ns? ([orth~"\)"] | [orth~","] [orth~"iż|że|żeby|aby|by"] | [pos~interp]? se | [orth~","] | [synh=[pos~~prep]]);
+Eval:  unify(case,1,4,5,6);
+       unify(case number gender,4,5,6);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~npraep, 5);
+       leave(pos~~prep,1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+       leave(case~~gen,6);
+
+
+# ######################################################################
+# Grupy zdaniowe:
+# ######################################################################
+
+Rule   "(3) CG z pewnym czasownikiem"
+Match: [orth~","]
+       [orth~"że|iż|żeby|aby|by"] 
+       (ns | [pos!~~"winien|praet|bedzie|fin|imps|inf|pred"] | 
+        [synh=[pos!~~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~~"winien|praet|bedzie|fin|imps|inf|pred"]])
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(CG,2,4);
+
+Rule   "(3) CG z niepewnym czasownikiem"
+Match: [orth~","] [orth~"że|iż|żeby|aby|by"] 
+       (ns | [pos!~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos!~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~"winien|praet|bedzie|fin|imps|inf|pred"]])
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  leave(pos~"winien|praet|bedzie|fin|imps|inf|pred",4);
+       group(CG,2,4);
+
+Rule   "(3) CG bez czasownika (elipsa?)"
+Match: [orth~","] [orth~"że|iż|żeby|aby|by"] (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(CG,2,2);
+
+
+Rule   "(3) InfG"
+Left:  [pos~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([pos!~"winien|praet|bedzie|fin|inf|impt|imps|pred|interp"] |
+        [synh=[pos!~"winien|praet|bedzie|fin|inf|impt|imps|pred"]])*;
+Match: [pos~~"inf"] (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(InfG,3,3);
+
+
+Rule   "(3) NG z w miarę pewnym zdaniem względnym"
+Left:  [pos~"winien|praet|bedzie|fin|impt|imps|pred"]
+       (ns | [] | [synh=[]])*;
+Match: ([pos~~"subst|ger"] | [synh=[pos~~"subst|ger"]])
+       ns? [orth~","]
+       [pos~~prep]?
+       [orth~"jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  unify(gender number,3,7);
+       group(NG,3,3);
+
+Rule   "(3) AdjG z w miarę pewnym zdaniem względnym"
+Left:  [pos~"winien|praet|bedzie|fin|impt|imps|pred"]
+       (ns | [] | [synh=[]])*;
+Match: ([pos~~"adj"] | [synh=[pos~~"adj"]])
+       ns? [orth~","]
+       [pos~~prep]?
+       [orth~"jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  unify(gender number,3,7);
+       group(AdjG,3,3);
+
+## PZ:
+
+Rule   "(3) Proste PZ z pewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] | 
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [orth~"kto|kogo|komu|kim|co|czego|czym?|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [pos!~~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~~"winien|praet|bedzie|fin|imps|inf|pred"]])
+        (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,7);
+
+Rule   "(3) Proste PZ z niepewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [orth~"kto|kogo|komu|kim|co|czego|czym?|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [pos!~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       ([pos~"winien|praet|bedzie|fin|imps|inf|pred"] |
+        [synh=[pos~"winien|praet|bedzie|fin|imps|inf|pred"]])
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  leave(pos~"winien|praet|bedzie|fin|imps|inf|pred",7);
+       group(KG,5,7);
+
+Rule   "(3) Proste PZ bez czasownika (elipsa?)"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [orth~"kto|kogo|komu|kim|co|czego|czym?|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,5);
+
+
+Rule   "(3) PZ ze szczurołapstwem z pewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [pos~prep]
+       [orth~"kto|kogo|komu|kim|co|czego|czym|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"] 
+       (ns | [pos!~~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       [pos~~"winien|praet|bedzie|fin|imps|inf|pred"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,8);
+
+Rule   "(3) PZ ze szczurołapstwem z niepewnym czasownikiem"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [pos~prep]
+       [orth~"kto|kogo|komu|kim|co|czego|czym|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"] 
+       (ns | [pos!~"winien|praet|bedzie|fin|imps|inf|pred"] | [synh=[pos!~"winien|praet|bedzie|fin|imps|inf|pred"]])* 
+       [pos~"winien|praet|bedzie|fin|imps|inf|pred"]
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  leave(pos~"winien|praet|bedzie|fin|imps|inf|pred",8);
+       group(KG,5,8);
+
+Rule   "(3) PZ ze szczurołapstwem bez czasownika (elipsa?)"
+Left:  [pos~~"winien|praet|bedzie|fin|impt|imps|pred"]
+       ([type="DisG"] | [pos~~"ppron.*|siebie|qub|adv"] |
+        [pos~prep] [base~to])*
+       ns?;
+Match: [orth~","]
+       [pos~prep]
+       [orth~"kto|kogo|komu|kim|co|czego|czym|czemu|dlaczego|kiedy|gdzie|jakoby|jak|jaki|jaka|jaką|jakiego|jakim|jakiemu|jakiej|jakie|jakich|jakim|jakimi|który|która|którego|którą|której|któremu|którym|którą"] 
+       (ns | [] | [synh=[]])*;
+Right: se;
+Eval:  group(KG,5,5);
+
+
+
+
+# ######################################################################
+# Reguły pomocnicze:
+# ######################################################################
+
+## Cudzysłowy polskie:
+
+Rule   "(3) „ NG ”"
+Match: [orth~"„"] ns? [type="NG"] ns? [orth~"”"];
+Eval:  group(NG,3,3);
+
+Rule   "(3) „ PrepNG ”"
+Match: [orth~"„"] ns? [type="PrepNG"] ns? [orth~"”"];
+Eval:  group(PrepNG,3,3);
+
+Rule   "(3) „ NumG ”"
+Match: [orth~"„"] ns? [type="NumG"] ns? [orth~"”"];
+Eval:  group(NumG,3,3);
+
+Rule   "(3) „ AdvG ”"
+Match: [orth~"„"] ns? [type="AdvG"] ns? [orth~"”"];
+Eval:  group(AdvG,3,3);
+
+## i angielskie:
+
+Rule   "(3) \"NG\""
+Match: [orth~"\""] [type="NG"] [orth~"\""];
+Eval:  group(NG,2,2);
+
+Rule   "(3) \"PrepNG\""
+Match: [orth~"\""] [type="PrepNG"] [orth~"\""];
+Eval:  group(PrepNG,2,2);
+
+Rule   "(3) \"NumG\""
+Match: [orth~"\""] [type="NumG"] [orth~"\""];
+Eval:  group(NumG,2,2);
+
+Rule   "(3) \"AdvG\""
+Match: [orth~"\""] [type="AdvG"] [orth~"\""];
+Eval:  group(AdvG,2,2);
+
+
+
+################################################################################
+## Koniec pliku grupy.sr
+################################################################################
+
+

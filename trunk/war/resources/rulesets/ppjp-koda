@@ -1,0 +1,51 @@
+################################################################################
+## Nowe reguły:
+################################################################################
+
+# ######################################################################
+# Dezambiguacja:
+# ######################################################################
+
+## Poniższa reguła do wyrzucenia?
+
+Rule   "'to' rzeczownikowe"
+Left:  (sb [pos~interp]* ns? | [type=".*"] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf"]);
+Match: [orth~"to"];
+Right: (ns? [pos~interp]* se | [type=".*"] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf"]);
+Eval:  leave(pos~subst, 2);
+
+Rule   "wyrzuć loc po grupie (a więc nie po przyimku)"
+Left:  [synh=[]];
+Match: ([case~loc && pos!~prep] | [synh=[case~loc && pos!~prep]]);
+Eval:  delete(case~loc,2);
+
+# ######################################################################
+# Wyrazy składniowe:
+# ######################################################################
+
+Rule   "czasownik niezanegowany po grupach"
+Left:  [type=".*"];
+Match: [pos~~"winien|praet|bedzie|fin|impt|imps|inf" && negation!~".*"] (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(2, aff, base);
+
+Rule   "czasownik zanegowany po grupach"
+Left:  [type=".*"];
+Match: [orth~"[Nn]ie"] [pos~~"winien|praet|bedzie|fin|impt|imps|inf"] (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(3, neg, base);
+       leave(pos~qub, 2);
+
+# ######################################################################
+# Leksykalne grupy składniowe:
+# ######################################################################
+
+Rule   "obok + NP[gen] --> prep"
+Match: [orth~obok/i] [synh=[case~gen]];
+Eval:  leave(pos~prep,1);
+       leave(case~~gen,2);
+       group(PrepNG,1,2);
+
+
+### Local Variables:
+### coding: utf-8
+### mode: Default-Generic
+### End:

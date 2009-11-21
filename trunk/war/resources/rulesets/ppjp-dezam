@@ -1,0 +1,124 @@
+# ######################################################################
+# Context-free rules for particular forms, deleting on the basis of base:
+# ######################################################################
+
+Rule   "'niż' to nie 'nizać'"
+Match: [orth~niż/i];
+Eval:  delete(base~nizać,1);
+
+Rule   "'rozstrój' to nie 'rozstroić'"
+Match: [orth~rozstrój/i];
+Eval:  delete(base~rozstroić,1);
+
+Rule   "Nie ma słowa 'nica'"
+Match: [orth~nic/i];
+Eval:  delete(base~nica,1);
+
+Rule   "Nie ma słowa 'maić'"
+Match: [orth~mają/i];
+Eval:  delete(base~maić,1);
+
+Rule   "'poparta' to nie 'popart'"
+Match: [orth~poparta/i];
+Eval:  delete(base~popart,1);
+
+Rule   "'pięć' to nie 'pięcie'"
+Match: [orth~pięć/i];
+Eval:  delete(base~pięcie,1);
+
+Rule   "'sporo' to nie 'spora' i nie adv"
+Match: [orth~sporo/i];
+Eval:  delete(base~spora,1);
+       delete(pos~adv,1);
+
+
+# ######################################################################
+# Context-free rules for particular forms, deleting on the basis of pos:
+# ######################################################################
+
+Rule   "Wyrzuć b. rzadkie interpretacje qub"
+Match: [orth~"te|mu|oczywista"/i];
+Eval:  delete(pos~qub,1);
+
+Rule   "Wyrzuć b. rzadkie interpretacje subst"
+Match: [orth~"tak[aą]|potem|szczerze|czekał|zostań|tam|kłamie"/i];
+Eval:  delete(pos~subst,1);
+
+Rule   "Wyrzuć b. rzadkie interpretacje depr"
+Match: [orth~Cezary];
+Eval:  delete(pos~depr,1);
+
+
+# ######################################################################
+# Other rules for particular forms:
+# ######################################################################
+
+Rule   "'Nie' na początku zdania to qub"
+Left:  sb [pos~interp]* ns?;
+Match: [orth~nie/i];
+Eval:  leave(pos~qub, 4);
+
+Rule   "'za'"
+Match: [orth~za/i && pos~prep];
+Right: ([pos!~adv && pos!~adj && orth!~"mało|dużo"] | [orth~to]);
+Eval:  delete(pos~qub,1);
+
+Rule   "z/ze"
+Match: [orth~"ze?"/i];
+Right: [pos!~num && orth!~"[0-9]+"];
+Eval:  delete(pos~qub,1);
+
+Rule   "'Co' na początku zwykle jest zaimkiem rzeczownym"
+Left:  sb [pos~interp]* ns?;
+Match: [orth~"Co"];
+Eval:  leave(pos~subst, 4);
+
+Rule   "'co' przed czasownikiem nie jest przyimkiem"
+Match: [orth~co/i];
+Right: [pos~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"];
+Eval:  delete(pos~prep, 1);
+
+Rule   "lecz po przecinku to nie leczyć"
+Left:  [orth~","];
+Match: [orth~lecz];
+Eval:  delete(pos~impt,2);
+
+Rule   "może jako qub 1"
+Match: [orth~może/i]; 
+Right: [pos!~"winien|praet|bedzie|fin|impt|imps|pred|interp|conj"]* [pos~"winien|praet|bedzie|fin|impt|imps|pred"];
+Eval:  delete(pos~fin,1);
+
+Rule   "może jako qub 2"
+Left:  [pos~"winien|praet|bedzie|fin|impt|imps|pred"] [pos!~"winien|praet|bedzie|fin|impt|imps|pred|interp|conj"]*;
+Match: [orth~może]; 
+Eval:  delete(pos~fin,3);
+
+Rule   "można raczej nie jest przymiotnikiem"
+Match: [orth~można/i];
+Right: ([pos!~"subst|adj"] | [case!~nom] | [gender!~f] | [number!~sg]);
+Eval:  delete(pos~adj,1);
+
+Rule   "ma jako fin"
+Match: [orth~ma/i && pos~"fin"];
+Eval:  leave(pos~fin,1);
+
+
+
+# ######################################################################
+# More general rules:
+# ######################################################################
+
+Rule   "Zaimki nie są w miejscowniku, chyba że po odpowiednim przyimku"
+Left:  (sb | [pos~interp] ns | [case!~loc] | [pos!~prep]);
+Match: [pos~~"ppron.*|siebie" && case~loc];
+Eval:  delete(case~loc,2);
+
+Rule   "Odsłowniki nie są wołaczami"
+Match: [pos~ger && case~voc];
+Eval:  delete(pos~ger && case~voc, 1);
+
+
+### Local Variables:
+### coding: utf-8
+### mode: Default-Generic
+### End:

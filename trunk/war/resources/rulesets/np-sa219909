@@ -1,0 +1,59 @@
+# Sztuczne słowa
+
+Rule "RP"
+
+Match: [base~"rzeczpospolita"] [base~"polska"];
+Eval:  word(1,, "RP");
+
+Rule "biało-czerwone"
+
+Match: [] ns [orth~"-"] ns [];
+Eval:  word(5,, "composite");
+
+# Grupy
+
+Rule "Wstępne grupy -- tylko rzeczowniki i gerundia"
+
+Match: [pos~"subst|ger"];
+Eval:  group(NP,1,1);
+
+Rule "się"
+
+Match: [type="NP"] [orth~"się" && pos~"qub"];
+Eval:  group(NP,1,1);
+
+Rule "Prawe przymiotniki"
+
+Match: [type="NP"] [pos~"adj"]+;
+Eval:  unify(case,1,2); group(NP,1,1);
+
+Rule "Tworzenie grup imiesłowowych"
+
+Match: [pos~"pact"] [type="NP"];
+Eval:  unify(case,1,2); group(PactP,1,1);
+
+Rule "Lewe przymiotniki"
+
+Match: [pos~"adj"]+ [type="NP"];
+Eval:  unify(case,1,2); group(NP,2,2);
+
+Rule "Zaimki dzierżawcze"
+
+Match: [pos~"ppron.*" && case~"gen"] [type="NP"];
+Eval:  unify(case,1,2); group(NP,2,2);
+
+Rule "Dołączanie grup imiesłowowych"
+
+Match: [type="PactP"] [type="NP"];
+Eval:  group(NP,2,2);
+
+Rule "NP + NP[gen]"
+
+Match: [type="NP"] [type="NP" && synh=[case~"gen"]]+;
+Eval:  group(NP,1,1);
+
+Rule "Spójniki"
+
+Match: [type="NP"] ( [pos~"conj"] [type="NP"] )+;
+Eval:  group(NP,1,1);
+

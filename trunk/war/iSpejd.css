@@ -1,0 +1,55 @@
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #777777;
+  margin: -16px 16px 20px;
+  padding: 0px;
+}
+
+textarea {
+  font-family: courier;
+}
+
+#flags {
+  vertical-align: top;
+  padding: 6px 10px 0px 10px;
+}
+
+.gwt-DecoratorPanel .middleCenter {
+  height: 100%;
+  width: 100%;
+}
+
+.mypanel > tbody > tr > td {
+  padding: 3px 0px 3px 0px;
+}
+
+.mypanel td {
+  padding: 3px;
+}
+
+.mypanel {
+  padding: 3px 12px 3px 12px;
+}
+
+.separator {
+  width: 100%;
+  height: 7px;
+  margin: 16px 0 16px 0;
+  background: url(ipipan.ispejd.iSpejd/gwt/standard/images/hborder.png) repeat-x rgb(145, 192, 239);
+}
+
+.indicator {
+  width: 150px;
+  padding: 24px;
+  margin: 0;
+}
+
+.indicator .gwt-Label {
+  padding: 6px 0 0 0;
+  margin: 0;
+}
+
+.footer {
+  text-align: center;
+}
