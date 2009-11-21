@@ -1,0 +1,166 @@
+# MACRO DEFINITIONS
+
+Define czasownik = [pos~~"winien|praet|bedzie|fin|impt|imps|inf"];
+
+Define lub_imieslow = 
+    [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"];
+
+Define lub_grupa = [synh=[]] | $lub_imieslow;
+
+# RULES
+
+Rule "skrót m.in."
+
+Match: [orth~"[Mm]"] ns [orth~"\."] ns [orth~"[Ii]n"] ns [orth~"\."];
+Eval:  word(qub, "między innymi");
+
+Rule   "ileż"
+Match: [orth~ileż/i];
+Eval:  set(num:pl:nom.acc.voc:m2.m3.n.f,"ile",1);
+
+Rule "Krajowa Rada Radiofonii i Telewizji"
+
+Match: [base~"krajowy"] [base~"rada"] 
+       [orth~"Radiofonii"] [orth~"i"] [orth~"Telewizji"];
+Eval:  unify(case number gender, 1, 2);
+       group(NG,2,2);
+       leave(base~"krajowy", 1);
+       leave(base~"rada", 2);
+       leave(case~"gen" && number~"sg", 3);
+       leave(case~"gen" && number~"sg", 5);
+
+
+Rule "profesor też kobieta"
+
+Match: [orth~"[Pp]rofesor"];
+Eval:  add(subst:sg:case*:f,"profesor",1);
+
+
+Rule "pan poseł? Jan (M.)? Kowalski"
+
+Match: [base~"pan|pani"]
+       [base~"poseł|posłanka|minister|sekretarz|prezydent|redaktor|prezes|premier|doktor|profesor"]*
+       ([base~"prof|dr|hab"] ns? [orth~"\."]?)* [orth~"[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż].*"]
+       ([orth~"[A-ZĄĆĘŁŃÓŚŹŻ]"] [orth~"\."])? [orth~"[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż].*"];
+Eval:  unify(case number gender, 1, 2, 4, 6);
+       group(NG,1,1);
+
+
+Rule "liczba -- liczba cyframi"
+
+Match: [orth~"[1-9][0-9]*"] (ns [orth~"[,-]"] ns [orth~"[0-9]+"])?;
+Eval:  word(liczba,1.orth);
+
+
+Rule "czasownik niezanegowany"
+
+Left:  [orth!~"[Nn]ie"] ns?;
+Match: [pos~~"winien|praet|bedzie|fin|impt|imps|inf" && negation!~".*"] (ns [orth~"by(m|ś(my|cie)?)?"])?
+       (ns [pos~~"aglt"])?;
+Eval:  word(3, aff,);
+
+
+Rule "czasownik zanegowany"
+
+Left:  (sb | [pos~"interp"] ns | [case!~"acc"] | [pos!~"prep"] | [type=".*"]);
+Match: [orth~"[Nn]ie"] $czasownik (ns [orth~"by(m|ś(my|cie)?)?"])?
+       (ns [pos~~"aglt"])?;
+Eval:  leave(pos~"qub", 2);
+       word(3, neg, "nie " base);
+
+
+Rule "month"
+
+Match: [base~"styczeń|luty|marzec|kwiecień|maj|czerwiec|lipiec|sierpień|wrzesień|październik|listopad|grudzień"];
+Eval:  group(Month_NG,1,1);
+       leave(base~"styczeń|luty|marzec|kwiecień|maj|czerwiec|lipiec|sierpień|wrzesień|październik|listopad|grudzień",1);
+
+
+Rule "(2000) r."
+
+Left:  [pos~"liczba" && orth~"[12][0-9]{3}"];
+Match: [orth~"r"] (ns [orth~"\."])?;
+Eval:  word(subst:sg:gen:m3, "rok");
+
+
+Rule "2000 roku"
+
+Match: [pos~"liczba" && orth~"[12][0-9]{3}"] [base~"rok"];
+Eval:  group(Year_NG,2,2);
+
+
+Rule "day + Month_NG + Year_NG?"
+
+Match: [pos~"liczba" && orth~"[1-9]|[12][0-9]|3[01]"] (ns [orth~"-"] ns [orth~"go"])? 
+       ([pos~"conj"] [pos~"liczba" && orth~"[1-9]|[12][0-9]|3[01]"] (ns [orth~"-"] ns [orth~"go"])?)? 
+       [type="Month_NG" && synh=[case~"gen"]] 
+       ([type="Year_NG"] | [pos~"liczba" && orth~"[12][0-9]{3}"])?;
+Eval:  group(DayMonth_NG,1,1);
+       leave(case~"gen",4,5);
+
+
+Rule "PrepNG między grupą/czasownikiem/itp. a grupą/czasownikiem/itp."
+
+Left:  (sb | $lub_grupa);
+Match: [pos~"prep"] [orth~"jego|jej|ich"]? ([orth~"tzw"] ns [orth~"\."])? [pos~"adj|pact|ppas"]* 
+       [pos~"subst|ger|ppron.*|siebie"] [pos~"adj|pact|ppas"]* ;
+Right: (ns? [pos~"interp"])* 
+       ($lub_grupa | 
+        ns? [orth~","]? [orth~"że|żeby|aby|by"] | (ns? [pos~"interp"])* se);
+Eval:  unify(case number gender,5,6,7);
+       unify(case,2,5,6,7);
+       group(PrepNG,2,6) ;
+
+
+Rule "AdvG between verbs/PGs/aby"
+
+Left:  (sb | [synh=[]] | [negation~".+"]);
+Match: [pos~~"adv|qub"]* [pos~~"adv|qub"];
+Right: ([synh=[]] | [negation~".+"] | ns? [pos~"interp"]* se | ns? [orth~","]? [orth~"że|żeby|aby|by"]);
+Eval:  group(AdvG,3,3) ;
+
+
+Rule "Uncertain: NG with genitive postmodifier between verbs/groups/aby/etc."
+
+Left:  (sb | $lub_grupa | [orth~","]);
+Match: [orth~"[Jj]ego|[Jj]ej|[Ii]ch"]? ([orth~"tzw"] ns [orth~"\."])?
+       [pos~"adj|pact|ppas"]* [pos~~"subst|ger"] [pos~"adj|pact|ppas" && case~"gen"]* 
+       [pos~~"subst" && case~"gen"] ;
+Right: (ns? [pos~"interp"])* [pos~~"qub|adv|conj"]* 
+       ($lub_grupa | ns? [orth~","]? [orth~"że|żeby|aby|by"] | 
+        (ns? [pos~"interp"])* se | ns? [orth~","]);
+Eval:  unify(case number gender,4,5);
+       leave(case~~"gen",7);
+       unify(case number gender,6,7);
+       group(NG,5,5) ;
+
+
+Rule "Uncertain: Dobre PrepNG (z postmodyfikatorem dopełniaczowym) na koncu zdania lub nawiasu, lub przed czasownikiem"
+
+Match: [pos~"prep"] [orth~"jego|jej|ich"]? ([orth~"tzw"] ns [orth~"\."])? 
+       [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] 
+       [pos~"adj|pact|ppas" && case~"gen"]* [pos~~"subst|ger" && case~"gen"];
+Right: [pos~~"qub|adv"]? ns? ([orth~"\)"] | [orth~","] [orth~"że|żeby|aby|by"] | 
+       [pos~"interp"]? se | [orth~","] | [synh=[pos~~"prep"]] | $lub_imieslow);
+Eval:  unify(case,1,4,5);
+       unify(case number gender,4,5);
+       leave(case~~"gen",7);
+       unify(case number gender,6,7);
+       group(PrepNG,1,5);
+       delete(post-prepositionality~"npraep", 5);
+       leave(pos~~"prep",1);
+       leave(pos~~"adj|pact|ppas",4);
+       leave(pos~~"subst|ger|ppron.*|siebie",5);
+
+
+Rule "PrepNG między grupą/czasownikiem/itp. a grupą/czasownikiem/itp."
+
+Left:  (sb | $lub_grupa);
+Match: [pos~"prep"] [orth~"jego|jej|ich"]? ([orth~"tzw"] ns [orth~"\."])? 
+       [pos~"adj|pact|ppas"]* [pos~"subst|ger|ppron.*|siebie"] [pos~"adj|pact|ppas"]* ;
+Right: (ns? [pos~"interp"])* ($lub_grupa | 
+       ns? [orth~","]? [orth~"że|żeby|aby|by"] | (ns? [pos~"interp"])* se);
+Eval:  unify(case number gender,5,6,7);
+       unify(case,2,5,6,7);
+       group(PrepNG,2,6);
+

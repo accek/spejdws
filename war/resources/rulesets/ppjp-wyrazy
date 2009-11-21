@@ -1,0 +1,537 @@
+################################################################################
+## Skróty i skrótowce:
+################################################################################
+
+# ######################################################################
+# Skróty z kropką:
+# ######################################################################
+
+Rule   "art."
+Match: [orth~art/i] (ns [orth~"\."])?;
+Eval:  word(subst:number*:case*:m3, "artykuł");
+
+Rule   "br." 
+Match: [orth~br] ns [orth~"\."];
+Eval:  word(subst:sg:case*:m3, "rok");
+
+Rule   "r." 
+Match: [orth~r] ns [orth~"\."];
+Eval:  word(subst:sg:case*:m3, "rok");
+
+Rule   "godz."
+Match: [orth~godz/i] (ns [orth~"\."])?;
+Eval:  word(subst:number*:case*:f, "godzina");
+
+Rule   "rozdz."
+Match: [orth~rozdz/i] (ns [orth~"\."])?;
+Eval:  word(subst:number*:case*:m3, "rozdział");
+
+Rule   "św."
+Match: [orth~św/i] (ns [orth~"\."])?;
+Eval:  word(adj:number*:case*:gender*:pos, "święty");
+
+Rule   "tzw."
+Match: [orth~tzw/i] (ns [orth~"\."])?;
+Eval:  word(adj:number*:case*:gender*:pos, "tak zwany");
+
+Rule   "ur."
+Match: [orth~ur/i] (ns [orth~"\."])?;
+Eval:  word(adj:number*:case*:gender*:pos, "urodzony");
+
+Rule   "gł."
+Match: [orth~gł/i] (ns [orth~"\."])?;
+Eval:  word(adv:pos, "głównie"; adj:number*:case*:gender*:pos, "główny");
+
+Rule   "ok."
+Match: [orth~ok/i] (ns [orth~"\."])?;
+Right: ([orth~"[0-9]+"] | [pos~num]);
+Eval:  word(qub, "około");
+
+Rule   "tys."
+Match: [orth~tys/i] (ns [orth~"\."])?;
+Eval:  word(num:pl:case*:gender*:rec, "tysiąc"; subst:number*:case*:m3, "tysiąc");
+
+Rule   "tyś."
+Match: [orth~tyś/i] ns [orth~"\."];
+Eval:  word(num:pl:case*:gender*:rec, "tysiąc"; subst:number*:case*:m3, "tysiąc");
+
+Rule   "mln."
+Match: [orth~mln/i] (ns [orth~"\."])?;
+Eval:  word(num:pl:case*:gender*:rec, "milion"; subst:number*:case*:m3, "milion");
+
+Rule   "mld."
+Match: [orth~mld/i] (ns [orth~"\."])?;
+Eval:  word(num:pl:case*:gender*:rec, "miliard"; subst:number*:case*:m3, "miliard");
+
+Rule   "bln."
+Match: [orth~bln/i] (ns [orth~"\."])?;
+Eval:  word(num:pl:case*:gender*:rec, "bilion"; subst:number*:case*:m3, "bilion");
+
+# I bez kropki:
+
+Rule   "wg"
+Match: [orth~wg/i] (ns [orth~"\."])?;
+Eval:  word(prep:gen, "według");
+
+Rule   "nr"
+Match: [orth~nr/i] (ns [orth~"\."])?;
+Eval:  word(subst:sg:nom:m3, "numer");
+
+
+# ######################################################################
+# Skrótowce odmienne z dywizem:
+# ######################################################################
+
+Rule   "PRL-u"
+Match: [orth~PRL] ns [orth~"[-­–]"] ns [orth~u];
+Eval:  word(subst:sg:gen:m3, 1.orth; subst:sg:loc:m3, 1.orth; subst:sg:voc:m3, 1.orth);
+
+Rule   "PRL-owi, ŁKS-owi, etc."
+Match: [orth~"PRL|[ŁA-Z]KS|A[WZ]S|VAT|RKM|ZUS|ZOZ|PKS|LOT|PiS|ZOR|PIN|NIP"] ns [orth~"[-­–]"] ns [orth~owi];
+Eval:  word(subst:sg:dat:m3, 1.orth);
+
+Rule   "PRL-em, ŁKS-em, etc."
+Match: [orth~"PRL|[ŁA-Z]KS|A[WZ]S|VAT|RKM|ZUS|ZOZ|PKS|LOT|PiS|ZOR|PIN|NIP"] ns [orth~"[-­–]"] ns [orth~em];
+Eval:  word(subst:sg:inst:m3, 1.orth);
+
+Rule   "ŁKS-u, A[WZ]S-u, etc."
+Match: [orth~"[ŁA-Z]KS|A[WZ]S|VAT|RKM|ZUS|ZOZ|PKS|LOT|PiS|ZOR|PIN|NIP"] ns [orth~"[-­–]"] ns [orth~u];
+Eval:  word(subst:sg:gen:m3, 1.orth);
+
+Rule   "ŁKS-ie, A[WZ]S-ie, etc."
+Match: [orth~"[ŁA-Z]KS|A[WZ]S|VAT|RKM|ZUS|ZOZ|PKS|LOC|PiS|PIN|NIP"] ns [orth~"[-­–]"] ns [orth~ie];
+Eval:  word(subst:sg:loc:m3, 1.orth; subst:sg:voc:m3, 1.orth);
+
+Rule   "ZOR-ze"
+Match: [orth~ZOR] ns [orth~"[-­–]"] ns [orth~ze];
+Eval:  word(subst:sg:loc:m3, 1.orth);
+
+Rule   "PRL, ŁKS, etc."
+Match: [orth~"PRL|[ŁA-Z]KS|A[WZ]S|VAT|RKM|ZUS|ZOZ|PKS|LOT|PiS|ZOR"];
+Eval:  word(subst:sg:nom:m3, 1.orth; subst:sg:acc:m3, 1.orth);
+
+Rule   "SMS-a, TIR-a, etc."
+Match: [orth~"SMS|TIR|[CP]IT"] ns [orth~"[-­–]"] ns [orth~a];
+Eval:  word(subst:sg:gen:m2, 1.orth; subst:sg:acc:m2, 1.orth);
+
+Rule   "SMS-owi, TIR-owi, etc."
+Match: [orth~"SMS|TIR|[CP]IT"] ns [orth~"[-­–]"] ns [orth~owi];
+Eval:  word(subst:sg:dat:m2, 1.orth);
+
+Rule   "SMS-ie"
+Match: [orth~SMS] ns [orth~"[-­–]"] ns [orth~ie];
+Eval:  word(subst:sg:loc:m2, 1.orth; subst:sg:voc:m2, 1.orth);
+
+Rule   "PIC-ie"
+Match: [orth~"[CP]IC"] ns [orth~"[-­–]"] ns [orth~ie];
+Eval:  word(subst:sg:loc:m2, 1.orth; subst:sg:voc:m2, 1.orth);
+
+Rule   "PIT-cie"
+Match: [orth~"[CP]IC"] ns [orth~"[-­–]"] ns [orth~cie];
+Eval:  word(subst:sg:loc:m2, 1.orth; subst:sg:voc:m2, 1.orth);
+
+Rule   "TIR-ze"
+Match: [orth~TIR] ns [orth~"[-­–]"] ns [orth~ze];
+Eval:  word(subst:sg:loc:m2, 1.orth; subst:sg:voc:m2, 1.orth);
+
+Rule   "SMS-em, TIR-em, etc."
+Match: [orth~"SMS|TIR|PIT"] ns [orth~"[-­–]"] ns [orth~em];
+Eval:  word(subst:sg:inst:m2, 1.orth);
+
+Rule   "SMS, TIR, etc."
+Match: [orth~"SMS|TIR|[CP]IT"];
+Eval:  word(subst:sg:nom:m2, 1.orth; subst:sg:acc:m2, 1.orth);
+
+Rule   "RMF FM, Blue FM, etc."
+Match: [orth~"RMF|Blue"] [orth~FM];
+Eval:  word(subst:number*:case*:n, 0.orth);
+
+Rule   "RMF"
+Match: [orth~RMF];
+Eval:  word(subst:sg:case*:n, "RMF FM");
+
+Rule   "TVP"
+Match: [orth~TVP];
+Eval:  word(subst:sg:case*:f, "TVP");
+
+Rule   "SLS"
+Match: [orth~SLS];
+Eval:  word(subst:sg:case*:f, "Samoorganizująca się Logika Struktur");
+
+Rule   "DRT, DRT"
+Match: [orth~"DR[TS]"];
+Eval:  word(subst:sg:case*:n, 0.orth);
+
+Rule   "PFRON, OECD, IPN"
+Match: [orth~"PFRON|OECD|IPN"];
+Eval:  word(subst:sg:case*:m3, 0.orth);
+
+Rule   "UW"
+Match: [orth~UW];
+Eval:  word(subst:sg:case*:m3, "Uniwersytet Warszawski");
+
+Rule   "UJ"
+Match: [orth~UJ];
+Eval:  word(subst:sg:case*:m3, "Uniwersytet Jagielloński");
+
+Rule   "AWF"
+Match: [orth~AWF];
+Eval:  word(subst:sg:case*:m3, "Akademia Wychowania Fizycznego");
+
+Rule   "PZPN"
+Match: [orth~PZPN];
+Eval:  word(subst:sg:case*:m3, "Polski Związek Piłki Nożnej");
+
+# I ogólnie:
+
+Rule   "cokolwiek-owi"
+Match: [] ns [orth~"[-­–]"] ns [orth~owi];
+Eval:  word(subst:sg:dat:m3, 1.orth; subst:sg:dat:m2, 1.orth; subst:sg:dat:m1, 1.orth; subst:sg:dat:n, 1.orth);
+
+Rule   "cokolwiek-em"
+Match: [] ns [orth~"[-­–]"] ns [orth~em];
+Eval:  word(subst:sg:inst:m3, 1.orth; subst:sg:inst:m2, 1.orth; subst:sg:inst:m1, 1.orth; subst:sg:inst:n, 1.orth);
+
+Rule   "cokolwiek-ie"
+Match: [] ns [orth~"[-­–]"] ns [orth~ie];
+Eval:  word(subst:sg:loc:m3, 1.orth; subst:sg:loc:m2, 1.orth; subst:sg:loc:m1, 1.orth; subst:sg:loc:n, 1.orth; subst:sg:voc:m3, 1.orth; subst:sg:voc:m2, 1.orth; subst:sg:voc:m1, 1.orth; subst:sg:voc:n, 1.orth);
+
+Rule   "cokolwiek-owskie"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskie];
+Eval:  word(adj:pl:nom:m2:pos,      1.orth "-owski";
+            adj:pl:nom:m3:pos,      1.orth "-owski";
+            adj:number*:nom:n:pos,  1.orth "-owski";
+            adj:pl:nom:f:pos,       1.orth "-owski";
+            adj:pl:acc:m2:pos,      1.orth "-owski";
+            adj:pl:acc:m3:pos,      1.orth "-owski";
+            adj:number*:acc:n:pos,  1.orth "-owski";
+            adj:pl:acc:f:pos,       1.orth "-owski");
+
+Rule   "cokolwiek-owscy"
+Match: [] ns [orth~"[-­–]"] ns [orth~owscy];
+Eval:  word(adj:pl:nom:m1:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owskich"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskich];
+Eval:  word(adj:pl:gen:gender*:pos, 1.orth "-owski";
+            adj:pl:acc:m1:pos,      1.orth "-owski";
+            adj:pl:loc:gender*:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owskim"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskim];
+Eval:  word(adj:pl:dat:gender*:pos, 1.orth "-owski";
+            adj:sg:loc:m1:pos,      1.orth "-owski";
+            adj:sg:loc:m2:pos,      1.orth "-owski";
+            adj:sg:loc:m3:pos,      1.orth "-owski";
+            adj:sg:loc:n:pos,       1.orth "-owski";
+            adj:sg:inst:m1:pos,     1.orth "-owski";
+            adj:sg:inst:m2:pos,     1.orth "-owski";
+            adj:sg:inst:m3:pos,     1.orth "-owski";
+            adj:sg:inst:n:pos,      1.orth "-owski");
+
+Rule   "cokolwiek-owskimi"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskimi];
+Eval:  word(adj:pl:inst:gender*:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owski"
+Match: [] ns [orth~"[-­–]"] ns [orth~owski];
+Eval:  word(adj:sg:nom:m1:pos, 1.orth "-owski";
+            adj:sg:nom:m2:pos, 1.orth "-owski";
+            adj:sg:nom:m3:pos, 1.orth "-owski";
+            adj:sg:acc:m3:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owskiego"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskiego];
+Eval:  word(adj:sg:gen:m1:pos, 1.orth "-owski";
+            adj:sg:gen:m2:pos, 1.orth "-owski";
+            adj:sg:gen:m3:pos, 1.orth "-owski";
+            adj:sg:gen:n:pos,  1.orth "-owski";
+            adj:sg:acc:m1:pos, 1.orth "-owski";
+            adj:sg:acc:m2:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owskiemu"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskiemu];
+Eval:  word(adj:sg:dat:m1:pos, 1.orth "-owski";
+            adj:sg:dat:m2:pos, 1.orth "-owski";
+            adj:sg:dat:m3:pos, 1.orth "-owski";
+            adj:sg:dat:n:pos,  1.orth "-owski");
+
+Rule   "cokolwiek-owska"
+Match: [] ns [orth~"[-­–]"] ns [orth~owska];
+Eval:  word(adj:sg:nom:f:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owską"
+Match: [] ns [orth~"[-­–]"] ns [orth~owską];
+Eval:  word(adj:sg:acc:f:pos,  1.orth "-owski";
+            adj:sg:inst:f:pos, 1.orth "-owski");
+
+Rule   "cokolwiek-owskiej"
+Match: [] ns [orth~"[-­–]"] ns [orth~owskiej];
+Eval:  word(adj:sg:gen:f:pos, 1.orth "-owski";
+            adj:sg:loc:f:pos, 1.orth "-owski";
+            adj:sg:dat:f:pos, 1.orth "-owski");
+
+
+################################################################################
+## Wyrazy z dywizem:
+################################################################################
+
+
+# polsko-niemiecki, zero-procentowy, etc.
+
+Rule   "cokolwiek-adj"
+Match: [] ns [orth~"[-­–]"] ns [pos~adj];
+Eval:  word(5,,"X-" base);
+
+# 50-lecie, etc.
+
+Rule   "50-lecie"
+Match: [] ns [orth~"[-­–]"] ns [orth~lecie/i];
+Eval:  word(subst:sg:nom:n, 1.orth "-lecie";
+            subst:sg:acc:n, 1.orth "-lecie");
+
+Rule   "50-lecia"
+Match: [] ns [orth~"[-­–]"] ns [orth~lecia/i];
+Eval:  word(subst:sg:gen:n, 1.orth "-lecie");
+
+Rule   "50-leciu"
+Match: [] ns [orth~"[-­–]"] ns [orth~leciu/i];
+Eval:  word(subst:sg:loc:n, 1.orth "-lecie";
+            subst:sg:dat:n, 1.orth "-lecie");
+
+Rule   "50-leciem"
+Match: [] ns [orth~"[-­–]"] ns [orth~leciem/i];
+Eval:  word(subst:sg:inst:n, 1.orth "-lecie");
+
+
+
+################################################################################
+## Proste nazwy własne:
+################################################################################
+
+Rule   "Canal+"
+Match: [orth~Canal] ns [orth~"\+"];
+Eval:  word(subst:sg:case*:m3,"Canal+");
+
+Rule   "Canalem+"
+Match: [orth~"Canal.+"] ns [orth~"\+"];
+Eval:  word(1,,"Canal+");
+
+Rule   "Cyfra+"
+Match: [base~cyfra && orth~"C.*"] ns [orth~"\+"];
+Eval:  word(1,,"Cyfra+");
+
+Rule   "Die Zeit"
+Match: [orth~Die] [orth~Zeit];
+Eval:  word(subst:sg:case*:f,"Die Zeit");
+
+Rule   "Lew Rywin"
+Match: [base~lew && orth~"L.*"] [base~rywin && orth~"R.*"];
+Eval:  unify(case number, 1, 2);
+       word(2,,"Lew Rywin");
+
+Rule   "Marilyn Monroe"
+Match: [orth~Marilyn] [orth~Monroe];
+Eval:  leave(gender~f, 2);
+       word(2,,"Marilyn Monroe");
+
+Rule   "Arciszewska-Mielewczyk, Nowina-Konopka"
+Match: [orth~"Arciszewska|Nowina"] ns [orth~"[-­–]"] ns [orth~"Mielewczyk|Konopka"];
+Eval:  word(subst:sg:nom:f,0.orth);
+
+Rule   "Borne Sulinowo: nom,acc,voc"
+Match: [orth~Borne] [orth~Sulinowo];
+Eval:  word(subst:sg:nom:n,"Borne Sulinowo";
+            subst:sg:acc:n,"Borne Sulinowo";
+            subst:sg:voc:n,"Borne Sulinowo");
+
+Rule   "Borne Sulinowo: loc"
+Match: [orth~Bornem] [orth~Sulinowie];
+Eval:  word(subst:sg:loc:n,"Borne Sulinowo");
+
+Rule   "Borne Sulinowo: inst"
+Match: [orth~Bornem] [orth~Sulinowem];
+Eval:  word(subst:sg:inst:n,"Borne Sulinowo");
+
+Rule   "Borne Sulinowo: gen"
+Match: [orth~Bornego] [orth~Sulinowa];
+Eval:  word(subst:sg:gen:n,"Borne Sulinowo");
+
+
+################################################################################
+## Liczby:
+################################################################################
+
+# ######################################################################
+# Porządkowe:
+# ######################################################################
+
+Rule   "liczba -- liczba cyframi . po przyimku (1)"
+Left:  [pos~prep];
+Match: [orth~"[1-9][0-9]*"] ns [orth~"\."];
+Right: [pos~"subst|adj"];
+Eval:  agree(case,1,5);
+       word(adj:number*:case*:gender*:pos, 0.orth);
+
+Rule   "liczba -- liczba cyframi . po przyimku (2)"
+Left:  [pos~prep];
+Match: [orth~"[1-9][0-9]*\."];
+Right: [pos~"subst|adj"];
+Eval:  unify(case,1,2,3);
+       unify(case gender number, 2, 3);
+
+# ######################################################################
+# Główne
+# ######################################################################
+
+Rule   "liczba -- liczba cyframi"
+Match: [orth~"[0-9]+"] (ns [orth~"[-­–,]"] ns [orth~"[0-9]+"])?;
+Eval:  word(liczba,0.orth);
+
+Rule   "liczba -- 1981­1993 jako jeden token z dziwnym dywizem"
+Match: [orth~"[1-9][­0-9]*[1-9]"];
+Eval:  word(liczba,0.orth);
+
+Rule   "liczba -- liczba milionów (itp.)"
+Match: [pos~liczba]
+       [base~"tysiąc|milion|miliard|bilion|trylion"];
+Eval:  word(liczba,0.orth);
+
+Rule   "liczba -- około/prawie/ponad (itp.) liczba"
+Match: ([base~"około|prawie|niemal"] | [base~"nieco|trochę|dużo|sporo"]? 
+        [orth~"ponad|powyżej"] | [orth~co] [orth~"najmniej|najwyżej"])
+       [pos~liczba];
+Eval:  word(liczba,0.orth);
+
+# Eksperymentalne:
+
+Rule   "liczba --> liczba liczba+"
+Match: [pos~liczba] [pos~liczba]+;
+Eval:  word(liczba,0.orth);
+
+
+################################################################################
+## Czasowniki:
+################################################################################
+
+
+Rule   "czasownik niezanegowany 1a"
+Left:  sb [pos~interp]* ns?;
+Match: [pos~~"winien|praet|bedzie|fin|impt|imps|inf"]
+       (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(4, aff, base);
+
+Rule   "czasownik niezanegowany 1b"
+Left:  sb [pos~interp]* ns?;
+Match: [pos~"winien|praet"] 
+       (ns [orth~"by(m|ś(my|cie)?)?"])? ns [pos~~aglt];
+Eval:  leave(pos~"winien|praet|bedzie|fin|impt|imps|inf",4);
+       word(4, aff, base);
+
+Rule   "czasownik niezanegowany 2a"
+Left:  [orth!~nie/i] ns?;
+Match: [pos~~"winien|praet|bedzie|fin|impt|imps|inf" && negation!~".*"]
+       (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(3, aff, base);
+
+Rule   "czasownik niezanegowany 2b"
+Left:  [orth!~nie/i] ns?;
+Match: [pos~"winien|praet" && negation!~".*"]
+       (ns [orth~"by(m|ś(my|cie)?)?"])? ns [pos~~aglt];
+Eval:  word(3, aff, base);
+
+Rule   "czasownik niezanegowany 2a jeszcze raz"
+Left:  [orth!~nie/i];
+Match: [pos~~"winien|praet|bedzie|fin|impt|imps|inf" && negation!~".*"] (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  word(2, aff, base);
+
+Rule   "czasownik zanegowany"
+Left:  (sb | [pos~interp] ns | [case!~acc] | [pos!~prep]);
+Match: [orth~nie/i] [pos~~"winien|praet|bedzie|fin|impt|imps|inf"] (ns [orth~"by(m|ś(my|cie)?)?"])? (ns [pos~~aglt])?;
+Eval:  leave(pos~qub, 2);
+       word(3, neg, base);
+
+
+################################################################################
+## Na przykład bez liku:
+################################################################################
+
+Rule   "bez liku"
+Match: [orth~bez/i] [orth~liku/i];
+Eval:  delete(pos~"subst",2); word(qub, "bez liku");
+
+Rule   "na przykład"
+Match: [orth~na/i] [orth~przykład/i];
+Eval:  unify(case,1,2); word(qub, "na przykład");
+
+Rule   "na pewno"
+Match: [orth~na/i] [orth~pewno/i];
+Eval:  word(qub, "na pewno");
+
+Rule   "po ciemku, kryjomu itp."
+Match: [orth~po/i] [orth~"ciemku|kryjomy|omacku|trochu|prostu|cichu"/i];
+Eval:  delete(pos~"subst",2); word(qub, "po " 2.orth);
+
+Rule   "przede wszystkim"
+Match: [orth~przede/i] [orth~wszystkim/i];
+Eval:  unify(case,1,2); word(qub, "przede wszystkim");
+
+Rule   "w ogóle"
+Match: [orth~w/i] [orth~ogóle/i];
+Eval:  unify(case,1,2); word(qub, "w ogóle");
+
+Rule   "za darmo"
+Match: [orth~za/i] [orth~darmo/i];
+Eval:  word(qub, "za darmo");
+
+
+# złożone przyimki
+
+Rule   "w poprzek"
+Match: [orth~w/i] [orth~poprzek/i];
+Eval:  word(prep:gen, "w poprzek");
+
+
+################################################################################
+## Interpunkcja:
+################################################################################
+
+Rule   "..."
+Match: [orth~"\."] ns [orth~"\."] ns [orth~"\."];
+Eval:  word(interp,"...");
+
+Rule   "„ tok ”"
+Match: [orth~"„"] ns [] ns [orth~"”"];
+Eval:  word(3,,);
+
+Rule   "&quot; tok &quot;"
+Match: [orth~"&quot;"] [] [orth~"&quot;"];
+Eval:  word(3,,);
+
+Rule   "\"tok\""
+Match: [orth~"\""] [] [orth~"\""];
+Eval:  word(2,,);
+
+
+################################################################################
+## Różne:
+################################################################################
+
+# kiedyś, gdzieś, etc. -- assume they are always single tokens
+
+Rule   "kiedyś, gdzieś, etc."
+Match: [orth~"kiedy|gdzie"/i] ns [orth~"ś"];
+Eval:  word(qub,0.orth);
+
+Rule   "o mało (nie)"
+Match: [base~o] [orth~mało/i];
+Right: [orth~nie/i];
+Eval:  word(qub,0.orth);
+
+
+
+
+### Local Variables:
+### coding: utf-8
+### mode: Default-Generic
+### End:

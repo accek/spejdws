@@ -1,0 +1,498 @@
+################################################################################
+## NER:
+################################################################################
+
+# ######################################################################
+# Media
+# ######################################################################
+
+Rule   "Krajowa Rada Radiofonii i Telewizji"
+Match: [base~krajowy] [base~rada] [orth~Radiofonii] [orth~i] [orth~Telewizji];
+Eval:  unify(case number gender, 1, 2);
+       group(NG,2,2);
+       leave(base~krajowy, 1);
+       leave(base~rada, 2);
+       leave(case~gen && number~sg, 3, 5);
+
+Rule   "Krajowa Rada"
+Match: [base~krajowy && orth~"K.*"] [base~rada && orth~"R.*"];
+Eval:  unify(case number gender, 1, 2);
+       group(NG,2,2);
+       leave(base~krajowy, 1);
+       leave(base~rada, 2);
+
+Rule   "Urząd Regulacji Telekomunikacji i Poczty"
+Match: [base~urząd] [orth~Regulacji] [orth~Telekomunikacji] [orth~i] [orth~Poczty];
+Eval:  group(NG,1,1);
+       leave(case~gen && number~sg, 2, 3, 5);
+
+Rule   "radio / stacja"
+Match: [base~"radio|stacja"] [orth~"Zet|RMF( FM)?|Blue( FM)?|Wałbrzych"];
+Eval:  group(NG,1,1);
+
+Rule   "Polskie Radio"
+Match: [base~polski && orth~"P.*"] [base~radio && orth~"R.*"];
+Eval:  unify(case gender number,1,2);
+       group(NG,1,2);
+
+Rule   "Telewizja"
+Match: [base~telewizja] [orth~"TVN|Polsat|Kraków|Rzeszów|BBC|CNN"]
+       ([orth~SA] | [orth~S] ns [orth~"\."] ns [orth~A] ns [orth~"\."])?;
+Eval:  group(NG,1,1);
+
+Rule   "Gazeta Wyborcza"
+Match: [base~gazeta && orth~"G.*"] [base~wyborczy && orth~"W.*"];
+Eval:  unify(case number gender, 1, 2);
+       group(NG,1,1);
+
+
+# ######################################################################
+# Inne byty:
+# ######################################################################
+
+Rule   "Naczelny Sąd Administracyjny"
+Match: [base~naczelny && orth~"N.*"] [base~sąd && orth~"S.*"] [orth~administracyjny && orth~"A.*"];
+Eval:  unify(case number gender, 1, 2, 3);
+       group(NG,2,2);
+
+Rule   "Trybunał Konstytucyjny"
+Match: [base~trybunał && orth~"T.*"] [base~konstytucyjny && orth~"K.*"];
+Eval:  unify(case number gender, 1, 2);
+       group(NG,1,1);
+
+Rule   "Unia Europejska"
+Match: [base~unia && orth~"U.*"] [base~europejski && orth~"E.*"];
+Eval:  unify(case number gender, 1, 2);
+       group(NG,1,1);
+
+Rule   "ustawa o radiofonii i telewizji"
+Match: [base~ustawa] [orth~o] [orth~radiofonii] [orth~i] [orth~telewizji];
+Eval:  group(NG,1,1);
+       leave(base~ustawa, 1);
+       leave(case~loc, 2);
+       leave(case~loc && number~sg, 3);
+       leave(case~loc && number~sg, 5);
+
+Rule   "kodeks postępowania karnego"
+Match: [base~kodeks] [orth~"[Pp]ostępowania"] [orth~"[Kk]arnego"];
+Eval:  group(NG,1,1);
+       leave(pos~ger && case~gen && number~sg, 2);
+       unify(case gender number, 2, 3);
+
+Rule   "Stronnictwo Konserwatywno-Ludowe"
+Match: [base~stronnictwo && orth~"S.*"] [orth~"Konserwatywno"] ns [orth~"[-­–]"] ns [base~ludowy && orth~"L.*"];
+Eval:  unify(case number gender, 1, 6);
+       group(NG,1,1);
+
+Rule   "Puchar UEFA"
+Match: [base~puchar] [orth~"UEFA"];
+Eval:  group(NG,1,1);
+
+Rule   "Komisja Gospodarki i Finansów Publicznych"
+Match: [base~komisja] [orth~Gospodarki] [orth~i] [orth~Finansów] [orth~Publicznych];
+Eval:  group(NG,1,1);
+       leave(case~gen && number~sg, 2);
+       leave(case~gen && number~pl, 4);
+       leave(case~gen && number~pl, 5);
+
+
+# ######################################################################
+# Nazwiska
+# ######################################################################
+
+Rule   "Vocative: panie + pośle / prezydencie, etc."
+Match: [pos~adj && case~nom]? [orth~panie/i] [case~voc]+;
+Right: (ns? [pos~interp] | se);
+Eval:  agree(number gender,1,2,3);
+       agree(case number gender,2,3);
+       leave(case~~nom, 1);
+       leave(case~~voc, 3);
+       unify(number gender, 1,2,3);
+       unify(case number gender,2,3);
+       group(NG,2,2);
+
+Rule   "Vocative: panie + przewodniczący"
+Match: [pos~adj && case~nom]? [orth~panie/i] [orth~przewodniczący/i];
+Right: (ns? [pos~interp] | se);
+Eval:  set(subst:sg:voc:m1, "przewodniczący", 3);
+       agree(number gender,1,2,3);
+       agree(case number gender,2,3);
+       leave(case~~nom, 1);
+       unify(number gender, 1, 2, 3);
+       unify(case number gender, 2, 3);
+       group(NG,2,2);
+
+Rule   "pan poseł? Jan (M.)? Kowalski"
+Match: [base~"pan|pani|baron|baronowa|poseł|posłanka|senator|minister|sekretarz|prezydent|redaktor|prezes|doktor|profesor|generał|pułkownik"] 
+       [base~"prof|dr|hab|poseł|posłanka|senator|minister|sekretarz|prezydent|redaktor|prezes|premier|doktor|profesor|generał|pułkownik"]* 
+       ([base~"prof|dr|hab"] ns? [orth~"\."]?)* [orth~"[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż].*"] 
+       ([orth~"[A-ZĄĆĘŁŃÓŚŹŻ]"] [orth~"\."])? [orth~"[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż].*"];
+Eval:  unify(case number,1,2,4);
+       group(NG,1,1);
+       unify(case number gender,1,2,4,6);
+
+Rule   "pan poseł? Szteliga (nazwisko --> możliwe ign)"
+Match: [base~"pan|pani|baron|baronowa|poseł|posłanka|senator|minister|sekretarz|prezydent|redaktor|prezes|doktor|profesor|generał|pułkownik"]
+       [base~"prof|dr|hab|poseł|posłanka|senator|minister|sekretarz|prezydent|redaktor|prezes|premier|doktor|profesor|generał|pułkownik"]*
+       ([base~"prof|dr|hab"] ns? [orth~"\."]?)* ([orth~"[A-ZĄĆĘŁŃÓŚŹŻ]"] [orth~"\."])?
+       [orth~"[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż].*"];
+Right: (ns | se | [synh=[]] | [orth~"[a-ząćęłńóśźż0-9].*"] | [pos~interp]);
+Eval:  unify(case number gender, 1, 2);
+       group(NG,1,1);
+       unify(case number, 1, 2, 5);
+       unify(case number gender, 1, 2, 5);
+       unify(case number gender, 1, 2, 5, 6);
+
+Rule   "pan poseł"
+Match: [base~"pan|pani"]
+       [base~"poseł|posłanka|senator|minister|sekretarz|prezydent|redaktor|prezes|doktor|profesor|generał|pułkownik"] ;
+Eval:  unify(case number, 1, 2);
+       group(NG,1,1);
+       unify(case number gender, 1, 2);
+
+
+
+
+################################################################################
+## Liczby, godziny, daty itp.
+################################################################################
+
+# ######################################################################
+# Liczby:
+# ######################################################################
+
+Rule   "liczba -- punkt + liczba cyframi ."
+Match: [base~punkt] [orth~"[1-9][0-9]*"] ns [orth~"\."];
+Eval:  group(NG,1,1);
+
+
+# ######################################################################
+# Godziny:
+# ######################################################################
+
+Rule   "o godz. 20.08"
+Match: [orth~"[Oo]|[Dd]o"] [base~godzina] [orth~"[12]?[0-9]"] (ns [orth~"\."] ns [orth~"[0-5][0-9]"])?;
+Eval:  unify(case,1,2); 
+       group(PrepNG,1,2);
+       leave(base~godzina && number~sg, 2);
+
+
+# ######################################################################
+# Daty:
+# ######################################################################
+
+# Grupy nominalne:
+##################
+
+Rule   "obecnie, wczoraj itp."
+Match: [orth~"[Oo]becnie|[Pp]rzedwczoraj|[Ww]czoraj|[Dd]zisiaj|[Jj]utro|[Pp]ojutrze"];
+Eval:  group(Temp_NG,1,1);
+
+# Miesiące:
+
+Rule   "month"
+Match: [base~"styczeń|luty|marzec|kwiecień|maj|czerwiec|lipiec|sierpień|wrzesień|październik|listopad|grudzień"];
+Eval:  group(Month_NG,1,1);
+       leave(base~"styczeń|luty|marzec|kwiecień|maj|czerwiec|lipiec|sierpień|wrzesień|październik|listopad|grudzień",1);
+
+# Lata:
+
+Rule   "br. -- group"
+Match: [orth~"br\."];
+Eval:  group(Year_NG,1,1);
+
+Rule   "2000 roku"
+Match: [pos~liczba && orth~"[12][0-9]{3}"] [base~rok && number~sg];
+Eval:  group(Year_NG,2,2);
+
+Rule   "roku 2000"
+Match: [base~rok && number~sg] [pos~liczba && orth~"[12][0-9]{3}"];
+Eval:  group(Year_NG,1,1);
+
+Rule   "tego/owego roku"
+Match: [base~"ten|ów|ubiegły"] [base~rok];
+Eval:  unify(case number gender,1,2);
+       group(Year_NG,2,2);
+
+Rule   "roku tego/owego"
+Match: [base~rok] [base~"ten|ów|ubiegły"];
+Eval:  unify(case number gender,1,2);
+       group(Year_NG,1,1);
+
+# Dni:
+
+Rule   "dzień dzisiejszy"
+Match: [base~dzień] [base~"dzisiejszy|wczorajszy|jutrzejszy"];
+Eval:  group(Day_NG,1,1);
+       unify(case number gender,1,2);
+
+Rule   "dzisiejszy dzień"
+Match: [base~"dzisiejszy|wczorajszy|jutrzejszy"] [base~dzień];
+Eval:  group(Day_NG,2,2);
+       unify(case number gender,1,2);
+
+Rule   "dzień + day + Month_NG + Year_NG?"
+Match: [base~dzień] [pos~liczba && orth~"[1-9]|[12][0-9]|3[01]"] 
+       (ns [orth~"[-­–]"] ns [orth~go])? 
+       ([type="Month_NG" && synh=[case~gen]] | [orth~"I*[VX]I*"])
+       ([type="Year_NG"] | [pos~liczba && orth~"[12][0-9]{3}"])?;
+Eval:  group(DayMonth_NG,1,1);
+       leave(case~~gen,4,5);
+
+Rule   "day + Month_NG + Year_NG?"
+Match: [pos~liczba && orth~"[1-9]|[12][0-9]|3[01]"]
+       (ns [orth~"[-­–]"] ns [orth~go])? 
+       ([pos~conj] [pos~liczba && orth~"[1-9]|[12][0-9]|3[01]"] (ns [orth~"[-­–]"] ns [orth~go])?)?
+       ([type="Month_NG" && synh=[case~gen]] | [orth~"I*[VX]I*"])
+       ([type="Year_NG"] | [pos~liczba && orth~"[12][0-9]{3}"])?;
+Eval:  group(DayMonth_NG,1,1);
+       leave(case~gen,4,5);
+
+# Znowu lata (ale w liczbie mnogiej):
+
+Rule   "latach pięćdziesiątych i szcześćdziesiątych"
+Match: [base~rok && number~pl] [pos~~adj] [pos~~conj]? [pos~~adj]?;
+Right: ns? [pos~interp]? ns? 
+       (se | [type=".*"] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  unify(case number gender,1,2,4);
+       group(Year_NG,1,1);
+
+Rule   "latach 1991-1993"
+Match: [base~rok && number~pl] [orth~"[0-9]+[-­–][0-9]+" && pos~~liczba];
+Eval:  group(Year_NG,1,1);
+
+Rule   "latach 50."
+Match: [base~rok && number~pl] [pos~~liczba] ns? [orth~"\."]
+       ([pos~~conj] [base~początek]? [pos~~liczba] ns? [orth~"\."])?;
+Right: (ns? [] | se);
+Eval:  group(Year_NG,1,1);
+
+Rule   "latach 9827349"
+Match: [base~rok && number~pl] [pos~~liczba];
+Right: ns? [pos~interp]? ns? 
+       (se | [type=".*"] | [pos~~"winien|praet|bedzie|fin|impt|imps|inf|pcon|pant|pred"]);
+Eval:  group(Year_NG,1,1);
+
+# Grupy przyimkowe:
+###################
+
+# Prep + Year_NG:
+
+Rule   "Prep + Year_NG"
+Match: [orth~"[Ww]|[Dd]o|[Oo]d|[Pp]o"] [type="Year_NG"];
+Eval:  unify(case,1,2);
+       group(Year_PrepNG,1,2);
+       leave(pos~~prep,1);
+
+# Prep + Month_NG + Year_NG?
+
+Rule   "Prep + Month_NG + Year_NG?"
+Match: [orth~"[Ww]e?|[Dd]o|[Oo]d|[Pp]o"] [type="Month_NG"]
+       ([type="Year_NG"] | [pos~liczba && orth~"[12][0-9]{3}"])?;
+Eval:  unify(case,1,2);
+       group(Month_PrepNG,1,2);
+       leave(pos~~prep,1);
+       leave(case~~gen,3);
+
+# Prep + Day_NG
+
+Rule   "Prep + Day(Month)_NG:"
+Match: [pos~prep] [type="Day.*_NG"];
+Eval:  unify(case,1,2);
+       group(DayMonth_PrepNG,1,2);
+       leave(pos~~prep,1);
+
+Rule   "w dniu 8-go itp."
+Match: [pos~prep] [base~dzień] 
+       [pos~liczba && orth~"[1-9]|[12][0-9]|3[01]"] ns [orth~"[-­–]"] ns [orth~go]
+       ([pos~conj] [pos~liczba && orth~"[1-9]|[12][0-9]|3[01]"] ns [orth~"[-­–]"] ns [orth~go])?;
+Eval:  unify(case,1,2);
+       group(DayMonth_PrepNG,1,2);
+       delete(base~on,7);
+
+# Grupy duratywne:
+
+Rule   "w ciągu 5 lat"
+Match: [orth~"[Ww]"] [orth~"ciągu|perspektywie"]
+       [orth~"nadchodzących|mijających|najbliższych|ostatnich"]? [pos~liczba] [orth~lat];
+Eval:  group(During_PrepNG,1,2);
+       leave(pos~~prep,1);
+       leave(case~~loc,1,2);
+       leave(base~~rok,5);
+       leave(case~~gen,3,5);
+       unify(case number gender,3,5);
+
+# Inne wyrażenia temporalne:
+
+Rule   "w przyszłości / w przeszłości"
+Match: [orth~w/i]
+       ([orth~bardzo]? [orth~"dalekiej|bliskiej|odległej|nieodległej"])?
+       [orth~"przyszłości|przeszłości"];
+Eval:  group(Temp_PrepNG,1,3);
+       unify(case,1,3);
+
+
+
+# ######################################################################
+# Inne grupy liczbowe:
+# ######################################################################
+
+Rule   "ok. 500 mln złotych polskich"
+Match: [pos~liczba] ([orth~złotych] | [orth~marek]) ([orth~polskich] | [orth~niemieckich]);
+Eval:  group(NumG,1,2);
+
+Rule   "ok. 500 mln złotych"
+Match: [pos~liczba] ns? ([orth~"nowych|starych"])? [orth~"USD|dolarów|bugsów|DM|marek|PLN|zł|gr|złotych|groszy|EUR|euro"];
+Eval:  group(NumG,1,4);
+
+Rule   "ok. 99 proc."
+Match: [pos~liczba] [orth~proc] (ns [orth~"\."])?;
+Eval:  group(NumG,1,2);
+       set(subst:number*:gen:m3,"procent",2);
+
+Rule   "ok. 99 %"
+Match: [pos~liczba] ns? [orth~"%"];
+Eval:  group(NumG,1,3);
+       set(subst:number*:gen:m3,"procent",3);
+
+Rule   "ok. 99 ‰"
+Match: [pos~liczba] ns? [orth~"‰"];
+Eval:  group(NumG,1,3);
+       set(subst:number*:gen:m3,"promil",3);
+
+
+
+################################################################################
+## DisG:
+################################################################################
+
+Rule   "sentence-initial 'Tym samym'"
+Left:  sb;
+Match: [pos~conj]? [orth~tym/i] [orth~samym] (ns [pos~interp])?;
+Right: ([case!~inst] | [synh=[case!~inst]]);
+Eval:  group(DisG,3,3);
+
+
+Rule   "sentence-initial 'No cóż'"
+Left:  sb;
+Match: [orth~no/i] [orth~cóż] (ns [pos~interp])?;
+Eval:  group(DisG,2,2);
+
+
+Rule   "sentence-initial 'A nuż'"
+Left:  sb;
+Match: [orth~a/i] [orth~nuż] (ns [pos~interp])?;
+Eval:  group(DisG,2,2);
+
+
+Rule   "sentence-initial 'A co,', 'A zatem,', etc."
+Left:  sb;
+Match: [orth~a/i] [orth~"zatem|więc|co"] ns [pos~interp];
+Eval:  group(DisG,3,3);
+
+
+Rule   "sentence-initial 'Jeśli już, to'"
+Left:  sb;
+Match: [orth~"jeśli|jeżeli"/i] [orth~już] (ns [pos~interp])? [orth~to];
+Eval:  group(DisG,2,2);
+
+
+Rule   "jak to się mówi, jak się wydaje, etc."
+Match: (sb | [orth~","]) [orth~"jak"/i] ([orth~to] [orth~się] [orth~"mówi|powiada"] | [orth~"mówią|powiadają"] | [orth~się] [orth~wydaje]) (se | ns [orth~","]);
+Eval:  group(DisG,2,2);
+
+
+Rule   "z punktu widzenia"
+Match: [orth~"[Zz]e?"] [pos~adj && case~gen] [orth~punktu] [orth~widzenia];
+Eval:  leave(pos~prep, 1);
+       leave(case~gen, 1, 2, 3, 4);
+       unify(number gender, 2, 3);
+       group(DisG, 1, 3);
+
+Rule   "oto, zgoła, tylko, etc."
+Match: [orth~"dotychczas|oto|zgoła|tylko|też|także|natomiast|no|choćby|chociażby|zwłaszcza|zatem|właściwie|właśnie|faktycznie|oczywiście|naprawdę|wreszcie|już|jednak|tymczasem|zresztą"/i];
+Eval:  group(DisG,1,1);
+
+Rule   "w ogóle, przede wszystkim, etc."
+Match: [orth~"w ogóle|przede wszystkim"/i];
+Eval:  group(DisG,1,1);
+
+Rule   "sentence-initial conjunction"
+Left:  sb [pos~interp]* ns?;
+Match: [pos~~conj] [pos~~conj]*;
+Eval:  group(DisG,4,4);
+
+Rule   "itp., itd., np."
+Match: [orth~"itp|itd|[Nn]p"] (ns [orth~"\."])?;
+Eval:  group(DisG,1,1);
+
+Rule   "m.in."
+Match: [orth~"[Mm]"] ns [orth~"\."] ns [orth~"[Ii]n"] ns [orth~"\."];
+Eval:  group(DisG,1,1);
+
+Rule   "netto, brutto"
+Match: [orth~"netto|brutto"/i];
+Eval:  group(DisG,1,1);
+
+
+################################################################################
+## Inne grupy leksykalne:
+################################################################################
+
+# ######################################################################
+# sie
+# ######################################################################
+
+Rule   "sie"
+Match: [orth~"si[ęe]"];         # sie -- 157 occurrences in sample
+Eval:  group(sie,1,1);
+
+# ######################################################################
+# Apozycje itp.:
+# ######################################################################
+
+Rule   "litera/cyfra/znak"
+Match: [base~"litera|cyfra|znak"] [orth~"." && pos~ign];
+Eval:  group(NG,1,1);
+
+Rule   "druk nr 30"
+Match: [pos~~subst] [orth~nr/i] [pos~liczba];
+Eval:  group(NG,1,1);
+
+Rule   "księga Guinessa"
+Match: [orth~księga/i] [orth~"Guinessa"];
+Eval:  group(NG,1,1);
+
+
+# ######################################################################
+# Inne:
+# ######################################################################
+
+Rule   "warunek sine qua non"
+Match: [base~warunek] [orth~sine] [orth~qua] [orth~non];
+Eval:  group(NG,1,1);
+       leave(pos~ign, 2, 3, 4);
+
+Rule   "art. 52 (§ 1) regulaminu"
+Match: [base~artykuł] ns? [pos~liczba] ([orth~"§.*"] ns? [pos~liczba]?)* ([orth~ust/i] ns? [pos~liczba])? ([orth~"regulaminu|kodeksu"/i] [orth~"sejmu|senatu"/i]? | [synh=[orth~"regulaminu|kodeksu"/i]])?;
+Eval:  group(NG,1,1);
+
+Rule   "to wszystko"
+Match: [orth~to/i] [orth~wszystko];
+Eval:  leave(pos~adj,1);
+       agree(case number gender,1,2);
+       group(NG,2,2);
+
+Rule   "zgodnie z"
+Match: [base~zgodnie] [base~z] ([synh=[case~inst]] | [pos~~subst && case~inst]);
+Eval:  leave(pos~~prep && case~~inst,2);
+       leave(case~~inst,3);
+       group(AdvG,1,1);
+
+
+
+### Local Variables:
+### coding: utf-8
+### mode: Default-Generic
+### End:
+

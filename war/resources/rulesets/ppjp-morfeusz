@@ -1,0 +1,569 @@
+# ######################################################################
+# Words unknown to Morfeusz
+# ######################################################################
+
+Rule   "...osobowy, szacowny"
+Match: [orth~"niczyj|(.+osobow|.*mandatow|rewaluacyjn|reumatoidaln|szacown|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow)y|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)i"/i && pos~ign];
+Eval:  set(adj:sg:nom:m1:pos,,1);
+       add(adj:sg:nom:m2:pos,,1);
+       add(adj:sg:nom:m3:pos,,1);
+       add(adj:sg:acc:m3:pos,,1);
+
+Rule   "...osobowa, szacowna"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|palestyńsk|międzyregionaln|.+lotnicza|pilsk|.+ministerialn|dostosowawcz|wrog|ilorazow|.+prawn|katowick|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|.+europejsk|hac?kersk|.+jak|płock|niczyj|poznańsk|białostock|.*sądeck|witebsk)a"/i && pos~ign];
+Eval:  set(adj:sg:nom:f:pos,,1);
+
+Rule   "...osobową, szacowną"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|palestyńsk|międzyregionaln|.+lotnicz|pilsk|.+ministerialn|dostosowawcz|wrog|ilorazow|.+prawn|katowick|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|.+europejsk|hac?kersk|.+jak|płock|niczyj|poznańsk|białostock|.*sądeck|witebsk)ą"/i && pos~ign];
+Eval:  set(adj:sg:acc:f:pos,,1);
+
+Rule   "...osobowego, szacownego"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|niczyj)ego|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)iego"/i && pos~ign];
+Eval:  set(adj:sg:gen:m1:pos,,1);
+       add(adj:sg:gen:m2:pos,,1);
+       add(adj:sg:gen:m3:pos,,1);
+       add(adj:sg:gen:n:pos,,1);
+       add(adj:sg:acc:m1:pos,,1);
+       add(adj:sg:acc:m2:pos,,1);
+
+Rule   "...osobowemu, szacownemu"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|niczyj)emu|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)iemu"/i && pos~ign];
+Eval:  set(adj:sg:dat:m1:pos,,1);
+       add(adj:sg:dat:m2:pos,,1);
+       add(adj:sg:dat:m3:pos,,1);
+       add(adj:sg:dat:n:pos,,1);
+
+Rule   "...osobowej, szacownej"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|niczyj)ej|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)iej"/i && pos~ign];
+Eval:  set(adj:sg:dat:f:pos,,1);
+
+Rule   "...osobowym, szacownym"
+Match: [orth~"niczyim|(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow)ym|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)im"/i && pos~ign];
+Eval:  set(adj:sg:loc:m1:pos,,1);
+       add(adj:sg:loc:m2:pos,,1);
+       add(adj:sg:loc:m3:pos,,1);
+       add(adj:pl:dat:gender*:pos,,1);
+
+Rule   "...osobowymi, szacownymi"
+Match: [orth~"niczyimi|(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow)ymi|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)imi"/i && pos~ign];
+Eval:  set(adj:pl:inst:gender*:pos,,1);
+
+Rule   "...osobowe, szacowne"
+Match: [orth~"(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow|niczyj)e|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)ie"/i && pos~ign];
+Eval:  set(adj:pl:nom:m2:pos,,1);
+       add(adj:pl:nom:m3:pos,,1);
+       add(adj:pl:nom:n:pos,,1);
+       add(adj:pl:nom:f:pos,,1);
+       add(adj:pl:acc:m2:pos,,1);
+       add(adj:pl:acc:m3:pos,,1);
+       add(adj:pl:acc:n:pos,,1);
+       add(adj:pl:acc:f:pos,,1);
+
+Rule   "...osobowych, szacownych"
+Match: [orth~"niczyich|(.+osobow|.*mandatow|szacown|rewaluacyjn|reumatoidaln|międzyregionaln|.+lotnicz|.+ministerialn|dostosowawcz|ilorazow|.+prawn|.+stronn|prywatyzacyjn|.+podstawow|błędniejsz|życzeniow)ych|(palestyńsk|pilsk|wrog|katowick|.+europejsk|hac?kersk|.+jak|płock|poznańsk|białostock|.*sądeck|witebsk)ich"/i && pos~ign];
+Eval:  set(adj:pl:loc:gender*:pos,,1);
+       add(adj:pl:gen:gender*:pos,,1);
+       add(adj:pl:acc:m1:pos,,1);
+
+Rule   "bezkolizyjnie"
+Match: [orth~bezkolizyjnie/i];
+Eval:  set(adv:pos,,1);
+
+
+Rule   "...krotność"
+Match: [orth~".*krotność"/i && pos~ign];
+Eval:  set(subst:sg:nom:f,,1);
+       add(subst:sg:acc:f,,1);
+
+Rule   "...krotności"
+Match: [orth~".*krotności"/i && pos~ign];
+Eval:  set(subst:sg:gen:f,,1);
+       add(subst:sg:loc:f,,1);
+       add(subst:sg:dat:f,,1);
+
+Rule   "...krotnością"
+Match: [orth~".*krotnością"/i && pos~ign];
+Eval:  set(subst:sg:inst:f,,1);
+
+
+Rule   "niewiele"
+Match: [orth~niewiele/i];
+Eval:  add(num:pl:nom:m2,"niewiele",1);
+       add(num:pl:acc:m2,"niewiele",1);
+       add(num:pl:nom:m3,"niewiele",1);
+       add(num:pl:acc:m3,"niewiele",1);
+       add(num:pl:nom:n,"niewiele",1);
+       add(num:pl:acc:n,"niewiele",1);
+       add(num:pl:nom:f,"niewiele",1);
+       add(num:pl:acc:f,"niewiele",1);
+
+Rule   "sporo"
+Match: [orth~sporo/i];
+Eval:  add(num:pl:nom:m2,"sporo",1);
+       add(num:pl:acc:m2,"sporo",1);
+       add(num:pl:nom:m3,"sporo",1);
+       add(num:pl:acc:m3,"sporo",1);
+       add(num:pl:nom:n,"sporo",1);
+       add(num:pl:acc:n,"sporo",1);
+       add(num:pl:nom:f,"sporo",1);
+       add(num:pl:acc:f,"sporo",1);
+
+Rule   "Rzeczypospolitej"
+Match: [orth~Rzeczypospolitej];
+Eval:  set(subst:sg:gen:f,"Rzeczpospolita",1);
+       add(subst:sg:dat:f,"Rzeczpospolita",1);
+       add(subst:sg:loc:f,"Rzeczpospolita",1);
+
+Rule   "izby"
+Match: [orth~izby/i];
+Eval:  add(subst:sg:gen:f,"izba",1);
+
+Rule   "króciuteńko"
+Match: [orth~króciuteńko/i];
+Eval:  set(adv:pos,,1);
+
+Rule   "przedniejsi"
+Match: [orth~przedniejsi/i];
+Eval:  set(adj:pl:nom:m1:comp,"przedniejszy",1);
+
+Rule   "wieców"
+Match: [orth~wieców/i];
+Eval:  set(subst:pl:gen:m3,"wiec",1);
+
+Rule   "przechodniów"
+Match: [orth~przechodniów/i];
+Eval:  set(subst:pl:gen:m1,"przechodzień",1);
+
+Rule   "super, ekstra"
+Match: [orth~"super|ekstra"/i];
+Eval:  set(adj:number*:case*:gender*:pos,,1);
+       add(adv:pos,,1);
+
+Rule   "diabli"
+Match: [orth~diabli/i];
+Eval:  set(subst:pl:nom:m1, "diabeł", 1);
+
+Rule   "cosik"
+Match: [orth~cosik/i];
+Eval:  set(subst:sg:nom:n,"coś",1);
+       add(subst:sg:acc:n,"coś",1);
+
+Rule   "jacyś"
+Match: [orth~jacyś/i];
+Eval:  set(adj:pl:nom:m1, "jakiś",1);
+
+Rule   "gdzież"
+Match: [orth~gdzież/i];
+Eval:  set(qub,"gdzie",1);
+
+Rule   "kiedyż"
+Match: [orth~kiedyż/i];
+Eval:  set(qub,"kiedy",1);
+
+Rule   "ileż"
+Match: [orth~ileż/i];
+Eval:  set(num:pl:nom:m2,"ile",1);
+       add(num:pl:acc:m2,"ile",1);
+       add(num:pl:voc:m2,"ile",1);
+       add(num:pl:nom:m3,"ile",1);
+       add(num:pl:acc:m3,"ile",1);
+       add(num:pl:voc:m3,"ile",1);
+       add(num:pl:nom:n,"ile",1);
+       add(num:pl:acc:n,"ile",1);
+       add(num:pl:voc:n,"ile",1);
+       add(num:pl:nom:f,"ile",1);
+       add(num:pl:acc:f,"ile",1);
+       add(num:pl:voc:f,"ile",1);
+
+Rule   "tegoż"
+Match: [orth~tegoż/i];
+Eval:  set(adj:sg:gen:m1:pos,"ten",1);
+       add(adj:sg:gen:m2:pos,"ten",1);
+       add(adj:sg:gen:m3:pos,"ten",1);
+       add(adj:sg:gen:n:pos,"ten",1);
+       add(adj:sg:acc:m1:pos,"ten",1);
+       add(adj:sg:acc:m2:pos,"ten",1);
+
+Rule   "tejże"
+Match: [orth~tejże/i];
+Eval:  set(adj:sg:gen:f:pos,"ten",1);
+       add(adj:sg:dat:f:pos,"ten",1);
+       add(adj:sg:loc:f:pos,"ten",1);
+
+Rule   "tychże"
+Match: [orth~tychże/i];
+Eval:  set(adj:pl:gen:gender*:pos,"ten",1);
+       add(adj:pl:loc:gender*:pos,"ten",1);
+       add(adj:pl:acc:m1:pos,"ten",1);
+
+Rule   "tenże"
+Match: [orth~tenże/i];
+Eval:  set(adj:sg:nom:m1:pos,"ten",1);
+       add(adj:sg:nom:m2:pos,"ten",1);
+       add(adj:sg:nom:m3:pos,"ten",1);
+       add(adj:sg:acc:m3:pos,"ten",1);
+
+Rule   "tymże"
+Match: [orth~tymże/i];
+Eval:  set(adj:sg:loc:m1:pos,"ten",1);
+       add(adj:sg:loc:m2:pos,"ten",1);
+       add(adj:sg:loc:m3:pos,"ten",1);
+       add(adj:sg:loc:n:pos,"ten",1);
+       add(adj:sg:inst:m1:pos,"ten",1);
+       add(adj:sg:inst:m2:pos,"ten",1);
+       add(adj:sg:inst:m3:pos,"ten",1);
+       add(adj:sg:inst:n:pos,"ten",1);
+       add(adj:pl:dat:gender*:pos,"ten",1);
+
+Rule   "baronowa"
+Match: [orth~baronowa/i];
+Eval:  set(subst:sg:nom:f,"baronowa",1);
+
+Rule   "suplika"
+Match: [orth~suplika/i];
+Eval:  set(subst:sg:nom:f,"suplika",1);
+
+Rule   "suplice"
+Match: [orth~suplice/i];
+Eval:  set(subst:sg:loc:f,"suplika",1);
+
+Rule   "supliki"
+Match: [orth~supliki/i];
+Eval:  set(subst:sg:gen:f,"suplika",1);
+       add(subst:pl:nom:f,"suplika",1);
+       add(subst:pl:gen:f,"suplika",1);
+
+Rule   "suplik"
+Match: [orth~suplik/i];
+Eval:  set(subst:pl:gen:f,"suplika",1);
+
+Rule   "predykaty, faxy"
+Match: [orth~"(predykat|fax|telex|spam)y|blogi"/i];
+Eval:  set(subst:pl:nom:m3,,1);
+       add(subst:pl:acc:m3,,1);
+       add(subst:pl:voc:m3,,1);
+
+Rule   "predykatów, faxów"
+Match: [orth~"(predykat|fax|telex|spam|blog)ów"/i];
+Eval:  set(subst:pl:gen:m3,,1);
+
+Rule   "predykatach, faxach"
+Match: [orth~"(predykat|fax|telex|spam|blog)ach"/i];
+Eval:  set(subst:pl:loc:m3,,1);
+
+Rule   "predykatami, faxami"
+Match: [orth~"(predykat|fax|telex|spam|blog)ami"/i];
+Eval:  set(subst:pl:inst:m3,,1);
+
+Rule   "predykatom, faxom"
+Match: [orth~"(predykat|fax|telex|spam|blog)om"/i];
+Eval:  set(subst:pl:dat:m3,,1);
+
+Rule   "predykat, fax"
+Match: [orth~"predykat|fax|telex|spam|blog"/i];
+Eval:  set(subst:sg:nom:m3,,1);
+       add(subst:sg:acc:m3,,1);
+
+Rule   "predykatu, faxu"
+Match: [orth~"(predykat|fax|telex|spam)u|bloga"/i];
+Eval:  set(subst:sg:gen:m3,,1);
+
+Rule   "predykatowi, faxowi"
+Match: [orth~"(predykat|fax|spam|blog)owi"/i];
+Eval:  set(subst:sg:dat:m3,,1);
+
+Rule   "predykatem, faxem"
+Match: [orth~"(predykat|fax|telex|spam|blogi)em"/i];
+Eval:  set(subst:sg:inst:m3,,1);
+
+Rule   "predykacie, faxie"
+Match: [orth~"(predykac|fax|telex|spam)ie|blogu"/i];
+Eval:  set(subst:sg:loc:m3,,1);
+       add(subst:sg:voc:m3,,1);
+
+Rule   "presupozycja"
+Match: [orth~presupozycja/i];
+Eval:  set(subst:sg:nom:f,,1);
+
+Rule   "presupozycję"
+Match: [orth~presupozycję/i];
+Eval:  set(subst:sg:acc:f,,1);
+
+Rule   "presupozycji"
+Match: [orth~presupozycji/i];
+Eval:  set(subst:sg:gen:f,,1);
+       add(subst:sg:loc:f,,1);
+       add(subst:sg:dat:f,,1);
+
+Rule   "karate, euro, lobby"
+Match: [orth~"karate|euro|lobby"/i];
+Eval:  set(subst:sg:case*:n,,1);
+
+Rule   "Nero"
+Match: [orth~Nero];
+Eval:  set(subst:sg:case*:m1,,1);
+
+Rule   "imiona i nazwiska męskie: nom"
+Match: [orth~"Truszczyński|Cepil|Wokulski|Kiernacki|Androsow|Baliga|Deckers|Kędracki|Rzecki|Ochocki|Sapieha|Drzymalski|Starski|Pomianowicz|Pietuszka|Adrian|Tomek|Eryk|Frankowski|Dobrovský|Rzymełka|Tusk|Witaszek|Böll|Rosati|Jagiełło|Kurpiewski|Figlus|Czerniawski|Fabisiak|Rzepecki|Josip|Vetulani|Bobola|Newton|Glemp|Abramski|Naglewski|Rybicki"];
+Eval:  set(subst:sg:nom:m1,,1);
+
+Rule   "imiona i nazwiska męskie: acc/gen"
+Match: [orth~"Truszczyńskiego|Cepila|Wokulskiego|Kiernackiego|Androsowa|Baligi|Deckersa|Kędrackiego|Rzeckiego|Ochockiego|Sapiehy|Drzymalskiego|Starskiego|Pomianowicza|Pietuszki|Adriana|Tomka|Eryka|Frankowskiego|Rzymełki|Tuska|Witaszka|Bölla|Rosatiego|Kuripewskiego|Figlusa|Czerniawskiego|Fabisiaka|Rzepeckiego|Josipa|Vetulaniego|Boboli|Newtona|Glempa|Abramskiego|Naglewskiego|Rybickiego"];
+Eval:  set(subst:sg:gen:m1,,1);
+       add(subst:sg:acc:m1,,1);
+
+Rule   "imiona i nazwiska męskie: gen"
+Match: [orth~"Jagiełły"];
+Eval:  set(subst:sg:gen:m1,,1);
+
+Rule   "imiona i nazwiska męskie: acc"
+Match: [orth~"Jagiełłę"];
+Eval:  set(subst:sg:acc:m1,,1);
+
+Rule   "imiona i nazwiska męskie: dat"
+Match: [orth~"Truszczyńskiemu|Cepilowi|Wokulskiemu|Kiernackiemu|Androsowi|Balidze|Deckersowi|Kędrackiemu|Rzeckiemu|Ochockiemu|Sapiesze|Drzymalskiemu|Starskiemu|Pomianowiczowi|Pietuszce|Adrianowi|Tomkowi|Erykowi|Frankowskiemu|Rzymełce|Tuskowi|Witaszkowi|Böllowi|Rosatiemu|Jagielle|Kurpiewskiemu|Figlusowi|Czerniawskiemu|Fabisiakowi|Rzepeckiemu|Josipowi|Vetulaniemu|Boboli|Newtonowi|Glempowi|Abramskiemu|Naglewskiemu|Rybickiemu"];
+Eval:  set(subst:sg:dat:m1,,1);
+
+Rule   "imiona i nazwiska męskie: inst"
+Match: [orth~"Truszczyńskim|Cepilem|Wokulskim|Kiernackim|Androsem|Baligą|Deckersem|Kędrackim|Rzeckim|Ochockim|Sapiechą|Drzymalskim|Starskim|Pomianowiczem|Pietuszką|Adrianem|Tomkiem|Erykiem|Frankowskim|Rzymełką|Tuskiem|Witaszkiem|Böllem|Rosatim|Jagiełłą|Kurpiewskim|Czerniawskim|Figlusem|Fabisiakiem|Rzepeckim|Josipem|Vetulanim|Bobolą|Newtonem|Glempem|Abramskim|Naglewskim|Rybickim"];
+Eval:  set(subst:sg:inst:m1,,1);
+
+Rule   "imiona i nazwiska męskie: voc"
+Match: [orth~"Jezu|Chryste"];
+Eval:  set(subst:sg:voc:m1,,1);
+
+Rule   "imiona i nazwiska żeńskie: nom"
+Match: [orth~"Jovanka|Milena|Wąsowska|Greta|Handzia|Wandzia|Okszyńska|Olechowska|Malwina|Amanda"];
+Eval:  set(subst:sg:nom:f,,1);
+
+Rule   "imiona i nazwiska żeńskie: gen"
+Match: [orth~"Jovanki|Mileny|Wąsowskiej|Grety|Handzi|Wandzi|Okszyńskiej|Olechowskiej|Malwiny|Amandy"];
+Eval:  set(subst:sg:gen:f,,1);
+
+Rule   "imiona i nazwiska żeńskie: acc"
+Match: [orth~"Józefę|Malwinę|Amandę"];
+Eval:  set(subst:sg:acc:f,,1);
+
+Rule   "imiona i nazwiska żeńskie: *"
+Match: [orth~"Margaret|Madame|Garbo|Ilse"];
+Eval:  set(subst:sg:case*:f,,1);
+
+Rule   "Kielc"
+Match: [orth~Kielc];
+Eval:  set(subst:pl:gen:m3,"Kielce",1);
+
+Rule   "Awinion"
+Match: [orth~Awinion];
+Eval:  set(subst:sg:nom:m3,"Awinion",1);
+
+Rule   "Awinionie"
+Match: [orth~Awinionie];
+Eval:  set(subst:sg:loc:m3,"Awinion",1);
+
+Rule   "Kosowo"
+Match: [orth~Kosowo];
+Eval:  set(subst:sg:nom:n,"Kosowo",1);
+
+Rule   "Kosowa"
+Match: [orth~Kosowa];
+Eval:  set(subst:sg:gen:n,"Kosowo",1);
+
+Rule   "Kosowie"
+Match: [orth~Kosowie];
+Eval:  set(subst:sg:loc:n,"Kosowie",1);
+
+Rule   "Kosowem"
+Match: [orth~Kosowem];
+Eval:  set(subst:sg:inst:n,"Kosowem",1);
+
+Rule   "Spychowa"
+Match: [orth~Spychowa];
+Eval:  set(subst:sg:gen:n,"Spychowo",1);
+
+Rule   "Spychowie"
+Match: [orth~Spychowie];
+Eval:  set(subst:sg:loc:n,"Spychowie",1);
+
+Rule   "Spychowem"
+Match: [orth~Spychowem];
+Eval:  set(subst:sg:inst:n,"Spychowem",1);
+
+Rule   "Niemczech"
+Match: [orth~"Niemczech"];
+Eval:  set(subst:pl:loc:n,"Niemcy",1);
+
+Rule   "Niemiec"
+Match: [orth~"Niemiec"];
+Eval:  add(subst:pl:gen:n,"Niemcy",1);
+
+Rule   "Niemcy"
+Match: [orth~"Niemcy"];
+Eval:  add(subst:pl:nom:n,"Niemcy",1);
+       add(subst:pl:acc:n,"Niemcy",1);
+       add(subst:pl:voc:n,"Niemcy",1);
+
+Rule   "Afganistan"
+Match: [orth~"Afganistan"];
+Eval:  set(subst:sg:nom:m3,"Afganistan",1);
+       add(subst:sg:acc:m3,"Afganistan",1);
+
+Rule   "Afganistanu"
+Match: [orth~"Afganistanu"];
+Eval:  set(subst:sg:gen:m3,"Afganistan",1);
+
+Rule   "Afganistanie"
+Match: [orth~"Afganistanie"];
+Eval:  set(subst:sg:loc:m3,"Afganistan",1);
+       add(subst:sg:voc:m3,"Afganistan",1);
+
+Rule   "Afganistanem"
+Match: [orth~"Afganistanem"];
+Eval:  set(subst:sg:inst:m3,"Afganistan",1);
+
+Rule   "Afganistanowi"
+Match: [orth~"Afganistanowi"];
+Eval:  set(subst:sg:dat:m3,"Afganistan",1);
+
+
+Rule   "Mokotów"
+Match: [orth~"Mokotów"];
+Eval:  set(subst:sg:nom:m3,"Mokotów",1);
+       add(subst:sg:acc:m3,"Mokotów",1);
+
+Rule   "Mokotowa"
+Match: [orth~"Mokotowa"];
+Eval:  set(subst:sg:gen:m3,"Mokotów",1);
+
+Rule   "Mokotowie"
+Match: [orth~"Mokotowie"];
+Eval:  set(subst:sg:loc:m3,"Mokotów",1);
+       add(subst:sg:voc:m3,"Mokotów",1);
+
+Rule   "Mokotowem"
+Match: [orth~"Mokotowem"];
+Eval:  set(subst:sg:inst:m3,"Mokotów",1);
+
+Rule   "Mokotowowi"
+Match: [orth~"Mokotowowi"];
+Eval:  set(subst:sg:dat:m3,"Mokotów",1);
+
+
+Rule   "Czeczenia"
+Match: [orth~"Czeczenia"];
+Eval:  set(subst:sg:nom:f,"Czeczenia",1);
+
+Rule   "Czeczenię"
+Match: [orth~"Czeczenię"];
+Eval:  set(subst:sg:acc:f,"Czeczenia",1);
+
+Rule   "Czeczenii"
+Match: [orth~"Czeczenii"];
+Eval:  set(subst:sg:gen:f,"Czeczenia",1);
+       add(subst:sg:loc:f,"Czeczenia",1);
+       add(subst:sg:dat:f,"Czeczenia",1);
+
+
+Rule   "Komańcza"
+Match: [orth~"Komańcza"];
+Eval:  set(subst:sg:nom:f,"Komańcza",1);
+
+Rule   "Komańczę"
+Match: [orth~"Komańczę"];
+Eval:  set(subst:sg:acc:f,"Komańcza",1);
+
+Rule   "Komańczy"
+Match: [orth~"Komańczy"];
+Eval:  set(subst:sg:gen:f,"Komańcza",1);
+       add(subst:sg:loc:f,"Komańcza",1);
+       add(subst:sg:dat:f,"Komańcza",1);
+
+
+Rule   "Afryka"
+Match: [orth~"Afryka"];
+Eval:  set(subst:sg:nom:f,"Afryka",1);
+
+Rule   "Afrykę"
+Match: [orth~"Afrykę"];
+Eval:  set(subst:sg:acc:f,"Afryka",1);
+
+Rule   "Afryki"
+Match: [orth~"Afryki"];
+Eval:  set(subst:sg:gen:f,"Afryka",1);
+
+Rule   "Afryce"
+Match: [orth~"Afryce"];
+Eval:  set(subst:sg:loc:f,"Afryka",1);
+       add(subst:sg:dat:f,"Afryka",1);
+
+
+Rule   "bocheńskich"
+Match: [orth~bocheńskich];
+Eval:  set(subst:pl:gen:gender*,"bocheńscy",1);
+
+
+# ######################################################################
+# Correcting Morfeusz
+# ######################################################################
+
+Rule   "Poznań"
+Match: [orth~Poznań];
+Eval:  set(subst:sg:nom:m3,"poznań",1);
+       add(subst:sg:acc:m3,"poznań",1);
+
+Rule   "Kraków"
+Match: [orth~Kraków];
+Eval:  set(subst:sg:nom:m3,"kraków",1);
+       add(subst:sg:acc:m3,"kraków",1);
+
+Rule   "Mariott"
+Match: [orth~Mariott];
+Eval:  set(subst:sg:nom:m3,"mariott",1);
+       add(subst:sg:acc:m3,"mariott",1);
+
+Rule   "Szczecin"
+Match: [orth~Szczecin];
+Eval:  set(subst:sg:nom:m3,"szczecin",1);
+       add(subst:sg:acc:m3,"szczecin",1);
+
+
+# ######################################################################
+# Titles, initials, etc.
+# ######################################################################
+
+
+Rule   "poseł, minister itp. też kobieta"
+Match: [orth~"[Pp]oseł|[Mm]inister|[Pp]rezydent|[Pp]rezes|[Dd]oktor|[Pp]rofesor"];
+Eval:  add(subst:sg:case*:f,,1);
+
+
+Rule   "initials"
+Match: [orth~"[A-ZĄĆĘŁŃÓŚŹŻ]"];
+Right: ns [orth~"\."];
+Eval:  add(subst:sg:case*:gender*,,1);
+
+
+# ######################################################################
+# Etc.
+# ######################################################################
+
+Rule   "Mazowszanie"
+Match: [orth~"Mazowszanie"];
+Eval:  set(subst:pl:nom:m1,,1);
+
+Rule   "' to interp"
+Match: [orth~"'" && pos~ign];
+Eval:  set(interp,,1);
+
+Rule   "ze"
+Match: [orth~ze/i];
+Eval:  add(qub,,1);
+
+Rule   "okay"
+Match: [orth~"ok[ae]y"/i];
+Eval:  add(qub,,1);
+
+
+### Local Variables:
+### coding: utf-8
+### mode: Default-Generic
+### End:
