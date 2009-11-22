@@ -188,13 +188,15 @@ public class SpejdService {
 		try {
 			TakipiClient client = new TakipiClient();
 			Object[] params = new Object[]{text, new String("TXT"), new Integer(1)};
-			return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+			String result = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
 				"<!DOCTYPE cesAna SYSTEM \"xcesAnaIPI.dtd\">\n" +
 				"<cesAna xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n" +
 				"<chunkList>\n" +
 				client.callTakipi("Tag", params) + "\n" +
 				"</chunkList>\n" +
 				"</cesAna>";
+			System.err.println(result);
+			return result;
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 			throw new RuntimeException("Error constructing Takipi client.", e);
