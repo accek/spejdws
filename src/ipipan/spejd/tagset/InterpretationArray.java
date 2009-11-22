@@ -37,13 +37,17 @@ public class InterpretationArray {
 	}
 
 	public void addValue(Attribute attr, String val) {
-		base[attr.id - 2] = attr.matchingValue(val);
+		if (attr != null) {
+			base[attr.id - 2] = attr.matchingValue(val);
+		}
 	}
 
 	public void addValues(Attribute attr, String values) {
-		base[attr.id - 2] = '*';
-		factors.add(new InterpretationFactor(attr, values));
-		single = false;
+		if (attr != null) {
+			base[attr.id - 2] = '*';
+			factors.add(new InterpretationFactor(attr, values));
+			single = false;
+		}
 	}
 
 	public String toInterpretation() {
