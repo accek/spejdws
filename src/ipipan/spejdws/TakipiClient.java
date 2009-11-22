@@ -10,6 +10,7 @@ import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 public class TakipiClient {
 	private static final String DEFAULT_URL = "http://takipi-xmlrpc.appspot.com/xmlrpc/";
 	private static final int TIMEOUT_SECS = 15;
+	private static final int SLEEP_MSECS = 300;
 	
 	public static final int STATUS_PROCESSED = 1;
 	public static final int STATUS_QUEUED = 2;
@@ -52,12 +53,12 @@ public class TakipiClient {
 		    int cycleNumber = 0;
 		    
 		    while (status == STATUS_QUEUED || status == STATUS_PROCESSING) {
-		    	Thread.sleep(1000);
+		    	Thread.sleep(SLEEP_MSECS);
 			    result = (Map) client.execute("takipi.GetResult", new Object[]{token});
 			    status = (Integer) result.get("status");
 			    cycleNumber++;
 			    
-			    if (cycleNumber >= TIMEOUT_SECS) {
+			    if (cycleNumber * SLEEP_MSECS >= TIMEOUT_SECS * 1000) {
 			    	throw new RuntimeException("Timeout waiting for takipi.");
 			    }
 		    }

@@ -18,7 +18,7 @@ import java.io.PrintStream;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletConfig;
@@ -62,7 +62,14 @@ public class SpejdService {
 		if (!file.isDirectory()) {
 			throw new RuntimeException("Resource directory not found: " + path);
 		}
-		return Arrays.asList(file.list());
+		
+		List<String> resources = new ArrayList<String>();
+		for (String f: file.list()) {
+			if (!f.startsWith(".")) {
+				resources.add(f);
+			}
+		}
+		return resources;
 	}
 	
 	protected String getPredefinedResource(String category, String name) {

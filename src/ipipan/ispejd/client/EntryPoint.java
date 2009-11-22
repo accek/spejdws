@@ -99,7 +99,8 @@ public class EntryPoint implements com.google.gwt.core.client.EntryPoint {
 		rpcClient.parseAndFormatAsHtml(
 				rulesSection.isPredefined() ? "PREDEFINED" : "CUSTOM",
 				textSection.isPredefined() ? "PREDEFINED" :
-					(textSection.isXML() ? "XML" : "PLAIN-TO-TAG"),
+					(textSection.isXML() ? "XML" :
+						(textSection.isTaKIPI() ? "PLAIN-TO-TAG" : "PLAIN")),
 				rulesSection.isPredefined() ? rulesSection.getPredefinedName() : rulesSection.getData(),
 				textSection.isPredefined() ? textSection.getPredefinedName() : textSection.getData(),
 				new AsyncCallback<String>() {
