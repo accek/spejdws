@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -19,11 +21,14 @@ public class InputSection extends VerticalPanel {
 	private final ListBox list;
 	private final TextArea box;
 	private final CheckBox xmlCheckbox;
+	private final CheckBox takipiCheckbox;
 	private boolean previewAvailable;
+	private final boolean showCheckboxes;
 	
-	public InputSection(String type, String comboLabelText, boolean showXmlCheckbox) {
+	public InputSection(String type, String comboLabelText, boolean showCheckboxes) {
 		super();
 		this.type = type;
+		this.showCheckboxes = showCheckboxes;
 		
 		addStyleName("mypanel");
 		setWidth("100%");
@@ -43,9 +48,23 @@ public class InputSection extends VerticalPanel {
 		
 		xmlCheckbox = new CheckBox("XML");
 		xmlCheckbox.setValue(true);
-		if (showXmlCheckbox) {
-			xmlCheckbox.setVisible(showXmlCheckbox);
+		xmlCheckbox.setEnabled(false);
+		xmlCheckbox.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+			public void onValueChange(ValueChangeEvent<Boolean> event) {
+				updateCheckboxes();
+			}
+		});
+		if (showCheckboxes) {
+			xmlCheckbox.setVisible(true);
 			hpanel.add(xmlCheckbox);
+		}
+		
+		takipiCheckbox = new CheckBox("TaKIPI");
+		takipiCheckbox.setValue(true);
+		takipiCheckbox.setEnabled(true);
+		if (showCheckboxes) {
+			takipiCheckbox.setVisible(true);
+			hpanel.add(takipiCheckbox);
 		}
 		
 		add(hpanel);
@@ -73,16 +92,19 @@ public class InputSection extends VerticalPanel {
 	private void listChanged() {
 		if (!isPredefined()) {
 			// Custom.
-			if (!previewAvailable)
+			if (!previewAvailable) {
 				box.setText("");
+				xmlCheckbox.setValue(false);
+				takipiCheckbox.setValue(true);
+			}
 			box.setEnabled(true);
 			box.setFocus(true);
-			xmlCheckbox.setEnabled(true);
 			previewAvailable = true;
 		} else {
 			// Predefined.
 			box.setEnabled(false);
-			xmlCheckbox.setEnabled(false);
+			xmlCheckbox.setValue(true);
+			takipiCheckbox.setValue(false);
 			getPredefinedResource(getPredefinedName(),
 					new AsyncCallback<String>() {
 						public void onFailure(Throwable caught) {
@@ -93,13 +115,19 @@ public class InputSection extends VerticalPanel {
 
 						public void onSuccess(String result) {
 							box.setText(result);
-							xmlCheckbox.setValue(true);
 							previewAvailable = true;
 						}
 					});
 		}
+		
+		updateCheckboxes();
 	}
 	
+	private void updateCheckboxes() {
+		xmlCheckbox.setEnabled(!isPredefined());
+		takipiCheckbox.setVisible(xmlCheckbox.isEnabled() && !xmlCheckbox.getValue());
+	}
+
 	private void getPredefinedResource(String name,
 			AsyncCallback<String> callback) {
 		if (this.type.equals("Text")) {
@@ -147,6 +175,10 @@ public class InputSection extends VerticalPanel {
 	
 	public boolean isXML() {
 		return xmlCheckbox.getValue();
+	}
+	
+	public boolean isTaKIPI() {
+		return takipiCheckbox.isVisible() && takipiCheckbox.getValue();
 	}
 	
 	public String getPredefinedName() {
