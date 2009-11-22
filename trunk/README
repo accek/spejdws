@@ -108,7 +108,9 @@ The following methods are supported:
     If textMode is "PREDEFINED" then text should be the name of
     predefined text. If textMode is "XML" then text should be
     an IPI PAN formatted XML document to parse. If textMode is
-    "PLAIN" then text may be any plain text to parse.
+    "PLAIN" then text may be any plain text to parse. If textMode is
+    "PLAIN-TO-TAG", the text is morphologically analyzed using 
+    TaKIPI polish tagger before being passed to Spejd.
 
   - string formatXmlAsHtml(string xml)
 
