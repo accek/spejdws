@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.google.gdt.eclipse.suite.webapp">
+<stringAttribute key="com.google.gdt.eclipse.core.SERVER_PORT" value="8081"/>
+<stringAttribute key="com.google.gwt.eclipse.core.URL" value="iSpejd.html"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/ispejd"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<mapAttribute key="org.eclipse.debug.core.environmentVariables">
+<mapEntry key="DYLD_FRAMEWORK_PATH" value="/part2/gwt/webkit/WebKit.app/Contents/Frameworks/10.6"/>
+</mapAttribute>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
+<listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="com.google.gwt.eclipse.core.moduleClasspathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="ispejd"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-d32"/>
+</launchConfiguration>

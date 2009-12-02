@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	name="takipi" 
+	targetNamespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/">
+    <wsdl:types>
+    	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/">
+			<xsd:complexType name="TaggerResponse">
+				<xsd:attribute name="status" type="xsd:int"></xsd:attribute>
+				<xsd:attribute name="msg" type="xsd:string"></xsd:attribute>
+			</xsd:complexType>
+			<xsd:simpleType name="DocumentEncoding">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="ISO"></xsd:enumeration>
+					<xsd:enumeration value="UTF"></xsd:enumeration>
+					<xsd:enumeration value="CP1250"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="DocumentFormat">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="TXT"></xsd:enumeration>
+					<xsd:enumeration value="XML"></xsd:enumeration>
+					<xsd:enumeration value="CORPUS"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:schema>
+	</wsdl:types>
+	
+    <wsdl:message name="OperationRequest">
+    	<wsdl:part name="text" type="xsd:string"/>
+    	<wsdl:part name="format" type="tns:DocumentFormat"></wsdl:part>
+    	<wsdl:part name="useGuesser" type="xsd:boolean"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="TokenRequest">
+    	<wsdl:part name="token" type="xsd:string"/>
+    </wsdl:message>
+    
+  	<wsdl:message name="OperationResponse">
+    	<wsdl:part name="TagResponse" type="tns:TaggerResponse"/>
+  	</wsdl:message>
+    <wsdl:message name="StatusResponse">
+    	<wsdl:part name="status" type="xsd:int"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteResponse">
+    	<wsdl:part name="status" type="xsd:boolean"/>
+    </wsdl:message>
+
+  	<wsdl:message name="Operation_faultMsg">
+  		<wsdl:part name="fault" element="xsd:string"></wsdl:part>
+  	</wsdl:message>
+  	
+  	<wsdl:portType name="takipi">
+    	<wsdl:operation name="Tag">
+      		<wsdl:input message="tns:OperationRequest"/>
+      		<wsdl:output message="tns:OperationResponse"/>
+            <wsdl:fault name="fault" message="tns:Operation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="Lemmatize">
+      		<wsdl:input message="tns:OperationRequest"/>
+      		<wsdl:output message="tns:OperationResponse"/>
+            <wsdl:fault name="fault" message="tns:Operation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="Tokenize">
+      		<wsdl:input message="tns:OperationRequest"/>
+      		<wsdl:output message="tns:OperationResponse"/>
+            <wsdl:fault name="fault" message="tns:Operation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="AnalyzeMorphology">
+      		<wsdl:input message="tns:OperationRequest"/>
+      		<wsdl:output message="tns:OperationResponse"/>
+            <wsdl:fault name="fault" message="tns:Operation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="SplitIntoSentences">
+      		<wsdl:input message="tns:OperationRequest"/>
+      		<wsdl:output message="tns:OperationResponse"/>
+            <wsdl:fault name="fault" message="tns:Operation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="GetStatus">
+      		<wsdl:input message="tns:TokenRequest"/>
+      		<wsdl:output message="tns:StatusResponse"/>
+            <wsdl:fault name="fault" message="tns:Operation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="GetResult">
+      		<wsdl:input message="tns:TokenRequest"/>
+      		<wsdl:output message="tns:OperationResponse"/>
+            <wsdl:fault name="fault" message="tns:Operation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+    	<wsdl:operation name="DeleteRequest">
+      		<wsdl:input message="tns:TokenRequest"/>
+      		<wsdl:output message="tns:DeleteResponse"/>
+            <wsdl:fault name="fault" message="tns:Operation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+  	</wsdl:portType>
+  	
+  	<wsdl:binding name="takipiSOAP" type="tns:takipi">
+  		<soap:binding style="rpc"
+  			transport="http://schemas.xmlsoap.org/soap/http" />
+  		<wsdl:operation name="Tag">
+  			<soap:operation
+  				soapAction="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/Tag" />
+  			<wsdl:input>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:input>
+  			<wsdl:output>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:output>
+  			<wsdl:fault name="fault">
+  				<soap:fault use="literal" name="fault" />
+  			</wsdl:fault>
+  		</wsdl:operation>
+  		<wsdl:operation name="Lemmatize">
+  			<soap:operation
+  				soapAction="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/Lemmatize" />
+  			<wsdl:input>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:input>
+  			<wsdl:output>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:output>
+  			<wsdl:fault name="fault">
+  				<soap:fault use="literal" name="fault" />
+  			</wsdl:fault>
+  		</wsdl:operation>
+  		<wsdl:operation name="Tokenize">
+  			<soap:operation
+  				soapAction="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/Tokenize" />
+  			<wsdl:input>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:input>
+  			<wsdl:output>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:output>
+  			<wsdl:fault name="fault">
+  				<soap:fault use="literal" name="fault" />
+  			</wsdl:fault>
+  		</wsdl:operation>
+  		<wsdl:operation name="AnalyzeMorphology">
+  			<soap:operation
+  				soapAction="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/AnalyzeMorphology" />
+  			<wsdl:input>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:input>
+  			<wsdl:output>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:output>
+  			<wsdl:fault name="fault">
+  				<soap:fault use="literal" name="fault" />
+  			</wsdl:fault>
+  		</wsdl:operation>
+  		<wsdl:operation name="SplitIntoSentences">
+  			<soap:operation
+  				soapAction="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/SplitIntoSentences" />
+  			<wsdl:input>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:input>
+  			<wsdl:output>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:output>
+  			<wsdl:fault name="fault">
+  				<soap:fault use="literal" name="fault" />
+  			</wsdl:fault>
+  		</wsdl:operation>
+  		<wsdl:operation name="GetStatus">
+  			<soap:operation
+  				soapAction="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/GetStatus" />
+  			<wsdl:input>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:input>
+  			<wsdl:output>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:output>
+  			<wsdl:fault name="fault">
+  				<soap:fault use="literal" name="fault" />
+  			</wsdl:fault>
+  		</wsdl:operation>
+  		<wsdl:operation name="GetResult">
+  			<soap:operation
+  				soapAction="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/GetResult" />
+  			<wsdl:input>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:input>
+  			<wsdl:output>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:output>
+  			<wsdl:fault name="fault">
+  				<soap:fault use="literal" name="fault" />
+  			</wsdl:fault>
+  		</wsdl:operation>
+  		<wsdl:operation name="DeleteRequest">
+  			<soap:operation
+  				soapAction="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/DeleteRequest" />
+  			<wsdl:input>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:input>
+  			<wsdl:output>
+  				<soap:body use="literal"
+  					namespace="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/" />
+  			</wsdl:output>
+  			<wsdl:fault name="fault">
+  				<soap:fault use="literal" name="fault" />
+  			</wsdl:fault>
+  		</wsdl:operation>
+  	</wsdl:binding>
+
+  	<wsdl:service name="takipi">
+    	<wsdl:port binding="tns:takipiSOAP" name="takipiSOAP">
+      		<soap:address location="http://plwordnet.pwr.wroc.pl/clarin/ws/takipi/"/>
+    	</wsdl:port>
+  	</wsdl:service>
+  	
+</wsdl:definitions>
