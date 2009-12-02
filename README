@@ -1,0 +1,135 @@
+Spejd Web Service 1.0
+Copyright (C) Szymon Acedański, 2009. All rights reserved.
+
+Spejd 0.6
+Copyright (C) IPI PAN, 2007-2008. All rights reserved.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+ABOUT
+
+Spejd is a shallow parser, which allows for simultaneous syntactic 
+parsing and morphological disambiguation, developed at the 
+Institute of Computer Science, Polish Academy od Sciences, Warsaw.
+
+Spejd homepage:
+http://nlp.ipipan.waw.pl/Spejd/
+
+Spejd Web Service is, well, a web service built on top of Spejd. It
+consists of an XML-RPC servlet and a Google Web Toolkit based web
+page, which can be used for human interaction with the Spejd
+parser without the need to install it on a workstation.
+
+REQUIREMENTS
+
+Sun Java Runtime Environment version 1.5 or higher.
+Google Web Toolkit SDK 1.7 or compatible.
+Google App Engine SDK 1.2.5 or compatible.
+
+The service is intended to run on Google App Engine
+(http://code.google.com/appengine/), but any
+Java Servlet technlogy compatible Web server (e.g. Apache Tomcat)
+should be able to host the service.
+
+Notice: it may be possible to run the program on alternative Java
+implementation, but because of differences in regular expression
+implementations, we can not guarantee its behaviour.
+
+Support for parsing plain text files with Morfeusz is not present
+in the bundled version of Spejd. Plain text input is initially
+parsed with a dummy analyzer, which recognizes no words. Therefore
+most segments gets 'ign' tag.
+
+INSTALLATION FOR DEVELOPMENT
+
+To do development work on the bundled Spejd or Spejd Web Service,
+you need Eclipse (http://www.eclipse.org).
+
+You also need Google Plugin for Eclipse (http://code.google.com/eclipse/).
+
+Once these requirements are met, unpack the provided archive
+and import in to Eclipse's workspace.
+
+See Google App Engine and Google Web Toolkit documentation for help.
+
+USAGE
+
+1. iSpejd -- web interface
+
+Go to http://spejdws.appspot.com
+
+2. spejdws -- web service
+
+You can access the XMLRPC interface at http://spejdws.appspot.com/xmlrpc.
+The following methods are supported:
+
+  - string getVersion()
+
+    Return Web Service version string.
+
+  - list<string> listPredefinedRuleSets()
+
+    Return the list of names of predefined sets of rules. They are stored
+    in war/resources/rulesets/.
+
+  - string getPredefinedRuleSet(string name)
+
+    Return predefined rule set given its name.
+
+  - list<string> listPredefinedTexts()
+
+    Return the list of names of predefined texts. They are stored
+    in war/resources/texts/.
+
+  - string getPredefinedText(string name)
+
+    Return predefined text given its name.
+
+  - string parse(string rulesMode, string textMode, string rules, string text)
+
+    Parse the text using the given rules.
+
+    If rulesMode is "PREDEFINED" then rules should be the name of
+    predefined rule set. If rulesMode is "CUSTOM" then rules
+    should contain just the rules in Spejd's language.
+
+    If textMode is "PREDEFINED" then text should be the name of
+    predefined text. If textMode is "XML" then text should be
+    an IPI PAN formatted XML document to parse. If textMode is
+    "PLAIN" then text may be any plain text to parse. If textMode is
+    "PLAIN-TO-TAG", the text is morphologically analyzed using 
+    TaKIPI polish tagger before being passed to Spejd.
+
+  - string formatXmlAsHtml(string xml)
+
+    Converts passed IPI PAN XML document to nice HTML representation.
+    Returns the HTML as string. Returned fragment is not a complete
+    HTML document, only a fragment, which should be pasted inside
+    a valid HTML document.
+
+    To display the returned HTML, the following CSS must be referenced:
+    http://spejdws.appspot.com/css/ipipanxces.css
+
+  - string parseAndFormatAsHtml(string rulesMode, string textMode,
+                                string rules, string text)
+
+    Works the same way as parse, but returns the output formatted
+    using formatXmlAsHtml.
+
+FOR DEVELOPERS
+
+Please feel free to play around with the sources, modify them and send
+patches to <accek@mimuw.edu.pl>!
+
